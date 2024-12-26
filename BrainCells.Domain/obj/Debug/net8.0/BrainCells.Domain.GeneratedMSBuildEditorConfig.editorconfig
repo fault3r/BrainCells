@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BrainCells.Domain
-build_property.ProjectDir = /home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/
+build_property.ProjectDir = /home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

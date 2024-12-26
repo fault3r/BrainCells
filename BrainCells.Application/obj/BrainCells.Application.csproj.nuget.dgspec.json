@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj": {}
+    "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj": {}
   },
   "projects": {
-    "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj": {
+    "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj",
         "projectName": "BrainCells.Application",
-        "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj",
+        "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/obj/",
+        "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/BrainCells.Domain.csproj": {
-                "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/BrainCells.Domain.csproj"
+              "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {
+                "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj"
               }
             }
           }
@@ -71,14 +71,14 @@
         }
       }
     },
-    "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/BrainCells.Domain.csproj": {
+    "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/BrainCells.Domain.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
         "projectName": "BrainCells.Domain",
-        "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/BrainCells.Domain.csproj",
+        "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/obj/",
+        "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"

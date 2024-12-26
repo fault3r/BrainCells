@@ -4068,11 +4068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Presentation/BrainCells.Presentation.csproj",
+      "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/BrainCells.Presentation.csproj",
       "projectName": "BrainCells.Presentation",
-      "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Presentation/BrainCells.Presentation.csproj",
+      "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/BrainCells.Presentation.csproj",
       "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-      "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Presentation/obj/",
+      "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -4087,11 +4087,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj": {
-              "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj"
+            "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Application/BrainCells.Application.csproj"
             },
-            "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj": {
-              "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj"
+            "/home/hamed-damavandi/projects/BrainCells/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj": {
+              "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj"
             }
           }
         }
