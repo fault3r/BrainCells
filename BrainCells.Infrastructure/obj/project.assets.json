@@ -1495,6 +1495,21 @@
           }
         }
       },
+      "BrainCells.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BrainCells.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.11",
+          "Microsoft.EntityFrameworkCore.Tools": "8.0.11"
+        },
+        "compile": {
+          "bin/placeholder/BrainCells.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BrainCells.Application.dll": {}
+        }
+      },
       "BrainCells.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4007,6 +4022,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BrainCells.Application/1.0.0": {
+      "type": "project",
+      "path": "../BrainCells.Application/BrainCells.Application.csproj",
+      "msbuildProject": "../BrainCells.Application/BrainCells.Application.csproj"
+    },
     "BrainCells.Domain/1.0.0": {
       "type": "project",
       "path": "../BrainCells.Domain/BrainCells.Domain.csproj",
@@ -4015,6 +4035,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "BrainCells.Application >= 1.0.0",
       "BrainCells.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11"
@@ -4045,6 +4066,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Application/BrainCells.Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Application/BrainCells.Application.csproj"
+            },
             "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {
               "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj"
             }

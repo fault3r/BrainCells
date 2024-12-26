@@ -1,10 +1,11 @@
 using System;
+using BrainCells.Application.Interfaces;
 using BrainCells.Domain.Entities.Accounts;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrainCells.Infrastructure.Contexts;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext : DbContext,IDatabaseContext
 {
     public DatabaseContext(DbContextOptions options) :base(options)
     {
@@ -12,6 +13,7 @@ public class DatabaseContext : DbContext
     }
 
     public DbSet<Account> Accounts { get; set; }
+    public DbSet<Role> Roles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

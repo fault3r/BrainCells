@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="../BrainCells.Application/BrainCells.Application.csproj" />
     <ProjectReference Include="../BrainCells.Domain/BrainCells.Domain.csproj" />
   </ItemGroup>
 
