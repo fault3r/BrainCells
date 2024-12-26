@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4C6TZtKv0e9IaM3o+GgS3Ab4KKbaeT55uPfAdUZiT39Apel9uR053arHHNGfWVamfSPpB282EhF8QizeUrrb4g==",
+  "dgSpecHash": "HDvfNWV0Jf5Josm1v3O9KE6QVksM8CtNfo1b9tcvXCs+UYuRbDSb975jFsEkZMIcm7BH/Ac+PKVhCzLLSvCHBA==",
   "success": true,
-  "projectFilePath": "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Application/BrainCells.Application.csproj",
+  "projectFilePath": "/home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Application/BrainCells.Application.csproj",
   "expectedPackageFiles": [
     "/home/hamed-damavandi/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

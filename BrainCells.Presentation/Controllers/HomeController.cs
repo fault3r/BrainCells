@@ -6,15 +6,18 @@ namespace BrainCells.Presentation.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger _logger;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILoggerFactory logger, IHttpContextAccessor httpContextAccessor)
     {
-        _logger = logger;
+        _logger = logger.CreateLogger("Home");
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public IActionResult Index()
     {
+        var obj = _httpContextAccessor.HttpContext;
         return View();
     }
 
