@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xSobm9wMEfqc7mI36q/MZNH0boeRz7nf3eyCv2MKB1E3IMtjfNVzA0zJ3uP58I9fBDNUbIjU6AU7douYyi8FSg==",
+  "dgSpecHash": "fFDzXdPRQEeXoxxVD57kdsrgdIdEu39O58C0ZjRd0gKCuft72ptqITOUd74NaOR8O+FKy3p2GUzJtTBfvspvjA==",
   "success": true,
-  "projectFilePath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
+  "projectFilePath": "/home/hamed-damavandi/projects/BrainCells/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

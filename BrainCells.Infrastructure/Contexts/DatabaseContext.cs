@@ -1,0 +1,27 @@
+using System;
+using BrainCells.Domain.Entities.Accounts;
+using Microsoft.EntityFrameworkCore;
+
+namespace BrainCells.Infrastructure.Contexts;
+
+public class DatabaseContext : DbContext
+{
+    public DatabaseContext(DbContextOptions options) :base(options)
+    {
+        
+    }
+
+    public DbSet<Account> Accounts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<Account>().HasKey(p => p.Id);
+        builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
+            .HasForeignKey(p => p.RoleId);
+
+        builder.Entity<Role>().HasKey(p => p.Id);
+        builder.Entity<Role>().HasData(new Role{
+            Name = "account",
+        });
+    }
+}
