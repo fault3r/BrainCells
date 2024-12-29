@@ -22,7 +22,7 @@ public class DatabaseContext : DbContext,IDatabaseContext
             .HasForeignKey(p => p.RoleId);
 
         builder.Entity<Role>().HasKey(p => p.Id);
-        builder.Entity<Role>().HasData(new Role{
+        builder.Entity<Role>().HasData(new Role {
             Name = "account",
         });
     }
