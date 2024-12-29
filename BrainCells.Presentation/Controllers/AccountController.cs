@@ -27,4 +27,15 @@ public class AccountController : Controller
 
         return View("Index",result);
     }
+
+    [Route("signup")]
+    [HttpGet]
+    public IActionResult SignUp()
+    {
+
+        
+        return View("SignUp");
+    }
+
+
 }

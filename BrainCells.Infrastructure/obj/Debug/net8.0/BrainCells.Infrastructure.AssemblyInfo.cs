@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BrainCells.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45617d000a2566328bd94183d8c7ab9eef40bce9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+682100ad0b7b1621e42941b3218433b753ca21a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("BrainCells.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BrainCells.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
