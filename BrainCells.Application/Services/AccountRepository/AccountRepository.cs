@@ -21,6 +21,7 @@ public class AccountRepository : IAccountRepository
             Email=account.Email,
             Password=account.Password,
             Name=account.Name,
+            RoleId=Guid.Parse("9ab668fb-6010-4786-9b0f-e77432580acb"),
         };
         _databaseContext.Accounts.Add(tAccount);
         _databaseContext.SaveChanges();
