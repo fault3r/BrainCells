@@ -1,0 +1,10 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+@using BrainCells.Application.Services.Common
+@model RepositoryResultDto
+
+<p>Success: @Model.Success.ToString()</p>
+<p>Message: @Model.Message</p>
