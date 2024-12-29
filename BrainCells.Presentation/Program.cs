@@ -1,5 +1,6 @@
 using System;
 using BrainCells.Application.Interfaces;
+using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<DatabaseContext>(options => {
 });
 
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 
 builder.Services.AddControllersWithViews();
 

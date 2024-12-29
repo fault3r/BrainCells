@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/Views/Account/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9pbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
