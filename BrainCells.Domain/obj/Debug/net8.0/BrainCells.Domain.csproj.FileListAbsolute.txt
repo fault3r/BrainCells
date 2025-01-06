@@ -22,3 +22,15 @@
 /home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/obj/Debug/net8.0/refint/BrainCells.Domain.dll
 /home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.pdb
 /home/hamed-damavandi/projects/BrainCells/BrainCells-1/BrainCells.Domain/obj/Debug/net8.0/ref/BrainCells.Domain.dll
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/bin/Debug/net8.0/BrainCells.Domain.deps.json
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/bin/Debug/net8.0/BrainCells.Domain.dll
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/bin/Debug/net8.0/BrainCells.Domain.pdb
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.AssemblyInfoInputs.cache
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.AssemblyInfo.cs
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.csproj.CoreCompileInputs.cache
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.sourcelink.json
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.dll
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/refint/BrainCells.Domain.dll
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/BrainCells.Domain.pdb
+/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/Debug/net8.0/ref/BrainCells.Domain.dll
