@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h9vc3Y8sOYlNK1isnmMVzGex0eXeKIEhbIEdWCfCdcc=",
+  "Hash": "C+sovPgdLuUhy2mKnnIYFCPXXih0zu+2lXh5LtVBWEY=",
   "Source": "BrainCells.Presentation",
   "BasePath": "_content/BrainCells.Presentation",
   "Mode": "Default",
@@ -1193,6 +1193,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/pic01.jpg"
+    },
+    {
+      "Identity": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/resource/neuron-icon-white.png",
+      "SourceId": "BrainCells.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/",
+      "BasePath": "_content/BrainCells.Presentation",
+      "RelativePath": "resource/neuron-icon-white.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resource/neuron-icon-white.png"
+    },
+    {
+      "Identity": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/resource/neuron-icon.png",
+      "SourceId": "BrainCells.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/",
+      "BasePath": "_content/BrainCells.Presentation",
+      "RelativePath": "resource/neuron-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resource/neuron-icon.png"
     }
   ]
 }

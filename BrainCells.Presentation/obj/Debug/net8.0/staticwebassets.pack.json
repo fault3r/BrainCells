@@ -249,6 +249,14 @@
       "PackagePath": "staticwebassets/pic01.jpg"
     },
     {
+      "Id": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/resource/neuron-icon-white.png",
+      "PackagePath": "staticwebassets/resource/neuron-icon-white.png"
+    },
+    {
+      "Id": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/wwwroot/resource/neuron-icon.png",
+      "PackagePath": "staticwebassets/resource/neuron-icon.png"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BrainCells.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
