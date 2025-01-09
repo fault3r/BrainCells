@@ -86,8 +86,10 @@ html{
         font-size: 20px;
     }
     .iContainer-main .mtext{
-        margin: 0px 30px 0px 30px;
+        margin: 0px 30px 3px 30px;
         width: calc(100% - 60px);
+        border-radius: 5px;
+        outline: none;
         transition: all 0.4 ease;
     }
         .iContainer-main .mtext:focus{
@@ -114,7 +116,7 @@ html{
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        margin: 5px 30px 5px 30px;
+        margin: 2px 30px 5px 30px;
     }
         .iContainer-main .moptions .mcheck{
             display: flex;
@@ -138,6 +140,7 @@ html{
         color: rgb(8, 75, 102);
         font-weight: bold;
         font-size: 14px;
+        outline: none;
         transition: all 0.4s ease;
     }
         .iContainer-main .mbutton:hover{
