@@ -11,59 +11,60 @@
         <form>
             <table>
                 <tr>
-                    <td class="ilogo">
-                        <img src="/resource/neuron-icon-white.png" class="iIcon" />
+                    <td class="mlogo">
+                        <img src="/resource/neuron-icon-white.png" class="micon" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="ititle">
+                    <td class="mtitle">
                         <p>Sign in to <b>BrainCells</b></p>
                     </td>
                 </tr>
                 <tr>
-                    <td class="ilabel">
+                    <td class="mlabel">
                         <i class="fa fa-envelope"></i>
-                        <label id="username">Email address</label>
+                        <label for="username">Email address</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input name="username" type="text" class="itext" />
+                        <input name="username" id="username" type="text" class="mtext" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="ilabel">
+                    <td class="mlabel">
                         <i class="fa fa-key"></i> 	
-                        <label id="password">Password</label>
+                        <label for="password">Password</label>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input name="password" type="password" class="itext" />
+                    <td class="mpassword">
+                        <input name="password" id="password" type="password" class="mtext" />
+                        <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
                     </td>
                 </tr>    
                 <tr>
-                    <td class="ioptions">
-                        <div class="icheck">
-                            <input name="remember" type="checkbox" class="icheckbox" />
-                            <label id="remember">Remember me</label>
+                    <td class="moptions">
+                        <div class="mcheck">
+                            <input name="remember" id="remember" type="checkbox" class="mcheckbox" />
+                            <label for="remember">Remember me</label>
                         </div>
-                        <a href="#" class="ia">Forget password?</a>
+                        <a href="#" class="ma">Forget password?</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="ibutton">Sign in</button>
+                        <button class="mbutton">Sign in</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="ibutton">Sign in with Google</button>
+                        <button class="mbutton">Sign in with Google</button>
                     </td>
                 </tr>
                 <tr>
-                    <td class="isignup">
-                        Don't have an account? <a href="#" class="ia">Sign up</a>
+                    <td class="msignup">
+                        Don't have an account? <a href="#" class="ma">Sign up</a>
                     </td>
                 </tr>
             </table>
