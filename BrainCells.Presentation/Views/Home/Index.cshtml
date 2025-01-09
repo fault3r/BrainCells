@@ -4,16 +4,70 @@
 }
 
 <div class="iContainer-background">
-    <img src="/resource/neuron-icon-white.png" class="iIcon" />
+    
     <h1 class="iTitle">BrainCells.</h1>
     <div class="iContainer iContainer-blur"></div>
-
-    <div class="iContainer iContainer-login">
-        <h1>Login</h1>
+    <div class="iContainer iContainer-main">
+        <form>
+            <table>
+                <tr>
+                    <td class="ilogo">
+                        <img src="/resource/neuron-icon-white.png" class="iIcon" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ititle">
+                        <p>Sign in to <b>BrainCells</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ilabel">
+                        <i class="fa fa-envelope"></i>
+                        <label id="username">Email address</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="username" type="text" class="itext" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ilabel">
+                        <i class="fa fa-key"></i> 	
+                        <label id="password">Password</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="password" type="password" class="itext" />
+                    </td>
+                </tr>    
+                <tr>
+                    <td class="ioptions">
+                        <div class="icheck">
+                            <input name="remember" type="checkbox" class="icheckbox" />
+                            <label id="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="ia">Forget password?</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="ibutton">Sign in</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="ibutton">Sign in with Google</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="isignup">
+                        Don't have an account? <a href="#" class="ia">Sign up</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
-    <div class="iContainer iContainer-register">
-        <h1>Register</h1>
-    </div>
-    
     <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>
 </div>

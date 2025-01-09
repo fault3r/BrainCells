@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/BrainCells.Presentation.props" />
-</Project>
