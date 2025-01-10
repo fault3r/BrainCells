@@ -7,7 +7,7 @@
     
     <h1 class="iTitle">BrainCells.</h1>
     <div class="iContainer iContainer-blur"></div>
-    <div class="iContainer iContainer-main">
+    <div id="divMain" class="iContainer iContainer-main">
         <form>
             <table>
                 <tr>
@@ -64,11 +64,15 @@
                 </tr>
                 <tr>
                     <td class="msignup">
-                        Don't have an account? <a href="#" class="ma">Sign up</a>
+                        Don't have an account? <a href="#" class="ma" onclick="showMessage()">Sign up</a>
                     </td>
                 </tr>
             </table>
         </form>
+    </div>
+    <div id="divMessage" class="iContainer iContainer-message">
+        <p>Message</p>
+        <button onclick="hideMessage()">Close</button>
     </div>
     <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>
 </div>

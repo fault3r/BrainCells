@@ -1,16 +1,23 @@
 ﻿function showPassword() {
-
-    const passwordInput = document.getElementById('password');
-
-    passwordInput.type = 'text';
-
+    const inpPassword = document.getElementById('password');
+    inpPassword.type = 'text';
 }
 
-
 function hidePassword() {
+    const inpPassword = document.getElementById('password');
+    inpPassword.type = 'password';
+}
 
-    const passwordInput = document.getElementById('password');
+function showMessage() {
+    const divMain = document.getElementById('divMain');
+    const divMessage = document.getElementById('divMessage');
+    divMain.style.zIndex = '0';
+    divMessage.style.display = 'block';
+}
 
-    passwordInput.type = 'password';
-
+function hideMessage() {
+    const divMain = document.getElementById('divMain');
+    const divMessage = document.getElementById('divMessage');
+    divMain.style.zIndex = '2';
+    divMessage.style.display = 'none';
 }

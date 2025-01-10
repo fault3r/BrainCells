@@ -23,16 +23,15 @@ html{
     height: 450px;
     border-radius: 30px;
     padding: 10px;
-    z-index: 2;
     color: white;
 }
 
 .iContainer-blur{
+    z-index: 1;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     background-repeat: no-repeat;
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     backdrop-filter: blur(3px);
-    z-index: 1;
 }
 
 .iTitle{
@@ -48,6 +47,7 @@ html{
 }
 
 .iContainer-main{
+    z-index: 2;
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -150,3 +150,8 @@ html{
         text-align: center;
         padding: 7px;
     }
+
+.iContainer-message{
+    z-index: 2;
+    display: none;
+}
