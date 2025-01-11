@@ -8,6 +8,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../BrainCells.Application/BrainCells.Application.csproj" />

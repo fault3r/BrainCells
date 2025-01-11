@@ -2,6 +2,10 @@ using System;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Infrastructure.Contexts;
+using BrainCells.Presentation.Models.Account.Validators;
+using BrainCells.Presentation.Models.Account.ViewModels;
+using FluentValidation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +15,23 @@ builder.Services.AddDbContext<DatabaseContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthentication(options => {
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+    .AddCookie(options => {
+        options.LoginPath = new PathString("/Account/");
+        //options.AccessDeniedPath
+    });
+
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy("requireLogin",policy => policy.RequireRole("ACCOUNT"));
+});
 
 builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 
+builder.Services.AddScoped<IValidator<SigninViewModel>,SigninValidator>();
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

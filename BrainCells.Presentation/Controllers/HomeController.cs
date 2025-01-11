@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BrainCells.Presentation.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BrainCells.Presentation.Controllers;
 
+[Controller]
 public class HomeController : Controller
 {
     private readonly ILogger _logger;
@@ -14,10 +16,11 @@ public class HomeController : Controller
   
     }
 
+    [Authorize]
     public IActionResult Index()
     {
        
-        return View();
+        return View("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

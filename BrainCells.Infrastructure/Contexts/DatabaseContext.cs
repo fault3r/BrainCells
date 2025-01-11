@@ -23,7 +23,7 @@ public class DatabaseContext : DbContext,IDatabaseContext
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasData(new Role {
-            Name = "account",
+            Name = "ACCOUNT",
         });
     }
 }

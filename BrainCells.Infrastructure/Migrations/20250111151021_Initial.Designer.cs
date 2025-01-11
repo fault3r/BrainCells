@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainCells.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241229173603_Initial")]
+    [Migration("20250111151021_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -70,8 +70,8 @@ namespace BrainCells.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9ab668fb-6010-4786-9b0f-e77432580acb"),
-                            Name = "account"
+                            Id = new Guid("66b42c36-dccf-4e55-b03e-09d74867f336"),
+                            Name = "ACCOUNT"
                         });
                 });
 

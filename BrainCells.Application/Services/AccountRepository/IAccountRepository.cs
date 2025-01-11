@@ -5,6 +5,8 @@ namespace BrainCells.Application.Services.AccountRepository;
 
 public interface IAccountRepository
 {
+    Task<RepositoryResultDto> SignIn(string email, string password, bool persistent);
+    
     RepositoryResultDto SignUp(SignUpDto account);
 
 }

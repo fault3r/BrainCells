@@ -67,8 +67,8 @@ namespace BrainCells.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9ab668fb-6010-4786-9b0f-e77432580acb"),
-                            Name = "account"
+                            Id = new Guid("66b42c36-dccf-4e55-b03e-09d74867f336"),
+                            Name = "ACCOUNT"
                         });
                 });
 

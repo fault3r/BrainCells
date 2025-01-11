@@ -1,10 +1,10 @@
 ﻿function showPassword() {
-    const inpPassword = document.getElementById('password');
+    const inpPassword = document.getElementById('Password');
     inpPassword.type = 'text';
 }
 
 function hidePassword() {
-    const inpPassword = document.getElementById('password');
+    const inpPassword = document.getElementById('Password');
     inpPassword.type = 'password';
 }
 

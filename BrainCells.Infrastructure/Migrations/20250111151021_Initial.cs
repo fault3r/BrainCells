@@ -47,7 +47,7 @@ namespace BrainCells.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("9ab668fb-6010-4786-9b0f-e77432580acb"), "account" });
+                values: new object[] { new Guid("66b42c36-dccf-4e55-b03e-09d74867f336"), "ACCOUNT" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_RoleId",
