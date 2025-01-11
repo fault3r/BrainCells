@@ -10,6 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../BrainCells.Domain/BrainCells.Domain.csproj" />

@@ -1,4 +1,5 @@
 using System;
+using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.Common;
 using BrainCells.Presentation.Models.Account.Validators;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BrainCells.Presentation.Controllers;
 
+[Route("[controller]")]
 [Controller]
 public class AccountController : Controller
 {
@@ -20,23 +22,26 @@ public class AccountController : Controller
         _signinValidator = signinValidator;
     }
 
+    [Route("SignIn")]
     [HttpGet]
-    public async Task<IActionResult> Index()
+    public ActionResult SignIn()
     {
-        return View("Index");
+        return View("SignIn");
     }
 
-    [Route("signin")]
+    [Route("SignIn")]
     [HttpPost]
-    public IActionResult SignIn([FromForm]SigninViewModel account)
+    public async Task<IActionResult> SignIn([FromForm]SigninViewModel account)
     {
-        var val = _signinValidator.Validate(account);
+        var validate = _signinValidator.Validate(account);
+        if(validate.IsValid)
+        {
+            var x = await _accountRepository.SignIn(account.Email,account.Password,account.Persistent);
+            ModelState.AddModelError("", x.Message);
+        }
+        else
+            ModelState.AddFluentResult(validate);
 
-
-        foreach(var item in val.Errors)
-            ModelState.AddModelError("",item.ErrorMessage);
-    
-
-        return View("Index");
+        return View("SignIn", account);
     }
 }
