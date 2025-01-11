@@ -9,7 +9,7 @@ html{
     height: 100vh;
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
-    color: white;
+    color: #f1f1f1;
     position: relative;
     overflow: hidden;
 }
@@ -23,7 +23,7 @@ html{
     height: 450px;
     border-radius: 30px;
     padding: 10px;
-    color: white;
+    color: #f1f1f1;
 }
 
 .iContainer-blur{
@@ -88,12 +88,17 @@ html{
     .iContainer-main .mtext{
         margin: 0px 30px 3px 30px;
         width: calc(100% - 60px);
+        height: 30px;
         border-radius: 5px;
+        background-color: #f1f1f1;
+        color: black;
+        border: 2px solid rgb(48, 128, 159); 
         outline: none;
         transition: all 0.4 ease;
     }
         .iContainer-main .mtext:focus{
             box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+            border: 2px solid rgb(8, 75, 102);
         }
     .iContainer-main .mpassword{
         position: relative;
@@ -138,25 +143,30 @@ html{
         border-radius: 20px;
         height: 35px;
         color: rgb(8, 75, 102);
+        background-color: #f1f1f1;
+        border: 2px solid rgb(48, 128, 159); 
+        outline: none;
         font-weight: bold;
         font-size: 14px;
-        outline: none;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         gap: 5px;
-        transition: all 0.4s ease;
+        transition: all 0.3s ease;
     }
-        .iContainer-main .mbutton:hover{
+        .iContainer-main .mbutton:hover,.mbutton:focus{
+            background-color: rgb(219, 219, 219);
             box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+            border: 2px solid rgb(8, 75, 102);
         }
         .iContainer-main .mbutton i{
             background-image: conic-gradient(DodgerBlue, MediumSeaGreen, Orange, Tomato);
             padding: 1px 2px 1px 2px;
             border-radius: 3px;
-            opacity: 0.8;
+            opacity: 0.6;
+            border: 1px solid rgb(8, 75, 102);
         }
     .iContainer-main .msignup{
         text-align: center;
