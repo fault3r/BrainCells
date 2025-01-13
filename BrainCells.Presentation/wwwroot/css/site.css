@@ -20,7 +20,7 @@ html{
     left: 50%;
     transform: translate(-50%,-50%);
     width: 400px;
-    height: 450px;
+    height: 500px;
     border-radius: 30px;
     padding: 10px;
     color: #f1f1f1;
@@ -48,14 +48,17 @@ html{
 
 .iContainer-main{
     z-index: 2;
-    padding: 30px;
+    padding: 20px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
-    align-items: flex-start;
-
+    align-items:center;
 }
     .iContainer-main table{
         width: 400px;
+    }
+    .iContainer-main table tr,td{
+        /* border: 1px dashed orange; */
     }
     .iContainer-main .mlogo{
         text-align: center;
@@ -85,6 +88,10 @@ html{
     .iContainer-main i{
         font-size: 20px;
     }
+    .iContainer-main .mdescribe{
+        margin: 0px 30px 0px 30px;
+        font-size: 12px;
+    }
     .iContainer-main .mtext{
         margin: 0px 30px 3px 30px;
         width: calc(100% - 60px);
@@ -100,6 +107,10 @@ html{
             box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
             border: 2px solid rgb(8, 75, 102);
         }
+    .iContainer-main .mtexte
+    {
+        margin-bottom: 0px;
+    }
     .iContainer-main .mpassword{
         position: relative;
     }
@@ -174,6 +185,6 @@ html{
     }
 
 .iContainer-message{
-    z-index: 2;
+    z-index: 0;
     display: none;
 }

@@ -10,5 +10,6 @@ public interface IDatabaseContext
     DbSet<Role> Roles { get; set; }
 
     int SaveChanges();
-    
+
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
 }

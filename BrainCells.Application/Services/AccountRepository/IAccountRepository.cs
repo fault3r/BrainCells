@@ -7,6 +7,6 @@ public interface IAccountRepository
 {
     Task<RepositoryResultDto> SignIn(string email, string password, bool persistent);
     
-    RepositoryResultDto SignUp(SignUpDto account);
+    Task<RepositoryResultDto> SignUp(SignUpDto account);
 
 }

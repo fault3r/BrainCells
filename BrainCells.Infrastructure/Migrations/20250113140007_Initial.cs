@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BrainCells.Infrastructure.Migrations
 {
     /// <inheritdoc />
@@ -47,7 +49,11 @@ namespace BrainCells.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { new Guid("66b42c36-dccf-4e55-b03e-09d74867f336"), "ACCOUNT" });
+                values: new object[,]
+                {
+                    { new Guid("00000000-fa00-acc0-0cca-000000000000"), "ACCOUNT" },
+                    { new Guid("00000000-fa00-add0-0000-000000000000"), "ADMIN" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_RoleId",

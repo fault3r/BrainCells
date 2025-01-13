@@ -36,12 +36,28 @@ public class AccountController : Controller
         var validate = _signinValidator.Validate(account);
         if(validate.IsValid)
         {
-            var x = await _accountRepository.SignIn(account.Email,account.Password,account.Persistent);
-            ModelState.AddModelError("", x.Message);
+           
         }
         else
+        {
             ModelState.AddFluentResult(validate);
-
+        }
         return View("SignIn", account);
+    }
+
+    [Route("SignUp")]
+    [HttpGet]
+    public async Task<IActionResult> SignUp()
+    {
+        
+        return View("SignUp");
+    }
+
+    [Route("SignUp")]
+    [HttpPost]
+    public async Task<IActionResult> SignUp([FromForm]SignupViewModel account)
+    {
+        
+        return View("SignUp");
     }
 }

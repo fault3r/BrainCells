@@ -47,16 +47,16 @@ public class AccountRepository : IAccountRepository
             return new RepositoryResultDto{Success=false, Message="Email address or password is incorrect!"};
     }
 
-    public RepositoryResultDto SignUp(SignUpDto account)
+    public async Task<RepositoryResultDto> SignUp(SignUpDto account)
     {
         var tAccount = new Account {
-            Email=account.Email,
-            Password=account.Password,
-            Name=account.Name,
-            RoleId=Guid.Parse("66b42c36-dccf-4e55-b03e-09d74867f336"),
+            Email = account.Email.ToLower(),
+            Password = PasswordHasher.ComputeHash(account.Password),
+            Name = account.Name.Trim(),
+            RoleId = Guid.Parse(AppRoles.ACCOUNT),
         };
         _databaseContext.Accounts.Add(tAccount);
-        _databaseContext.SaveChanges();
+        await _databaseContext.SaveChangesAsync();
         return new RepositoryResultDto {Success=true, Message="Done."};
     }
 
