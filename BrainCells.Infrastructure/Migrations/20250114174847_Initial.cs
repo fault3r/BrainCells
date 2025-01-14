@@ -30,7 +30,7 @@ namespace BrainCells.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -54,6 +54,12 @@ namespace BrainCells.Infrastructure.Migrations
                     { new Guid("00000000-fa00-acc0-0cca-000000000000"), "ACCOUNT" },
                     { new Guid("00000000-fa00-add0-0000-000000000000"), "ADMIN" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Accounts_Email",
+                table: "Accounts",
+                column: "Email",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_RoleId",

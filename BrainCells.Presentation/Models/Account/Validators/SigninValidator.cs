@@ -9,9 +9,11 @@ public class SigninValidator : AbstractValidator<SigninViewModel>
     public SigninValidator()
     {
         RuleFor(p => p.Email)
+            .NotEmpty()
             .EmailAddress();
         
         RuleFor(p => p.Password)
+            .NotEmpty()
             .Length(8,30);
     }
 }

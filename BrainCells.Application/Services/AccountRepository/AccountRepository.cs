@@ -23,7 +23,7 @@ public class AccountRepository : IAccountRepository
         _httpcontextAccessor = httpcontextAccessor;
     }
 
-    public async Task<RepositoryResultDto> SignIn(string email, string password, bool persistent)
+    public async Task<RepositoryResultDto> SignInAsync(string email, string password, bool persistent)
     {
         var account = _databaseContext.Accounts.AsQueryable()
             .Include(e => e.Role)
@@ -47,7 +47,7 @@ public class AccountRepository : IAccountRepository
             return new RepositoryResultDto{Success=false, Message="Email address or password is incorrect!"};
     }
 
-    public async Task<RepositoryResultDto> SignUp(SignUpDto account)
+    public async Task<RepositoryResultDto> SignUpAsync(SignUpDto account)
     {
         var tAccount = new Account {
             Email = account.Email.ToLower(),
@@ -55,9 +55,19 @@ public class AccountRepository : IAccountRepository
             Name = account.Name.Trim(),
             RoleId = Guid.Parse(AppRoles.ACCOUNT),
         };
-        _databaseContext.Accounts.Add(tAccount);
-        await _databaseContext.SaveChangesAsync();
-        return new RepositoryResultDto {Success=true, Message="Done."};
+        try{
+            _databaseContext.Accounts.Add(tAccount);
+            await _databaseContext.SaveChangesAsync();
+            return new RepositoryResultDto {Success=true, Message="Registration has been done."};
+        }
+        catch(Exception ex){
+            if(ex.InnerException != null)
+            {
+                if(ex.InnerException.Message.Contains("duplicate key"))
+                    return new RepositoryResultDto {Success=false, Message="This email address already registered!"};
+            }
+            return new RepositoryResultDto {Success=false, Message="An unexpected error has occurred!"};  
+        }
     }
 
 }

@@ -8,16 +8,7 @@ function hidePassword() {
     inpPassword.type = 'password';
 }
 
-function showMessage() {
-    const divMain = document.getElementById('divMain');
-    const divMessage = document.getElementById('divMessage');
-    divMain.style.zIndex = '0';
-    divMessage.style.display = 'block';
-}
-
 function hideMessage() {
-    const divMain = document.getElementById('divMain');
     const divMessage = document.getElementById('divMessage');
-    divMain.style.zIndex = '2';
     divMessage.style.display = 'none';
 }

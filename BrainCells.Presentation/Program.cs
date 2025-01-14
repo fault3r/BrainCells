@@ -30,6 +30,7 @@ builder.Services.AddAuthorization(options => {
 builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 
 builder.Services.AddScoped<IValidator<SigninViewModel>,SigninValidator>();
+builder.Services.AddScoped<IValidator<SignupViewModel>,SignupValidator>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();

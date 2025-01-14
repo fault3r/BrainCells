@@ -15,11 +15,14 @@ public class AccountController : Controller
 {
     private readonly IAccountRepository _accountRepository;
     private readonly IValidator<SigninViewModel> _signinValidator;
+    private readonly IValidator<SignupViewModel> _signupValidator;
 
-    public AccountController(IAccountRepository accountRepository, IValidator<SigninViewModel> signinValidator)
+    public AccountController(IAccountRepository accountRepository,
+        IValidator<SigninViewModel> signinValidator, IValidator<SignupViewModel> signupValidator)
     {
         _accountRepository = accountRepository;
         _signinValidator = signinValidator;
+        _signupValidator = signupValidator;
     }
 
     [Route("SignIn")]
@@ -57,7 +60,30 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> SignUp([FromForm]SignupViewModel account)
     {
-        
-        return View("SignUp");
+        var validate = _signupValidator.Validate(account);
+        if(validate.IsValid)
+        {
+            var result = await _accountRepository.SignUpAsync(new SignUpDto{
+                Email = account.Email,
+                Password = account.Password,
+                Name = account.Name,
+            });
+            if(result.Success)
+            {
+                ViewBag.hasMessage = "yes";
+                ModelState.AddModelError("SignUp", result.Message);
+            }
+            else{
+                ViewBag.hasMessage = "yes";
+                ModelState.AddModelError("SignUp", result.Message);
+            }
+
+        }
+        else
+        {
+            ViewBag.hasMessage = "yes";
+            ModelState.AddFluentResult(validate);
+        }
+        return View("SignUp", account);
     }
 }

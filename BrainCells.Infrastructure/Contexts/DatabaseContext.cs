@@ -18,6 +18,7 @@ public class DatabaseContext : DbContext,IDatabaseContext
         builder.Entity<Account>().HasKey(p => p.Id);
         builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
             .HasForeignKey(p => p.RoleId);
+        builder.Entity<Account>().HasIndex(p => p.Email).IsUnique();
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasData(new Role {

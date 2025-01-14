@@ -9,7 +9,6 @@
 
 <div class="iContainer-background">    
     <h1 class="iTitle">BrainCells.</h1>
-    <div asp-validation-summary="All"></div>
     <div class="iContainer iContainer-blur"></div>
     <div id="divMain" class="iContainer iContainer-main">
         <form asp-controller="Account" asp-action="SignUp" method="post">
@@ -68,9 +67,8 @@
                     <td class="moptions">
                         <div class="mcheck">
                             <input asp-for="Agree" id="agree" type="checkbox" class="mcheckbox" unchecked />
-                            <label for="agree">Agree to the <a class="ma" href="#">Terms</a>.</label>
+                            <label for="agree">Agree to the <a class="ma" href="#">terms</a>.</label>
                         </div>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -86,5 +84,15 @@
             </table>
         </form>
     </div>
+    @{
+        if(ViewBag.hasMessage == "yes")
+        {
+            <div id="divMessage" class="iContainer iContainer-message">
+                <p class="mtitle"> <i class="fa fa-exclamation-circle"></i> Message</p>
+                <div asp-validation-summary="All"></div>
+                <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+            </div>
+        }
+    }
     <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>
 </div>
