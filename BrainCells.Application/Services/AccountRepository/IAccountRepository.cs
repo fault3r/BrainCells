@@ -9,4 +9,5 @@ public interface IAccountRepository
     
     Task<RepositoryResultDto> SignUpAsync(SignUpDto account);
 
+    Task<RepositoryResultDto> SignOutAsync();
 }

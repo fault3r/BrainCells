@@ -25,26 +25,31 @@ public class AccountRepository : IAccountRepository
 
     public async Task<RepositoryResultDto> SignInAsync(string email, string password, bool persistent)
     {
-        var account = _databaseContext.Accounts.AsQueryable()
-            .Include(e => e.Role)
-            .Where(p => p.Email == email.ToLower().Trim() && p.Password  == PasswordHasher.ComputeHash(password))
-            .FirstOrDefault();
-        if(account != null)
-        {
-            var claims = new List<Claim>{
-                new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
-                new Claim(ClaimTypes.Email, account.Email),
-                new Claim(ClaimTypes.Role, account.Role.Name),
-                new Claim(ClaimTypes.Name, account.Name),
-            };
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
-            var properties = new AuthenticationProperties(){IsPersistent=persistent};
-            await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
-            return new RepositoryResultDto{Success=true, Message="Done."};
+        try{
+            var account = _databaseContext.Accounts.AsQueryable()
+                .Include(e => e.Role)
+                .Where(p => p.Email == email.ToLower().Trim() && p.Password  == PasswordHasher.ComputeHash(password))
+                .FirstOrDefault();
+            if(account != null)
+            {
+                var claims = new List<Claim>{
+                    new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
+                    new Claim(ClaimTypes.Email, account.Email),
+                    new Claim(ClaimTypes.Role, account.Role.Name),
+                    new Claim(ClaimTypes.Name, account.Name),
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                var properties = new AuthenticationProperties(){IsPersistent=persistent};
+                await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
+                return new RepositoryResultDto{Success=true, Message="Login has been done."};
+            }
+            else
+                return new RepositoryResultDto{Success=false, Message="Email address or password is incorrect!"};
         }
-        else
-            return new RepositoryResultDto{Success=false, Message="Email address or password is incorrect!"};
+        catch{
+                return new RepositoryResultDto{Success=false, Message="An unexpected error has occurred!"};
+        }
     }
 
     public async Task<RepositoryResultDto> SignUpAsync(SignUpDto account)
@@ -70,4 +75,14 @@ public class AccountRepository : IAccountRepository
         }
     }
 
+    public async Task<RepositoryResultDto> SignOutAsync()
+    {
+        try{
+            await _httpcontextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return new RepositoryResultDto {Success=true, Message="Logout has been done."};
+        }
+        catch{
+            return new RepositoryResultDto {Success=false, Message="An unexpected error has occurred!"}; 
+       }
+    }
 }

@@ -29,6 +29,7 @@ public class AccountController : Controller
     [HttpGet]
     public ActionResult SignIn()
     {
+        ViewBag.hasMessage = "none";
         return View("SignIn");
     }
 
@@ -39,10 +40,21 @@ public class AccountController : Controller
         var validate = _signinValidator.Validate(account);
         if(validate.IsValid)
         {
-           
+            var result = await _accountRepository.SignInAsync(account.Email, account.Password, account.Persistent);
+            if(result.Success)
+            {
+                ViewBag.hasMessage = "success";
+                ModelState.AddModelError("SignIn", result.Message);
+            }
+            else
+            {
+                ViewBag.hasMessage = "error";
+                ModelState.AddModelError("SignIn", result.Message);
+            }  
         }
         else
         {
+            ViewBag.hasMessage = "warning";
             ModelState.AddFluentResult(validate);
         }
         return View("SignIn", account);
@@ -50,7 +62,7 @@ public class AccountController : Controller
 
     [Route("SignUp")]
     [HttpGet]
-    public async Task<IActionResult> SignUp()
+    public IActionResult SignUp()
     {
         
         return View("SignUp");
@@ -77,7 +89,6 @@ public class AccountController : Controller
                 ViewBag.hasMessage = "yes";
                 ModelState.AddModelError("SignUp", result.Message);
             }
-
         }
         else
         {
@@ -85,5 +96,15 @@ public class AccountController : Controller
             ModelState.AddFluentResult(validate);
         }
         return View("SignUp", account);
+    }
+
+    [Route("SignOut")]
+    [HttpGet]
+    public async Task<IActionResult> SignOut()
+    {
+        var result = await _accountRepository.SignOutAsync();
+        ModelState.AddModelError("",result.Message);
+        ViewBag.hasMessage = "yes";
+        return View("SignIn");
     }
 }
