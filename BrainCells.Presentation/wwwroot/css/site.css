@@ -89,7 +89,14 @@ html{
         font-size: 20px;
     }
     .iContainer-main .mdescribe{
-        margin: 0px 30px 0px 30px;
+        margin: 0px 30px 0px 32px;
+        font-size: 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2px;
+    }
+    .iContainer-main .mdescribe i{
         font-size: 12px;
     }
     .iContainer-main .mtext{
@@ -188,7 +195,7 @@ html{
     z-index: 3;
     backdrop-filter: blur(20px);
     font-weight: bold;
-    color: rgb(8, 75, 102);
+    color: #f1f1f1;
     font-size: 14px;
     display: flex;
     flex-direction: column;
@@ -199,4 +206,17 @@ html{
 }
     .iContainer-message .mtitle{
         font-size: 20px;
+    }
+
+.pwdchk{
+    background-color: transparent;
+    margin: 0px 33px 0px 33px;
+    height: 7px;
+}
+    .pwdchk #pwdchk-point{
+        background-color: #D73F40;
+        border-radius: 5px;
+        width: 1%;
+        height: 100%;
+        transition: 0.5s;
     }

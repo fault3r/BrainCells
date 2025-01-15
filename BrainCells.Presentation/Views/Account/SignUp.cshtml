@@ -47,9 +47,16 @@
                     </td>
                 </tr>    
                 <tr>
+                    <td>
+                        <div class="pwdchk">
+                            <div id="pwdchk-point"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td >
-                        <div class="mdescribe">password must be between 8 and 30 characters.</div>
-                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm Password" />
+                        <div class="mdescribe"><i class="fa fa-exclamation-circle"></i>Password must be between 8 and 30 characters.</div>
+                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" />
                     </td>
                 </tr>    
                 <tr>
