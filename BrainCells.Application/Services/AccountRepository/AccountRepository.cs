@@ -54,13 +54,13 @@ public class AccountRepository : IAccountRepository
 
     public async Task<RepositoryResultDto> SignUpAsync(SignUpDto account)
     {
-        var tAccount = new Account {
-            Email = account.Email.ToLower(),
-            Password = PasswordHasher.ComputeHash(account.Password),
-            Name = account.Name.Trim(),
-            RoleId = Guid.Parse(AppRoles.ACCOUNT),
-        };
         try{
+            var tAccount = new Account {
+                Email = account.Email.ToLower(),
+                Password = PasswordHasher.ComputeHash(account.Password),
+                Name = account.Name.Trim(),
+                RoleId = Guid.Parse(AppConsts.ACCOUNT),
+            };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
             return new RepositoryResultDto {Success=true, Message="Registration has been done."};

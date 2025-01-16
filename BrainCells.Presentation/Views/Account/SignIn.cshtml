@@ -1,4 +1,5 @@
 
+@using System;
 @using BrainCells.Presentation.Models.Account.ViewModels
 
 @{
@@ -32,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input asp-for="Email" id="Email" type="text" class="mtext" />
+                        <input asp-for="Email" id="Email" type="text" class="mtext" required />
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +44,7 @@
                 </tr>
                 <tr>
                     <td class="mpassword">
-                        <input asp-for="Password" id="Password" type="password" class="mtext" />
+                        <input asp-for="Password" id="Password" type="password" class="mtext" required />
                         <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
                     </td>
                 </tr>    
@@ -75,26 +76,19 @@
         </form>
     </div>
     @{
-        if(ViewBag.hasMessage != "none")
+        if(ViewData["Message"] != null)
         {
-            string color = string.Empty;
-            switch(ViewBag.hasMessage)
+            if(ViewData["Message"].ToString() != "none")
             {
-                case "success":
-                    color = "#2a9d8f";
-                    break;
-                case "error":
-                    color = "#e76f51";
-                    break;
-                case "warning":
-                    color = "#e9c46a";
-                    break;
+                string message = ViewData["Message"].ToString();
+                string title = message.Split('|')[0];
+                string color = message.Split('|')[1];
+                <div id="divMessage" class="iContainer iContainer-message">
+                    <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
+                    <div asp-validation-summary="All"></div>
+                    <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+                </div>
             }
-            <div id="divMessage" class="iContainer iContainer-message">
-                <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> Message</p>
-                <div asp-validation-summary="All"></div>
-                <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
-            </div>
         }
     }
     <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>

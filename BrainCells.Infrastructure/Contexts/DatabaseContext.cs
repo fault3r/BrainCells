@@ -22,10 +22,10 @@ public class DatabaseContext : DbContext,IDatabaseContext
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasData(new Role {
-            Id = Guid.Parse(AppRoles.ADMIN),
+            Id = Guid.Parse(AppConsts.ADMIN),
             Name = "ADMIN",
         }, new Role{
-            Id = Guid.Parse(AppRoles.ACCOUNT),
+            Id = Guid.Parse(AppConsts.ACCOUNT),
             Name = "ACCOUNT",
         });        
     }

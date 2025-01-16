@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.Common;
@@ -29,7 +30,7 @@ public class AccountController : Controller
     [HttpGet]
     public ActionResult SignIn()
     {
-        ViewBag.hasMessage = "none";
+        ViewData["Message"] = AppConsts.NONE;
         return View("SignIn");
     }
 
@@ -43,18 +44,18 @@ public class AccountController : Controller
             var result = await _accountRepository.SignInAsync(account.Email, account.Password, account.Persistent);
             if(result.Success)
             {
-                ViewBag.hasMessage = "success";
+                ViewData["Message"] = AppConsts.SUCCESS;
                 ModelState.AddModelError("SignIn", result.Message);
             }
             else
             {
-                ViewBag.hasMessage = "error";
+                ViewData["Message"] = AppConsts.ERROR;
                 ModelState.AddModelError("SignIn", result.Message);
             }  
         }
         else
         {
-            ViewBag.hasMessage = "warning";
+            ViewData["Message"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
         }
         return View("SignIn", account);
@@ -64,7 +65,7 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult SignUp()
     {
-        
+        ViewData["Message"] = AppConsts.NONE;
         return View("SignUp");
     }
 
@@ -82,17 +83,18 @@ public class AccountController : Controller
             });
             if(result.Success)
             {
-                ViewBag.hasMessage = "yes";
+                ViewData["Message"] = AppConsts.SUCCESS;
                 ModelState.AddModelError("SignUp", result.Message);
             }
-            else{
-                ViewBag.hasMessage = "yes";
+            else
+            {
+                ViewData["Message"] = AppConsts.ERROR;
                 ModelState.AddModelError("SignUp", result.Message);
             }
         }
         else
         {
-            ViewBag.hasMessage = "yes";
+            ViewData["Message"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
         }
         return View("SignUp", account);
@@ -103,8 +105,16 @@ public class AccountController : Controller
     public async Task<IActionResult> SignOut()
     {
         var result = await _accountRepository.SignOutAsync();
-        ModelState.AddModelError("",result.Message);
-        ViewBag.hasMessage = "yes";
+        if(result.Success)
+        {
+            ViewData["Message"] = AppConsts.SUCCESS;
+            ModelState.AddModelError("SignUp", result.Message);
+        }
+        else
+        {
+            ViewData["Message"]= AppConsts.ERROR;
+            ModelState.AddModelError("SignUp", result.Message);
+        }
         return View("SignIn");
     }
 }

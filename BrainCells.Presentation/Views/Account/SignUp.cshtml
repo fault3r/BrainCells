@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input asp-for="Email" id="Email" type="text" class="mtext" />
+                        <input asp-for="Email" id="Email" type="text" class="mtext" required />
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td class="mpassword">
-                        <input asp-for="Password" id="Password" type="password" class="mtext" />
+                        <input asp-for="Password" id="Password" type="password" class="mtext" required />
                         <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
                     </td>
                 </tr>    
@@ -56,7 +56,7 @@
                 <tr>
                     <td >
                         <div class="mdescribe"><i class="fa fa-exclamation-circle"></i>Password must be between 8 and 30 characters, Anything.</div>
-                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" />
+                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" required />
                     </td>
                 </tr>    
                 <tr>
@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input asp-for="Name" id="Name" type="text" class="mtext" />
+                        <input asp-for="Name" id="Name" type="text" class="mtext" required />
                     </td>
                 </tr>
                 <tr>
@@ -92,13 +92,19 @@
         </form>
     </div>
     @{
-        if(ViewBag.hasMessage == "yes")
+        if(ViewData["Message"] != null)
         {
-            <div id="divMessage" class="iContainer iContainer-message">
-                <p class="mtitle"> <i class="fa fa-exclamation-circle"></i> Message</p>
-                <div asp-validation-summary="All"></div>
-                <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
-            </div>
+            if(ViewData["Message"].ToString() != "none")
+            {
+                string message = ViewData["Message"].ToString();
+                string title = message.Split('|')[0];
+                string color = message.Split('|')[1];
+                <div id="divMessage" class="iContainer iContainer-message">
+                    <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
+                    <div asp-validation-summary="All"></div>
+                    <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+                </div>
+            }
         }
     }
     <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>
