@@ -139,7 +139,7 @@ html{
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        margin: 5px 30px 5px 30px;
+        margin: 5px 32px 5px 32px;
     }
         .iContainer-main .moptions .mcheck{
             display: flex;
@@ -147,10 +147,11 @@ html{
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
         }
     .iContainer-main .mcheckbox{
         accent-color: rgb(8, 75, 102);
+
     }
     .iContainer-main .ma{
         color: rgb(133, 179, 243);
