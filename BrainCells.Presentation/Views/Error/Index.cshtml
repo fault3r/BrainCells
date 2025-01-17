@@ -1,0 +1,11 @@
+@using BrainCells.Presentation.Controllers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Error";
+}
+
+@model StatusCodeViewModel
+
+<p>@Model.Code</p>
+<p>@Model.Message</p>

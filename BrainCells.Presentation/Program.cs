@@ -2,6 +2,7 @@ using System;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Infrastructure.Contexts;
+using BrainCells.Presentation.Middlewares;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
@@ -20,7 +21,7 @@ builder.Services.AddAuthentication(options => {
 })
     .AddCookie(options => {
         options.LoginPath = new PathString("/Account/SignIn");
-        //options.AccessDeniedPath
+        options.AccessDeniedPath = new PathString("/Error/403");
     });
 
 builder.Services.AddAuthorization(options => {
@@ -42,6 +43,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
+app.UseStatusCodeHandler();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

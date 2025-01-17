@@ -22,7 +22,6 @@ border: 2px solid  #f1f1f1;
 border-radius: 3px;
 vertical-align: middle;
 transition: background 0.1s ease;
-cursor: pointer;
 }
 .checkbox-wrapper-26 .cbx:after {
 content: '';

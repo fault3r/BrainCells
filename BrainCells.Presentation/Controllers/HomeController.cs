@@ -13,13 +13,12 @@ public class HomeController : Controller
     public HomeController(ILoggerFactory logger)
     {
         _logger = logger.CreateLogger("Home");
-  
     }
 
     [Authorize]
     public IActionResult Index()
     {
-       
+        _logger.LogInformation("***It's fault3r, Inc. WELCOME..0;");
         return View("Index");
     }
 
