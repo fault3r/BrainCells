@@ -13,7 +13,7 @@ public class ErrorController : Controller
     public IActionResult Index(int code)
     {
         StatusCodeViewModel model = new StatusCodeViewModel{
-                Code = 0,
+                Code = 26,
                 Message = "Hmm..!",
         };
         switch(code)

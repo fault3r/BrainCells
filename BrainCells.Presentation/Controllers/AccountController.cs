@@ -26,6 +26,11 @@ public class AccountController : Controller
         _signupValidator = signupValidator;
     }
 
+    public IActionResult Index()
+    {
+        return View();
+    }
+
     [Route("SignIn")]
     [HttpGet]
     public ActionResult SignIn()
