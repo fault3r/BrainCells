@@ -44,7 +44,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseStatusCodeHandler();
+app.UseStatusCodeMiddleware();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

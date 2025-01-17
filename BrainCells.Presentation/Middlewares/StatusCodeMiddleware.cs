@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace BrainCells.Presentation.Middlewares;
 
-public class StatusCodeHandler 
+public class StatusCodeMiddleware 
 {
     private readonly RequestDelegate _next;
 
-    public StatusCodeHandler(RequestDelegate next)
+    public StatusCodeMiddleware(RequestDelegate next)
     {
        _next = next;
     }
@@ -26,10 +26,10 @@ public class StatusCodeHandler
     }
 }
 
-public static class StatusCodeHandlerExtensions
+public static class StatusCodeMiddlewareExtensions
 {
-    public static IApplicationBuilder UseStatusCodeHandler(this IApplicationBuilder builder)
+    public static IApplicationBuilder UseStatusCodeMiddleware(this IApplicationBuilder builder)
     {
-        return builder.UseMiddleware<StatusCodeHandler>();
+        return builder.UseMiddleware<StatusCodeMiddleware>();
     }
 }
