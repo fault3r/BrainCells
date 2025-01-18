@@ -161,7 +161,7 @@ html{
         color: rgb(126, 207, 251);
         padding: 0px 3px 1px 3px;
         border-radius: 4px;
-        transition: all .4s ease-in-out;
+        transition: all .3s ease-in-out;
     }
     .ma:hover{
         color: rgb(8, 75, 102);
@@ -260,12 +260,3 @@ html{
         height: 100%;
         transition: .4s;
     }
-
-.colors{
-    color: #e76f51;
-    color: #e9c46a;
-    color: #2a9d8f;
-
-    color: #f1f1f1;
-    color: rgb(8, 75, 102);
-}

@@ -10,6 +10,21 @@
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
+    <div class="nav-container">
+        <div class="nav-menu">
+            <i class="fa fa-navicon"></i>
+            <img src="/resource/neuron-icon-white.png" />
+            <span>BrainCells</span>
+        </div>
+        <div class="nav-profile">
+            <div class="profile-search">
+                <input type="text" />
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="profile-line"></div>
+            <div class="profile-profile"></div>
+        </div>
+    </div>
     <div>@RenderBody()</div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

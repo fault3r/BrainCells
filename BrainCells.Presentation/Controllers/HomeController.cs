@@ -15,7 +15,6 @@ public class HomeController : Controller
         _logger = logger.CreateLogger("Home");
     }
 
-    [Authorize]
     public IActionResult Index()
     {
         _logger.LogInformation("***It's fault3r, Inc. WELCOME..0;");

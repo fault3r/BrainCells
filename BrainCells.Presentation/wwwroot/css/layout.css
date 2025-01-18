@@ -1,0 +1,91 @@
+.colors{
+    color: #e76f51;
+    color: #e9c46a;
+    color: #2a9d8f;
+    color: #f1f1f1;
+    color: rgb(8, 75, 102);
+}
+
+html{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 16px;
+}
+body{
+    background-image: radial-gradient(#505050 30%,#323232 70%);
+    background-repeat: no-repeat;
+}
+
+.nav-container{
+    background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
+    color: #f1f1f1;
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items: center;
+    gap: 5px;
+}
+    .nav-menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        
+    }
+        .nav-menu i{
+            font-size: 22px;   
+            border: 1px solid #f1f1f1;
+            border-radius: 3px;
+            padding: 2px 4px 2px 4px;
+        }
+        .nav-menu img{
+            width: 40px;
+            height: 40px;
+            transform-origin: center;
+            animation: nav-logospin 20s linear infinite;
+        }
+            @keyframes nav-logospin{
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
+        .nav-menu span{
+            font-size: 20px;
+            text-shadow: 1px 1px 1px #f1f1f1;
+        }
+    .nav-profile{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
+        .nav-profile .profile-profile{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+
+        }
+        .nav-profile .profile-line{
+            width: 1px;
+            height: 40px;
+            background-color: #f1f1f1;
+        }
+        .nav-profile .profile-search{
+
+        }
+            .profile-search button{
+                outline: none;
+                border: none;
+                background-color: #f1f1f1;
+            }
+            .profile-search button:hover{
+                background-color: #f1f1f1;
+                
+            }
