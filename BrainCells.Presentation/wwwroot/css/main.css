@@ -216,6 +216,9 @@ html{
     align-items: center;
     gap: 5px;
 }
+    .iContainer-message div{
+        margin: 0px 20px 0px 20px;
+    }
     .iContainer-message .mtitle{
         font-size: 20px;
     }
