@@ -60,13 +60,13 @@ html{
     table tr,td{
         /* border: 1px dashed orange; */
     }
-    .iContainer-main .mlogo{
+    .mlogo{
         text-align: center;
         transform-origin: center;
         width: 50px;
         height: 50px;
     }
-    .iContainer-main .micon{
+    .micon{
         animation: icon-spin 20s linear infinite;
     }
         @keyframes icon-spin{
@@ -74,27 +74,27 @@ html{
                 transform: rotate(360deg);
             }
         }
-    .iContainer-main .mtitle{
+    .mtitle{
         text-align: center;
         font-size: 26px;
     }
-    .iContainer-main .mtitle b{
+    .mtitle b{
         text-shadow: 1px 1px 1px #f1f1f1;
     }
-    .iContainer-main .mlabel{
+    .mlabel{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 3px;
         margin: 0px 30px 0px 30px;
     }
-    .iContainer-main .mtopm{
+    .mtopm{
         margin-top: 3px;
     }
-    .iContainer-main i{
+    i{
         font-size: 20px;
     }
-    .iContainer-main .mdescribe{
+    .mdescribe{
         margin: 0px 30px 0px 32px;
         font-size: 12px;
         display: flex;
@@ -103,10 +103,10 @@ html{
         flex-wrap: nowrap;
         gap: 3px;
     }
-    .iContainer-main .mdescribe i{
+    .mdescribe i{
         font-size: 12px;
     }
-    .iContainer-main .mtext{
+    .mtext{
         margin: 0px 30px 0px 30px;
         width: calc(100% - 60px);
         height: 30px;
@@ -117,14 +117,14 @@ html{
         outline: none;
         transition: all 0.4 ease;
     }
-        .iContainer-main .mtext:focus{
+        .mtext:focus{
             box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
             border: 2px solid rgb(8, 75, 102);
         }
-    .iContainer-main .mpassword{
+    .mpassword{
         position: relative;
     }
-        .iContainer-main .mpassword i{
+        .mpassword i{
             position: absolute;
             top: 50%;
             left: 100%;
@@ -133,10 +133,10 @@ html{
             color: rgba(8, 75, 102,0.5);
             transition: all 0.4s ease;
         }
-        .iContainer-main .mpassword i:hover{
+        .mpassword i:hover{
             color: rgba(8, 75, 102,0.9);
         }
-    .iContainer-main .moptions{
+    .moptions{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -144,7 +144,7 @@ html{
         align-items: center;
         margin: 5px 32px 5px 32px;
     }
-        .iContainer-main .moptions .mcheck{
+        .moptions .mcheck{
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -152,7 +152,7 @@ html{
             align-items: center;
             gap: 4px;
         }
-    .iContainer-main .mcheckbox{
+    .mcheckbox{
         accent-color: rgb(8, 75, 102);
     }
     .ma{
@@ -161,7 +161,7 @@ html{
         color: rgb(126, 207, 251);
         padding: 0px 3px 1px 3px;
         border-radius: 4px;
-        transition: all .3s ease-in-out;
+        transition: all .4s ease-in-out;
     }
     .ma:hover{
         color: rgb(8, 75, 102);
@@ -198,14 +198,14 @@ html{
             border: 1px solid rgb(8, 75, 102);
             background-image: conic-gradient(DodgerBlue, MediumSeaGreen, Orange, Tomato);
         }
-    .iContainer-main .msignup{
+    .msignup{
         text-align: center;
         padding: 7px;
     }
 
 .iContainer-message{
     z-index: 3;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
     font-weight: bold;
     color: #f1f1f1;
     font-size: 14px;
@@ -255,7 +255,7 @@ html{
         border-radius: 5px;
         width: 1%;
         height: 100%;
-        transition: 0.5s;
+        transition: .4s;
     }
 
 .colors{

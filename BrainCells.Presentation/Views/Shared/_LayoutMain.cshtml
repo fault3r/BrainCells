@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,14 +6,16 @@
     <title>@ViewData["Title"] - BrainCells</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/checkbox.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
     <div>@RenderBody()</div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/layout.js"></script>
+    <script src="~/js/pwd-chk.js"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
