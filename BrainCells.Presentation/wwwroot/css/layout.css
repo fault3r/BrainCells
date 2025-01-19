@@ -7,15 +7,16 @@
 }
 
 html{
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family:  Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 body{
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
+    color: #f1f1f1;
 }
 
-.nav-container{
+.container-navbar{
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     color: #f1f1f1;
     width: 100%;
@@ -27,37 +28,30 @@ body{
     align-items: center;
     gap: 5px;
 }
-    .nav-menu{
+    .navbar-menu{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         gap: 15px;
-        
     }
-        .nav-menu i{
-            font-size: 22px;   
-            border: 1px solid #f1f1f1;
-            border-radius: 3px;
-            padding: 2px 4px 2px 4px;
+        .menu-icon {
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            position: relative;
+            z-index: 5;
         }
-        .nav-menu img{
+        .menu-logo{
             width: 40px;
             height: 40px;
-            transform-origin: center;
-            animation: nav-logospin 20s linear infinite;
         }
-            @keyframes nav-logospin{
-                100%{
-                    transform: rotate(360deg);
-                }
-            }
-        .nav-menu span{
+        .menu-title{
             font-size: 20px;
             text-shadow: 1px 1px 1px #f1f1f1;
         }
-    .nav-profile{
+    .navbar-profile{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -65,19 +59,18 @@ body{
         align-items: center;
         gap: 7px;
     }
-        .nav-profile .profile-profile{
+        .profile-picture{
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: white;
-
+            background-color: #f1f1f1;
         }
-        .nav-profile .profile-line{
+        .profile-line{
             width: 1px;
             height: 40px;
             background-color: #f1f1f1;
         }
-        .nav-profile .profile-search{
+        .profile-search{
 
         }
             .profile-search button{
@@ -89,3 +82,35 @@ body{
                 background-color: #f1f1f1;
                 
             }
+
+.container-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    border-radius: 0px 10px 10px 0px;
+    background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
+    transition: all .3s ease;
+}
+
+.container-footer{
+    background-color: gray;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+    .footer-icon{
+
+    }
+    .footer-logo{
+        width: 25px;
+        height: 25px;
+    }
+    .footer-title{
+
+    }

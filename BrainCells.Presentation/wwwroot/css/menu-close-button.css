@@ -1,0 +1,69 @@
+.btn-menu {
+    width: 30px;
+    height: 5px;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.btn-menu span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #f1f1f1;
+    transform:rotate(0deg);
+    -ms-transform:rotate(0deg); /* IE 9 */
+    -webkit-transform:rotate(0deg); /* Opera, Chrome, and Safari */
+
+}
+.btn-menu span:before {
+    position: absolute;
+    top: -10px ;
+    left: 0;
+    content: ' ';
+    background-color: #f1f1f1;
+    
+}
+.btn-menu span:after {
+    position: absolute;
+    top: 10px ;
+    left: 0;
+    content: ' ';
+    background-color: #f1f1f1;
+}
+.close span {
+    position: absolute;
+    left: -10px;
+    background: none;
+}
+.close span:after {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    background-color: #f1f1f1;
+        transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg); 
+}
+.close span:before {
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    top: 0px;
+    left: 10px;
+        transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); 
+    -webkit-transform:rotate(-45deg);
+}
+.btn-menu span,.btn-menu span:before,.btn-menu span:after,.close span,.close span:before,.close span:after {
+    width: 30px;
+    height: 5px;
+    border-radius: 0.2em;
+        -moz-transition: all .5s cubic-bezier(0.5,-0.6,0.19,1);  
+    -o-transition: all .5s cubic-bezier(0.5,-0.6,0.19,1);  
+    -webkit-transition: all .5s cubic-bezier(0.5,-0.6,0.19,1);
+    transition: all .5s cubic-bezier(0.5,-0.6,0.19,1);
+}

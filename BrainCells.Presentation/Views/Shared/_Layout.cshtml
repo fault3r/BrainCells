@@ -6,26 +6,42 @@
     <title>@ViewData["Title"] - BrainCells</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/menu-close-button.css" />
     <link rel="stylesheet" href="~/css/layout.css" />
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
-    <div class="nav-container">
-        <div class="nav-menu">
-            <i class="fa fa-navicon"></i>
-            <img src="/resource/neuron-icon-white.png" />
-            <span>BrainCells</span>
+    <div class="container-navbar">
+        <div class="navbar-menu">
+            <div class="menu-icon" id="btn-menu-responsive" onclick="ToggleMenu()">
+                <div class="btn-menu"><span></span></div>
+            </div>
+            <img class="menu-logo" src="/resource/neuron-icon-white.png" />
+            <span class="menu-title">BrainCells</span>
         </div>
-        <div class="nav-profile">
+        <div class="navbar-profile">
             <div class="profile-search">
                 <input type="text" />
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
             <div class="profile-line"></div>
-            <div class="profile-profile"></div>
+            <div class="profile-picture"></div>
         </div>
     </div>
-    <div>@RenderBody()</div>
+    <div class="container-menu" id="menu-div">
+    </div>
+    <div class="container-main">@RenderBody()</div>
+    <div class="container-footer">
+        <div class="footer-copyright">
+            <img class="footer-logo" src="/resource/neuron-icon-white.png" />
+            <span class="footer-text">&copy; 2025 fault3r, Inc.</span>
+        </div>
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Docs</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/layout.js"></script>
