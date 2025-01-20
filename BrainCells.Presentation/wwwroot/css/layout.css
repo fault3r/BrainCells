@@ -14,6 +14,8 @@ body{
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
+    height: 500px;
+    position: relative;
 }
 
 .container-navbar{
@@ -41,7 +43,7 @@ body{
             width: 35px;
             height: 35px;
             position: relative;
-            z-index: 5;
+            z-index: 3;
         }
         .menu-logo{
             width: 40px;
@@ -60,6 +62,7 @@ body{
         gap: 7px;
     }
         .profile-picture{
+            cursor: pointer;
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -87,10 +90,23 @@ body{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2;
     width: 0px;
     height: 100%;
     border-radius: 0px 10px 10px 0px;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
+    transition: all .3s ease;
+}
+
+.container-profile{
+    width: 170px;
+    height: 0px;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 0px 0px 0px 10px;
+    background-color: rgba(109, 214, 255, 0.4);
     transition: all .3s ease;
 }
 
@@ -103,6 +119,8 @@ body{
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
 }
     .footer-icon{
 

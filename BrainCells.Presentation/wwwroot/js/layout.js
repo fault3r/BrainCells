@@ -20,12 +20,24 @@
         });
 // *END
 
-function ToggleMenu()
-{
-    const divMenu = document.getElementById('menu-div');
-    if (divMenu.style.width === '230px') {
-        divMenu.style.width = '0px';
-    } else {
-        divMenu.style.width = '230px';
+// sidebar menus
+    function ToggleMenu()
+    {
+        const divMenu = document.getElementById('menu-div');
+        if (divMenu.style.width === '230px') {
+            divMenu.style.width = '0px';
+        } else {
+            divMenu.style.width = '230px';
+        }
     }
-}
+
+    function ProfileMenu()
+    {
+        const divMenu = document.getElementById('profile-div');
+        if (divMenu.style.height === '170px') {
+            divMenu.style.height = '0px';
+        } else {
+            divMenu.style.height = '170px';
+        }
+    }
+// *END
