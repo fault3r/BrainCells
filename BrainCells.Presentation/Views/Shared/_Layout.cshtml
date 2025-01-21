@@ -28,7 +28,11 @@
             <div class="profile-picture" onclick="ProfileMenu()"></div>
         </div>
     </div>
-    <div class="container-profile" id="profile-div"></div>
+    <div class="container-profile" id="profile-div">
+        <a class="faLink" href="#">View Profile</a>
+        <a class="faLink" href="#">Edit Information</a>
+        <a class="faLink" href="#">Sign Out</a>
+    </div>
     <div class="container-menu" id="menu-div">
     </div>
     <div class="container-main">@RenderBody()</div>
@@ -38,9 +42,9 @@
             <span class="footer-text">&copy; 2025 fault3r, Inc.</span>
         </div>
         <div class="footer-links">
-            <a href="#">Terms</a>
-            <a href="#">Docs</a>
-            <a href="#">Contact</a>
+            <a class="faLink" href="#">Terms</a>
+            <a class="faLink" href="#">Docs</a>
+            <a class="faLink" href="#">Contact</a>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

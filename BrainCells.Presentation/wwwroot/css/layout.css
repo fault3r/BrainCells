@@ -99,28 +99,34 @@ body{
 }
 
 .container-profile{
-    width: 170px;
-    height: 0px;
     position: absolute;
+    width: 150px;
+    height: 0px;
     right: 0;
     z-index: 2;
     overflow: hidden;
     border-radius: 0px 0px 0px 10px;
-    background-color: rgba(109, 214, 255, 0.4);
+    background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3px;
     transition: all .3s ease;
 }
 
 .container-footer{
-    background-color: gray;
+    position: absolute;
     width: 100%;
+    bottom: 0;
     padding: 10px;
+    background-image: linear-gradient(to top right,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
 }
     .footer-icon{
 
@@ -131,4 +137,19 @@ body{
     }
     .footer-title{
 
+    }
+
+    /* cdn */
+
+    .faLink{
+        text-decoration: none;
+        box-shadow: inset 0 0 0 0 #f1f1f1;
+        color: rgb(126, 207, 251);
+        padding: 0px 3px 1px 3px;
+        border-radius: 4px;
+        transition: all .3s ease-in-out;
+    }
+    .faLink:hover{
+        color: rgb(8, 75, 102);
+        box-shadow: inset 200px 0 0 0 #f1f1f1;
     }
