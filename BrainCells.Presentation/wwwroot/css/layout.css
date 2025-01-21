@@ -48,11 +48,17 @@ body{
         .menu-logo{
             width: 40px;
             height: 40px;
+            filter: drop-shadow(2px 2px 2px rgb(8, 75, 102));
         }
         .menu-title{
+            cursor: pointer;
             font-size: 20px;
-            text-shadow: 1px 1px 1px #f1f1f1;
-        }
+            font-weight: bold;
+            color: #f1f1f1;
+            text-align: center;
+            text-shadow: 3px 3px 3px rgb(8, 75, 102);
+          }
+          
     .navbar-profile{
         display: flex;
         flex-direction: row;
@@ -95,7 +101,7 @@ body{
     height: 100%;
     border-radius: 0px 10px 10px 0px;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 
 .container-profile{
@@ -113,8 +119,15 @@ body{
     justify-content: space-evenly;
     align-items: center;
     gap: 3px;
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
+    .container-profile a{
+        text-shadow: 2px 2px 2px rgb(8, 75, 102);
+    }
+    .container-profile a:hover{
+        text-shadow: 2px 2px 2px rgb(126, 207, 251);
+    }
+
 
 .container-footer{
     position: absolute;
