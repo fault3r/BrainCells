@@ -3,11 +3,8 @@
         if (!element || !className){
             return;
         }
-
         var classString = element.className;
         var nameIndex = classString.indexOf(className);
-
-    
         if (nameIndex == -1) {
             classString += ' ' + className;
         } else {
@@ -30,7 +27,6 @@
             divMenu.style.width = '230px';
         }
     }
-
     function ProfileMenu()
     {
         const divMenu = document.getElementById('profile-div');
