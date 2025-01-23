@@ -35,16 +35,20 @@
     </div>
     <div class="container-menu" id="menu-div">
     </div>
-    <div class="container-main">@RenderBody()</div>
+    <div class="container-main" id="container-main">@RenderBody()</div>
     <div class="container-footer">
         <div class="footer-copyright">
             <img class="footer-logo" src="/resource/neuron-icon-white.png" />
-            <span class="footer-text">&copy; 2025 fault3r, Inc.</span>
+            <span class="footer-title">&copy; copyright 2025 fault3r, Inc.</span>
         </div>
         <div class="footer-links">
-            <a class="faLink" href="#">Terms</a>
-            <a class="faLink" href="#">Docs</a>
-            <a class="faLink" href="#">Contact</a>
+            <div>
+                <span>BrainCells</span>
+                <a class="faLink" href="#">Terms</a>
+                <a class="faLink" href="#">Docs</a>
+                <a class="faLink" href="#">Contact</a>
+            </div>
+            <div>a personal project to brain monitoring.</div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
