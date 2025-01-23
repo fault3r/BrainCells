@@ -78,7 +78,8 @@ body{
             transition: all .3s ease;
         }
             .profile-picture:hover{
-                box-shadow: 0px 0px 10px rgb(8, 75, 102); 
+                box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5);
+
             }
         .profile-line{
             width: 1px;
@@ -86,7 +87,11 @@ body{
             background-color: #f1f1f1;
         }
         .profile-search{
-
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
         }
             .profile-search button{
                 outline: none;
@@ -133,13 +138,17 @@ body{
         justify-content: center;
         align-items: center;
         gap: 5px;
-        text-shadow: 2px 2px 2px rgb(8, 75, 102);
+        text-decoration: none;
+        box-shadow: inset 0 0 0 0 #f1f1f1;
+        color: #f1f1f1;
+        padding: 0px 3px 1px 3px;
+        width: 100%;
+        transition: all .3s ease-in-out;
     }
     .container-profile a:hover{
-        text-shadow: 2px 2px 2px rgb(126, 207, 251);
+        color: rgb(8, 75, 102);
+        box-shadow: inset 200px 0 0 0 #f1f1f1;
     }
-
-
 .container-footer{
     position: absolute;
     width: 100%;
@@ -167,7 +176,6 @@ body{
         }
         .footer-title{
             font-size: 14px;
-            text-shadow: .5px .5px .5px #f1f1f1;
             white-space: nowrap;
         }
     .footer-links{
@@ -179,7 +187,6 @@ body{
     }
         .footer-links span{
             font-size: 14px;
-            text-shadow: .5px .5px .5px #f1f1f1;
         }
         .footer-links div:first-child{
             display: flex;
@@ -190,7 +197,6 @@ body{
             gap: 3px;
         }
         .footer-links div:last-child{
-            text-shadow: .5px .5px .5px #f1f1f1;
             font-size: 12px;
         }
     /* cdn */
@@ -207,3 +213,17 @@ body{
         color: rgb(8, 75, 102);
         box-shadow: inset 200px 0 0 0 #f1f1f1;
     }
+    .faText{
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        color: black;
+        border: 2px solid rgb(8, 75, 102);
+        outline: none;
+        transition: all .3s ease;
+    }
+        .faText:focus{
+            box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5);
+            border: 2px solid rgb(8, 75, 102);
+        }
