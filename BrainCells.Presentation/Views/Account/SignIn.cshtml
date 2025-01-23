@@ -9,90 +9,68 @@
 
 @model SigninViewModel
 
-<div class="iContainer-background">
-    <h1 class="iTitle">BrainCells</h1>
-    <div class="iContainer iContainer-blur"></div>
-    <div id="divMain" class="iContainer iContainer-main">
-        <form asp-controller="Account" asp-action="SignIn" method="post">
-            <table>
-                <tr>
-                    <td class="mlogo">
-                        <img src="/resource/neuron-icon-white.png" class="micon mlogo" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mtitle">
-                        <p>Sign in to <b>BrainCells</b></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mlabel">
-                        <i class="fa fa-envelope"></i>
-                        <label for="Email">Email address</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input asp-for="Email" id="Email" type="text" class="mtext" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mlabel mtopm">
-                        <i class="fa fa-key"></i> 	
-                        <label for="Password">Password</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mpassword">
-                        <input asp-for="Password" id="Password" type="password" class="mtext" required />
-                        <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
-                    </td>
-                </tr>    
-                <tr>
-                    <td class="moptions">
-                        <div class="mcheck">
-                            <div class="checkbox-wrapper-26">
-                                <input asp-for="Persistent" id="remember" type="checkbox" class="mcheckbox" checked />
-                                <label class="cbx" for="remember"></label>
-                            </div>
-                            <label for="remember">Remember me</label>
-                        </div>
-                        <a href="#" class="ma">Forget password?</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="submit" class="mbutton">Sign in →</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="reset" class="mbutton"><i class="fa fa-google googlebg"></i>Sign in with Google</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="msignup">
-                        Don't have an account? <a href="/Account/SignUp" class="ma" onclick="showMessage()">Sign up</a>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    @{
-        if(ViewData["Message"] != null)
-        {
-            if(ViewData["Message"].ToString() != "none")
-            {
-                string message = ViewData["Message"].ToString();
-                string title = message.Split('|')[0];
-                string color = message.Split('|')[1];
-                <div id="divMessage" class="iContainer iContainer-message">
-                    <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
-                    <div asp-validation-summary="All"></div>
-                    <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+<form asp-controller="Account" asp-action="SignIn" method="post">
+    <table>
+        <tr>
+            <td class="mlogo">
+                <img src="/resource/neuron-icon-white.png" class="micon mlogo" />
+            </td>
+        </tr>
+        <tr>
+            <td class="mtitle">
+                <p>Sign in to <b><a href="/">BrainCells</a></b></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
+                <i class="fa fa-envelope"></i>
+                <label for="Email">Email address</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input asp-for="Email" id="Email" type="text" class="mtext" required />
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel mtopm">
+                <i class="fa fa-key"></i> 	
+                <label for="Password">Password</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="mpassword">
+                <input asp-for="Password" id="Password" type="password" class="mtext" required />
+                <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
+            </td>
+        </tr>    
+        <tr>
+            <td class="moptions">
+                <div class="mcheck">
+                    <div class="checkbox-wrapper-26">
+                        <input asp-for="Persistent" id="remember" type="checkbox" class="mcheckbox" checked />
+                        <label class="cbx" for="remember"></label>
+                    </div>
+                    <label for="remember">Remember me</label>
                 </div>
-            }
-        }
-    }
-    <p class="iCopyright">&copy; copyright 2025 faulter, Inc. all rights reserved.</p>
-</div>
+                <a href="#" class="ma">Forget password?</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="mbutton">Sign in →</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="reset" class="mbutton"><i class="fa fa-google googlebg"></i>Sign in with Google</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="msignup">
+                Don't have an account? <a href="/Account/SignUp" class="ma" onclick="showMessage()">Sign up</a>
+            </td>
+        </tr>
+    </table>
+</form>
+

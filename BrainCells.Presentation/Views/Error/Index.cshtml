@@ -7,31 +7,24 @@
 
 @model StatusCodeViewModel
 
-<div class="iContainer-background">
-    <h1 class="iTitle">BrainCells.</h1>
-    <div class="iContainer iContainer-blur"></div>
-    <div id="divMain" class="iContainer iContainer-main">
-        <table>
-            <tr>
-                <td class="mlogo">
-                    <img src="/resource/neuron-icon-white.png" class="elogo" />
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div id="divMessage" class="iContainer iContainer-message ediv">
-        <table>
-            <tr>
-                <td>
-                    <p class="ecode">@Model.Code</p>
-                    <p class="emessage">@Model.Message</p>
-                    <form asp-controller="Home" asp-action="Index" method="get">
-                        <button type="submit" class="mbutton"><i class="fa fa-home"></i>Back Home</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <p class="iCopyright">&copy; copyright faulter, Inc. all rights reserved.</p>
+<table>
+    <tr>
+        <td class="mlogo">
+            <img src="/resource/neuron-icon-white.png" class="elogo" />
+        </td>
+    </tr>
+</table> 
+<div id="divMessage" class="iContainer iContainer-message ediv">
+    <table>
+        <tr>
+            <td>
+                <p class="ecode">@Model.Code</p>
+                <p class="emessage">@Model.Message</p>
+                <form asp-controller="Home" asp-action="Index" method="get">
+                    <button type="submit" class="mbutton"><i class="fa fa-home"></i>Back Home</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
 

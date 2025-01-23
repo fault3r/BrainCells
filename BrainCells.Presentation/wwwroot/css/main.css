@@ -78,9 +78,15 @@ html{
         text-align: center;
         font-size: 26px;
     }
-    .mtitle b{
-        text-shadow: 1px 1px 1px #f1f1f1;
-    }
+        .mtitle b{
+            text-shadow: 1px 1px 1px #f1f1f1;
+        }
+        .mtitle a{
+            all: unset;
+            text-decoration: none;
+            cursor: pointer;
+            color: #f1f1f1;
+        }
     .mlabel{
         display: flex;
         flex-direction: row;

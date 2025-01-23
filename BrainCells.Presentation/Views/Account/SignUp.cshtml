@@ -7,108 +7,85 @@
 
 @model SignupViewModel
 
-<div class="iContainer-background">    
-    <h1 class="iTitle">BrainCells</h1>
-    <div class="iContainer iContainer-blur"></div>
-    <div id="divMain" class="iContainer iContainer-main">
-        <form asp-controller="Account" asp-action="SignUp" method="post">
-            <table>
-                <tr>
-                    <td class="mlogo">
-                        <img src="/resource/neuron-icon-white.png" class="micon mlogo" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mtitle">
-                        <p>Sign up to <b>BrainCells</b></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mlabel">
-                        <i class="fa fa-envelope"></i>
-                        <label for="Email">Email address</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input asp-for="Email" id="Email" type="text" class="mtext" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mlabel mtopm">
-                        <i class="fa fa-key"></i> 	
-                        <label for="Password">Password</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="mpassword">
-                        <input asp-for="Password" id="Password" type="password" class="mtext" required />
-                        <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
-                    </td>
-                </tr>    
-                <tr>
-                    <td>
-                        <div class="pwdchk">
-                            <div id="pwdchk-point"></div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        <div class="mdescribe"><i class="fa fa-exclamation-circle"></i>Password must be between 8 and 30 characters, Anything.</div>
-                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" required />
-                    </td>
-                </tr>    
-                <tr>
-                    <td class="mlabel mtopm">
-                        <i class="fa fa-user"></i>
-                        <label for="Name">Your name</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input asp-for="Name" id="Name" type="text" class="mtext" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="moptions">
-                        <div class="mcheck">
-                            <div class="checkbox-wrapper-26">
-                                <input asp-for="Agree" id="agree" type="checkbox" class="mcheckbox" unchecked />
-                                <label class="cbx" for="agree"></label>
-                            </div>
-                            <label for="agree">Agree to the <a class="ma" href="#">terms</a>.</label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="submit" class="mbutton">Continue →</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="msignup">
-                        Already have an account? <a href="/Account/SignIn" class="ma">Sign in</a>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    @{
-        if(ViewData["Message"] != null)
-        {
-            if(ViewData["Message"].ToString() != "none")
-            {
-                string message = ViewData["Message"].ToString();
-                string title = message.Split('|')[0];
-                string color = message.Split('|')[1];
-                <div id="divMessage" class="iContainer iContainer-message">
-                    <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
-                    <div asp-validation-summary="All"></div>
-                    <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+<form asp-controller="Account" asp-action="SignUp" method="post">
+    <table>
+        <tr>
+            <td class="mlogo">
+                <img src="/resource/neuron-icon-white.png" class="micon mlogo" />
+            </td>
+        </tr>
+        <tr>
+            <td class="mtitle">
+                <p>Sign up to <b><a href="/">BrainCells</a></b></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
+                <i class="fa fa-envelope"></i>
+                <label for="Email">Email address</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input asp-for="Email" id="Email" type="text" class="mtext" required />
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel mtopm">
+                <i class="fa fa-key"></i> 	
+                <label for="Password">Password</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="mpassword">
+                <input asp-for="Password" id="Password" type="password" class="mtext" required />
+                <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
+            </td>
+        </tr>    
+        <tr>
+            <td>
+                <div class="pwdchk">
+                    <div id="pwdchk-point"></div>
                 </div>
-            }
-        }
-    }
-    <p class="iCopyright">&copy; copyright 2025 faulter, Inc. all rights reserved.</p>
-</div>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <div class="mdescribe"><i class="fa fa-exclamation-circle"></i>Password must be between 8 and 30 characters, Anything.</div>
+                <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" required />
+            </td>
+        </tr>    
+        <tr>
+            <td class="mlabel mtopm">
+                <i class="fa fa-user"></i>
+                <label for="Name">Your name</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input asp-for="Name" id="Name" type="text" class="mtext" required />
+            </td>
+        </tr>
+        <tr>
+            <td class="moptions">
+                <div class="mcheck">
+                    <div class="checkbox-wrapper-26">
+                        <input asp-for="Agree" id="agree" type="checkbox" class="mcheckbox" unchecked />
+                        <label class="cbx" for="agree"></label>
+                    </div>
+                    <label for="agree">Agree to the <a class="ma" href="#">terms</a>.</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="mbutton">Continue →</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="msignup">
+                Already have an account? <a href="/Account/SignIn" class="ma">Sign in</a>
+            </td>
+        </tr>
+    </table>
+</form>

@@ -11,7 +11,30 @@
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
-    <div>@RenderBody()</div>
+    <div class="iContainer-background">
+        <h1 class="iTitle">BrainCells</h1>
+        <div class="iContainer iContainer-blur"></div>
+        <div id="divMain" class="iContainer iContainer-main">
+            @RenderBody()
+        </div>
+        @{
+            if(ViewData["Message"] != null)
+            {
+                if(ViewData["Message"].ToString() != "none")
+                {
+                    string message = ViewData["Message"].ToString();
+                    string title = message.Split('|')[0];
+                    string color = message.Split('|')[1];
+                    <div id="divMessage" class="iContainer iContainer-message">
+                        <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
+                        <div asp-validation-summary="All"></div>
+                        <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
+                    </div>
+                }
+            }
+        }
+        <p class="iCopyright">&copy; copyright 2025 faulter, Inc. all rights reserved.</p>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/pwd-chk.js"></script>

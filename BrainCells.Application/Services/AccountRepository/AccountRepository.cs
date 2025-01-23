@@ -40,7 +40,10 @@ public class AccountRepository : IAccountRepository
                 };
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
-                var properties = new AuthenticationProperties {IsPersistent = persistent};
+                var properties = new AuthenticationProperties {
+                    IsPersistent = persistent,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
+                };
                 await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
                 return new RepositoryResultDto {
                     Success = true,
