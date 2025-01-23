@@ -21,11 +21,11 @@
         </div>
         <div class="navbar-profile">
             <div class="profile-search">
-                <input type="text" placeholder="searching.." />
+                <input type="text" placeholder="search.." />
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
             <div class="profile-line"></div>
-            <div class="profile-picture" onclick="ProfileMenu()"></div>
+            <div class="profile-picture" onclick="ProfileMenu()" style="background-image: url('data:image/*;base64,@Model.Picture');"></div>
         </div>
     </div>
     <div class="container-profile" id="profile-div">
@@ -33,9 +33,10 @@
         <a href="#"><i class="fa fa-edit"></i> Edit Information</a>
         <a href="#"><i class="fa fa-sign-out"></i> Sign Out</a>
     </div>
-    <div class="container-menu" id="menu-div">
+    <div class="container-menu" id="menu-div"></div>
+    <div class="container-main" id="container-main">
+        @RenderBody()
     </div>
-    <div class="container-main" id="container-main">@RenderBody()</div>
     <div class="container-footer">
         <div class="footer-copyright">
             <img class="footer-logo" src="/resource/neuron-icon-white.png" />

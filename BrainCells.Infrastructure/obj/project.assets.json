@@ -2058,7 +2058,10 @@
         },
         "runtime": {
           "bin/placeholder/BrainCells.Application.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "BrainCells.Domain/1.0.0": {
         "type": "project",

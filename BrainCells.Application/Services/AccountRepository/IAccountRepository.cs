@@ -10,4 +10,6 @@ public interface IAccountRepository
     Task<RepositoryResultDto> SignUpAsync(SignUpDto account);
 
     Task<RepositoryResultDto> SignOutAsync();
+
+    Task<AccountDto> ViewAccountAsync(string id);
 }

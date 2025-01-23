@@ -14,4 +14,6 @@ public class Account
     public virtual Role Role{ get; set; }
 
     public string Name { get; set; }
+
+    public byte[] Picture { get; set; }
 }

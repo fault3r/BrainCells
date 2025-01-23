@@ -1,11 +1,13 @@
 using System;
 using System.Drawing;
+using System.Security.Claims;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.Common;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrainCells.Presentation.Controllers;
@@ -26,9 +28,20 @@ public class AccountController : Controller
         _signupValidator = signupValidator;
     }
 
-    public IActionResult Index()
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var tAccount = await _accountRepository.ViewAccountAsync(
+            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+        AccountViewModel account = new AccountViewModel{
+            Id = tAccount.Id,
+            Email = tAccount.Email,
+            Role = tAccount.Role,
+            Name = tAccount.Name,
+            Picture = tAccount.Picture,
+        };
+        return View("Index", account);
     }
 
     [Route("SignIn")]

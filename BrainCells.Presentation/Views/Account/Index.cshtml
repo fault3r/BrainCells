@@ -1,16 +1,14 @@
-@using System.Security.Claims
+@using BrainCells.Presentation.Models.Account.ViewModels
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Account";
 }
 
-@{
-    if(User.Identity.IsAuthenticated)
-    {
-        <p>@User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString()</p>
-        <p>@User.FindFirst(ClaimTypes.Email).Value.ToString()</p>
-        <p>@User.FindFirst(ClaimTypes.Role).Value.ToString()</p>
-        <p>@User.FindFirst(ClaimTypes.Name).Value.ToString()</p>
-    }
-}
+@model AccountViewModel
+
+<p>@Model.Id</p>
+<p>@Model.Email</p>
+<p>@Model.Name</p>
+<p>@Model.Role</p>
+<div style="background-image: url('data:image/*;base64,@Model.Picture'); width: 100px; height: 100px; background-size: cover;"></div>

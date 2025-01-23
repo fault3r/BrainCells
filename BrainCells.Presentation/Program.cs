@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IDatabaseContext,DatabaseContext>();
+builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 builder.Services.AddDbContext<DatabaseContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
@@ -28,10 +28,10 @@ builder.Services.AddAuthorization(options => {
     options.AddPolicy("requireLogin",policy => policy.RequireRole("ACCOUNT"));
 });
 
-builder.Services.AddScoped<IAccountRepository,AccountRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
-builder.Services.AddScoped<IValidator<SigninViewModel>,SigninValidator>();
-builder.Services.AddScoped<IValidator<SignupViewModel>,SignupValidator>();
+builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();
+builder.Services.AddScoped<IValidator<SignupViewModel>, SignupValidator>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();

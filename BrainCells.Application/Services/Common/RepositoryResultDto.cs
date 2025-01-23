@@ -1,4 +1,5 @@
 using System;
+using BrainCells.Domain.Entities.Accounts;
 
 namespace BrainCells.Application.Services.Common;
 

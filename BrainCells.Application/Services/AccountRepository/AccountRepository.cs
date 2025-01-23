@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
@@ -16,20 +17,23 @@ public class AccountRepository : IAccountRepository
 
     private readonly IDatabaseContext _databaseContext;
     private readonly IHttpContextAccessor _httpcontextAccessor;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public AccountRepository(IDatabaseContext databaseContext, IHttpContextAccessor httpcontextAccessor)
+    public AccountRepository(IDatabaseContext databaseContext,
+        IHttpContextAccessor httpcontextAccessor, IWebHostEnvironment webHostEnvironment)
     {
         _databaseContext = databaseContext;
         _httpcontextAccessor = httpcontextAccessor;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     public async Task<RepositoryResultDto> SignInAsync(string email, string password, bool persistent)
     {
         try{
-            var account = _databaseContext.Accounts.AsQueryable()
+            var account = await _databaseContext.Accounts.AsQueryable()
                 .Include(e => e.Role)
                 .Where(p => p.Email == email.ToLower().Trim() && p.Password  == PasswordHasher.ComputeHash(password))
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
             if(account != null)
             {
                 var claims = new List<Claim> {
@@ -70,8 +74,9 @@ public class AccountRepository : IAccountRepository
             var tAccount = new Account {
                 Email = account.Email.ToLower(),
                 Password = PasswordHasher.ComputeHash(account.Password),
-                Name = account.Name.Trim(),
                 RoleId = Guid.Parse(AppConsts.ACCOUNT),
+                Name = account.Name.Trim(),
+                Picture = AppResources.GetResource(_webHostEnvironment, AppResources.ProfilePicture).ToArray(),
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
@@ -111,5 +116,25 @@ public class AccountRepository : IAccountRepository
                 Message = "An unexpected error has occurred. That's all we know!",
             }; 
        }
+    }
+
+    public async Task<AccountDto> ViewAccountAsync(string id)
+    {
+        try{
+            var account = await _databaseContext.Accounts.AsQueryable()
+                .Include(e => e.Role)
+                .Where(p => p.Id.ToString() == id)
+                .FirstOrDefaultAsync();
+            return new AccountDto {
+                Id = account.Id.ToString(),
+                Email = account.Email,
+                Role = account.Role.Name,
+                Name = account.Name,
+                Picture = Convert.ToBase64String(account.Picture),
+            };
+        }
+        catch{
+            return null;
+        }
     }
 }
