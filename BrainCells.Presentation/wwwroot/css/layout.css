@@ -18,7 +18,6 @@ body{
 }
 
 .container-navbar{
-    min-width: 600px;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     color: #f1f1f1;
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(32, 32, 32, 0.22) 0px 15px 12px;
@@ -182,7 +181,6 @@ body{
     }
 .container-main{
     min-height: 110px;
-    min-width: 500px;
     width: calc(80%);
     padding: 20px;
     margin: 30px 10% 30px 10%;
@@ -242,17 +240,67 @@ body{
         .footer-links div:last-child{
             font-size: 12px;
         }
-    /* cdn */
 
-    .faLink{
-        text-decoration: none;
-        box-shadow: inset 0 0 0 0 #f1f1f1;
-        color: rgb(126, 207, 251);
-        padding: 0px 3px 1px 3px;
-        border-radius: 4px;
-        transition: all .3s ease-in-out;
+/* cdn */
+.faLink{
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #f1f1f1;
+    color: rgb(126, 207, 251);
+    padding: 0px 3px 1px 3px;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+}
+.faLink:hover{
+    color: rgb(8, 75, 102);
+    box-shadow: inset 200px 0 0 0 #f1f1f1;
+}
+/* END */
+
+/* view account */
+.container-account{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+    .account-title{
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        text-shadow: 3px 3px 3px rgb(8, 75, 102);
     }
-    .faLink:hover{
-        color: rgb(8, 75, 102);
-        box-shadow: inset 200px 0 0 0 #f1f1f1;
+    .account-picture{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
+    .account-line{
+        position: absolute;
+        left: 50%;
+        top: 150px;
+        height: 2px;
+        width: 80%;
+        transform: translateX(-50%);
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px rgb(8, 75, 102);
+        z-index: -1;
+    }
+    .account-name{
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .account-email{
+        font-size: 16px;
+        font-weight: bold;
+    }
+/* END */
+

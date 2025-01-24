@@ -5,9 +5,10 @@
     ViewData["Title"] = "Account";
     var account = ViewData["Account"] as AccountViewModel;
 }
-
-<p>@account.Id</p>
-<p>@account.Email</p>
-<p>@account.Role</p>
-<p>@account.Name</p>
-<div style="background-image: url('data:image/*;base64,@account.Picture'); width: 150px; height: 150px; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+<div class="container-account">
+    <div class="account-title"><i class="fa fa-user-circle-o"></i> Your Profile</div>
+    <div class="account-picture" style="background-image: url('data:image/*;base64,@account.Picture');"></div>
+    <div class="account-line"></div>
+    <div class="account-name">@account.Name</div>
+    <div class="account-email">@account.Email</div>
+</div>
