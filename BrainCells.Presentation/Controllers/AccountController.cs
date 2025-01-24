@@ -28,25 +28,6 @@ public class AccountController : Controller
         _signupValidator = signupValidator;
     }
 
-    [Authorize]
-    [HttpGet]
-    public async Task<IActionResult> Index()
-    {
-        if(User.Identity.IsAuthenticated)
-        {
-            var account = await _accountRepository.ViewAccountAsync(
-                User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
-            ViewData["Account"] = new AccountViewModel{
-                Id = account.Id,
-                Email = account.Email,
-                Role = account.Role,
-                Name = account.Name,
-                Picture = account.Picture,
-            } as AccountViewModel;
-        }
-        return View("Index");
-    }
-
     [Route("SignIn")]
     [HttpGet]
     public ActionResult SignIn()
@@ -130,5 +111,29 @@ public class AccountController : Controller
             ViewData["MessageType"]= AppConsts.ERROR;
         ModelState.AddModelError("SignOut", result.Message);
         return View("SignIn");
+    }
+
+    private async Task<AccountViewModel> viewAccount()
+    {
+        var account = await _accountRepository.ViewAccountAsync(
+            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+        if(account != null)
+            return new AccountViewModel{
+                Id = account.Id,
+                Email = account.Email,
+                Role = account.Role,
+                Name = account.Name,
+                Picture = account.Picture,
+            };
+        else
+            return null;
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("Index");
     }
 }

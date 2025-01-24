@@ -125,6 +125,8 @@ public class AccountRepository : IAccountRepository
                 .Include(e => e.Role)
                 .Where(p => p.Id.ToString() == id)
                 .FirstOrDefaultAsync();
+            if(account == null)
+                return null;
             return new AccountDto {
                 Id = account.Id.ToString(),
                 Email = account.Email,

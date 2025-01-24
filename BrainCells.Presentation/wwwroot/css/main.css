@@ -83,7 +83,6 @@ html{
         }
         .mtitle a{
             all: unset;
-            text-decoration: none;
             cursor: pointer;
             color: #f1f1f1;
         }

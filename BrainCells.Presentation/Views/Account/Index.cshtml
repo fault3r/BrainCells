@@ -3,5 +3,11 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Account";
+    var account = ViewData["Account"] as AccountViewModel;
 }
 
+<p>@account.Id</p>
+<p>@account.Email</p>
+<p>@account.Role</p>
+<p>@account.Name</p>
+<div style="background-image: url('data:image/*;base64,@account.Picture'); width: 150px; height: 150px; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>

@@ -14,7 +14,6 @@ body{
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
-    height: 500px;
     position: relative;
 }
 
@@ -22,6 +21,7 @@ body{
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     color: #f1f1f1;
     width: 100%;
+    height: 70px;
     padding: 8px;
     display: flex;
     flex-direction: row;
@@ -43,7 +43,7 @@ body{
             width: 35px;
             height: 35px;
             position: relative;
-            z-index: 3;
+            z-index: 5;
         }
         .menu-logo{
             width: 40px;
@@ -57,8 +57,10 @@ body{
             color: #f1f1f1;
             text-align: center;
             text-shadow: 3px 3px 3px rgb(8, 75, 102);
-          }
-          
+        }
+            .menu-title a{
+                all: unset;
+            }
     .navbar-profile{
         display: flex;
         flex-direction: row;
@@ -85,9 +87,11 @@ body{
 
             }
         .profile-line{
-            width: 1px;
+            width: 2px;
             height: 40px;
             background-color: #f1f1f1;
+            border: .1px solid rgb(8, 75, 102);
+            box-shadow: 0px 0px 1px rgb(8, 75, 102);
         }
         .profile-search{
             display: flex;
@@ -102,8 +106,8 @@ body{
                 border: 2px solid rgb(8, 75, 102);
                 border-right: none;
                 border-radius: 10px 0px 0px 10px;
-                height: 35px;
-                width: 150px;
+                height: 40px;
+                width: 180px;
                 padding-left: 7px;
                 transition: all .3s ease-in-out;
             }
@@ -120,7 +124,7 @@ body{
                 border-radius: 0px 10px 10px 0px;
                 font-size: 20px;
                 padding: 1px 5px 1px 5px;
-                height: 35px;
+                height: 40px;
                 transition: all .3s ease-in-out;
             }
             .profile-search button:hover{
@@ -130,10 +134,11 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 4;
     width: 0px;
     height: 100%;
     border-radius: 0px 10px 10px 0px;
+    backdrop-filter: blur(3px);
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     transition: all .3s ease-in-out;
 }
@@ -143,10 +148,11 @@ body{
     width: 160px;
     height: 0px;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
     border-radius: 0px 0px 0px 10px;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
+    backdrop-filter: blur(3px);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -172,9 +178,15 @@ body{
         color: rgb(8, 75, 102);
         box-shadow: inset 200px 0 0 0 #f1f1f1;
     }
+.container-main{
+    min-height: 110px;
+    padding: 10px 10px 70px 10px;
+    
+}
 .container-footer{
     position: absolute;
     width: 100%;
+    height: 60px;
     bottom: 0;
     padding: 10px;
     background-image: linear-gradient(to top right,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
@@ -184,6 +196,8 @@ body{
     justify-content: center;
     align-items: center;
     gap: 15px;
+    z-index: 1;
+    opacity: .9;
 }
     .footer-copyright{
         display: flex;
