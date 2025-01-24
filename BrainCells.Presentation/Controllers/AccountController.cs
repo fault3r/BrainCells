@@ -32,23 +32,26 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var tAccount = await _accountRepository.ViewAccountAsync(
-            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
-        AccountViewModel account = new AccountViewModel{
-            Id = tAccount.Id,
-            Email = tAccount.Email,
-            Role = tAccount.Role,
-            Name = tAccount.Name,
-            Picture = tAccount.Picture,
-        };
-        return View("Index", account);
+        if(User.Identity.IsAuthenticated)
+        {
+            var account = await _accountRepository.ViewAccountAsync(
+                User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+            ViewData["Account"] = new AccountViewModel{
+                Id = account.Id,
+                Email = account.Email,
+                Role = account.Role,
+                Name = account.Name,
+                Picture = account.Picture,
+            } as AccountViewModel;
+        }
+        return View("Index");
     }
 
     [Route("SignIn")]
     [HttpGet]
     public ActionResult SignIn()
     {
-        ViewData["Message"] = AppConsts.NONE;
+        ViewData["MessageType"] = AppConsts.NONE;
         return View("SignIn");
     }
 
@@ -62,18 +65,16 @@ public class AccountController : Controller
             var result = await _accountRepository.SignInAsync(account.Email, account.Password, account.Persistent);
             if(result.Success)
             {
-                ViewData["Message"] = AppConsts.SUCCESS;
-                ModelState.AddModelError("SignIn", result.Message);
+                ViewData["MessageType"] = AppConsts.SUCCESS;
+                return Redirect("/");   //this statement made message disable
             }
             else
-            {
-                ViewData["Message"] = AppConsts.ERROR;
-                ModelState.AddModelError("SignIn", result.Message);
-            }  
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("SignIn", result.Message);
         }
         else
         {
-            ViewData["Message"] = AppConsts.WARNING;
+            ViewData["MessageType"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
         }
         return View("SignIn", account);
@@ -83,7 +84,7 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult SignUp()
     {
-        ViewData["Message"] = AppConsts.NONE;
+        ViewData["MessageType"] = AppConsts.NONE;
         return View("SignUp");
     }
 
@@ -101,18 +102,18 @@ public class AccountController : Controller
             });
             if(result.Success)
             {
-                ViewData["Message"] = AppConsts.SUCCESS;
-                ModelState.AddModelError("SignUp", result.Message);
+                ViewData["MessageType"] = AppConsts.SUCCESS;
+                //these statements made message disable
+                await _accountRepository.SignInAsync(account.Email, account.Password, true);
+                return Redirect("/");   
             }
             else
-            {
-                ViewData["Message"] = AppConsts.ERROR;
-                ModelState.AddModelError("SignUp", result.Message);
-            }
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("SignUp", result.Message);
         }
         else
         {
-            ViewData["Message"] = AppConsts.WARNING;
+            ViewData["MessageType"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
         }
         return View("SignUp", account);
@@ -124,15 +125,10 @@ public class AccountController : Controller
     {
         var result = await _accountRepository.SignOutAsync();
         if(result.Success)
-        {
-            ViewData["Message"] = AppConsts.SUCCESS;
-            ModelState.AddModelError("SignUp", result.Message);
-        }
+            ViewData["MessageType"] = AppConsts.SUCCESS;        
         else
-        {
-            ViewData["Message"]= AppConsts.ERROR;
-            ModelState.AddModelError("SignUp", result.Message);
-        }
+            ViewData["MessageType"]= AppConsts.ERROR;
+        ModelState.AddModelError("SignOut", result.Message);
         return View("SignIn");
     }
 }

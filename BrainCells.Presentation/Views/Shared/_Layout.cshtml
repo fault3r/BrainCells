@@ -1,3 +1,5 @@
+@using BrainCells.Presentation.Models.Account.ViewModels
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +27,25 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
             <div class="profile-line"></div>
-            <div class="profile-picture" onclick="ProfileMenu()" style="background-image: url('data:image/*;base64,@Model.Picture');"></div>
+            @{
+                if(ViewData["Account"] != null)
+                {
+                    var account = ViewData["Account"] as AccountViewModel;
+                    <div class="profile-picture" onclick="ProfileMenu()"
+                         style="background-image: url('data:image/*;base64,@account.Picture');">
+                    </div>
+                }
+                else
+                {
+                    <div class="profile-picture" onclick="ProfileMenu()"></div>
+                }
+            }
         </div>
     </div>
     <div class="container-profile" id="profile-div">
-        <a href="#"><i class="fa fa-user-circle-o"></i> View Profile</a>
+        <a href="/Account/"><i class="fa fa-user-circle-o"></i> View Profile</a>
         <a href="#"><i class="fa fa-edit"></i> Edit Information</a>
-        <a href="#"><i class="fa fa-sign-out"></i> Sign Out</a>
+        <a href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>
     </div>
     <div class="container-menu" id="menu-div"></div>
     <div class="container-main" id="container-main">
