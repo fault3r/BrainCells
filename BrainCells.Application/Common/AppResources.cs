@@ -11,6 +11,9 @@ public static class AppResources
         string path = string.Empty;
         switch (resource)
         {
+            case AppResources.AppLogo:
+                path = Path.Combine(webHost.WebRootPath, "resource", AppResources.AppLogo);
+                break;
             case AppResources.ProfilePicture:
                 path = Path.Combine(webHost.WebRootPath, "resource", AppResources.ProfilePicture);
                 break;
@@ -18,6 +21,7 @@ public static class AppResources
         return getResource(path);
     }
 
+    public const string AppLogo = "app-logo.png";
     public const string ProfilePicture = "profile-picture.png";
 
     private static MemoryStream getResource(string path)
