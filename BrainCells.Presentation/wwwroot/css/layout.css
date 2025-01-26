@@ -268,8 +268,8 @@ body{
 }
     .account-title{
         position: absolute;
-        left: 20px;
-        top: 20px;
+        left: 15px;
+        top: 15px;
         font-size: 26px;
         font-weight: bold;
         text-shadow: 3px 3px 3px rgb(8, 75, 102);
@@ -282,6 +282,40 @@ body{
         background-size: cover;
         background-position: center;
     }
+    .account-settings{
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+    }
+        .account-settings a{
+            all: unset;
+        }
+        .settings-item{
+            padding: 5px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+            .settings-item:hover{
+                box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+                color: rgb(8, 75, 102);
+                background-color: #f1f1f1;
+            }
+            .settings-item i{
+                font-size: 30px;
+            }
     .account-line{
         position: absolute;
         left: 50%;
@@ -303,4 +337,6 @@ body{
         font-weight: bold;
     }
 /* END */
+
+
 

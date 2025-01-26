@@ -3,12 +3,22 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Account";
-    var account = ViewData["Account"] as AccountViewModel;
 }
-<div class="container-account">
-    <div class="account-title"><i class="fa fa-user-circle-o"></i> Your Profile</div>
-    <div class="account-picture" style="background-image: url('data:image/*;base64,@account.Picture');"></div>
-    <div class="account-line"></div>
-    <div class="account-name">@account.Name</div>
-    <div class="account-email">@account.Email</div>
-</div>
+
+@{
+    var account = ViewData["Account"] as AccountViewModel;
+    if(account != null)
+    {
+        <div class="container-account">
+            <div class="account-title"><i class="fa fa-user-circle-o"></i> Your Profile</div>
+            <div class="account-settings">
+                <a href="#"><div class="settings-item"><i class="fa fa-edit"></i>Edit Info.</div></a>
+                <a href="/Account/SignOut"><div class="settings-item"><i class="fa fa-sign-out"></i>Sign Out</div></a>
+            </div>
+            <div class="account-picture" style="background-image: url('data:image/*;base64,@account.Picture');"></div>
+            <div class="account-line"></div>
+            <div class="account-name">@account.Name</div>
+            <div class="account-email">@account.Email</div>
+        </div>
+    }
+}
