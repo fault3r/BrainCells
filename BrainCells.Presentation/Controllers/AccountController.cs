@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Security.Claims;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
+using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
@@ -15,16 +16,27 @@ namespace BrainCells.Presentation.Controllers;
 [Controller]
 public class AccountController : Controller
 {
+    private readonly ISupportEmailService _supportEmailService;
     private readonly IAccountRepository _accountRepository;
     private readonly IValidator<SigninViewModel> _signinValidator;
     private readonly IValidator<SignupViewModel> _signupValidator;
 
-    public AccountController(IAccountRepository accountRepository,
+    public AccountController(ISupportEmailService supportEmailService, IAccountRepository accountRepository,
         IValidator<SigninViewModel> signinValidator, IValidator<SignupViewModel> signupValidator)
     {
+        _supportEmailService = supportEmailService;
         _accountRepository = accountRepository;
         _signinValidator = signinValidator;
         _signupValidator = signupValidator;
+    }
+
+    [Route("sendmail")]
+    [HttpGet]
+    public async Task<IActionResult> sendmail()
+    {
+        await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","TEST PASS","<red><h1>THE TEST PASSED!</h1></red>");
+        ViewData["MessageType"] = AppConsts.NONE;
+        return View("SignIn");
     }
 
     [Route("SignIn")]

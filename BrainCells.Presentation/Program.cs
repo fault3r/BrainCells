@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
+using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Infrastructure.Contexts;
 using BrainCells.Infrastructure.Services;
 using BrainCells.Presentation.Middlewares;
@@ -14,10 +15,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 builder.Services.AddDbContext<DatabaseContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 
 builder.Services.AddAuthentication(options => {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -32,6 +33,7 @@ builder.Services.AddAuthorization(options => {
 });
 
 builder.Services.AddFluentEmailConfigure(builder.Configuration);
+builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
