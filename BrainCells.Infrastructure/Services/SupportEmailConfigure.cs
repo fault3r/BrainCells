@@ -8,7 +8,8 @@ namespace BrainCells.Infrastructure.Services;
 
 public static class SupportEmailConfigure
 {
-    public static IServiceCollection AddFluentEmailConfigure(this IServiceCollection source, ConfigurationManager configuration)
+    public static IServiceCollection AddFluentEmailConfigure(this IServiceCollection source,
+        ConfigurationManager configuration)
     {
         string name = configuration["SupportEmail:Name"].ToString();
         string address = configuration["SupportEmail:Address"].ToString();
@@ -18,10 +19,10 @@ public static class SupportEmailConfigure
 
         source.AddFluentEmail(address, name)
             .AddSmtpSender(new SmtpClient{
-                EnableSsl = true,
                 Host = host,
                 Port = port,
                 Credentials = new NetworkCredential(address, pwd),
+                EnableSsl = true,
             });
         return source;
     }
