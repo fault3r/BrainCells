@@ -2,7 +2,6 @@ using System;
 using System.Security.Claims;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
-using BrainCells.Application.Services.Common;
 using BrainCells.Domain.Entities.Accounts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -27,7 +26,7 @@ public class AccountRepository : IAccountRepository
         _webHostEnvironment = webHostEnvironment;
     }
 
-    public async Task<RepositoryResultDto> SignInAsync(string email, string password, bool persistent)
+    public async Task<ResultDto> SignInAsync(string email, string password, bool persistent)
     {
         try{
             var account = await _databaseContext.Accounts.AsQueryable()
@@ -49,26 +48,26 @@ public class AccountRepository : IAccountRepository
                     ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
                 };
                 await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
-                return new RepositoryResultDto {
+                return new ResultDto {
                     Success = true,
                     Message = $"Welcome back, {account.Name}! You have successfully logged in.",
                 };
             }
             else
-                return new RepositoryResultDto {
+                return new ResultDto {
                     Success = false,
                     Message = "Login failed. Please check your email and password and try again!",
                 };
         }
         catch{
-                return new RepositoryResultDto{   
+                return new ResultDto{   
                     Success = false,
                     Message = "An unexpected error has occurred. That's all we know!",
                 };
         }
     }
 
-    public async Task<RepositoryResultDto> SignUpAsync(SignUpDto account)
+    public async Task<ResultDto> SignUpAsync(SignUpDto account)
     {
         try{
             var tAccount = new Account {
@@ -80,7 +79,7 @@ public class AccountRepository : IAccountRepository
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
-            return new RepositoryResultDto {
+            return new ResultDto {
                 Success = true,
                 Message = $"Congratulations, {tAccount.Name}! Your account has been created successfully. You can now log in.",
             };
@@ -89,29 +88,29 @@ public class AccountRepository : IAccountRepository
             if(ex.InnerException != null)
             {
                 if(ex.InnerException.Message.Contains("duplicate key"))
-                    return new RepositoryResultDto {
+                    return new ResultDto {
                         Success = false,
                         Message = "This email address is already associated with an account. Please log in or use a different email.",
                     };
             }
-            return new RepositoryResultDto {
+            return new ResultDto {
                 Success = false,
                 Message = "An unexpected error has occurred. That's all we know!",
             };  
         }
     }
 
-    public async Task<RepositoryResultDto> SignOutAsync()
+    public async Task<ResultDto> SignOutAsync()
     {
         try{
             await _httpcontextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return new RepositoryResultDto {
+            return new ResultDto {
                 Success = true,
                 Message = "You have successfully logged out. We hope to see you again soon.",
             };
         }
         catch{
-            return new RepositoryResultDto {
+            return new ResultDto {
                 Success = false,
                 Message = "An unexpected error has occurred. That's all we know!",
             }; 

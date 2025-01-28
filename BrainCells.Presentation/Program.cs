@@ -1,7 +1,10 @@
 using System;
+using System.Net;
+using System.Net.Mail;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Infrastructure.Contexts;
+using BrainCells.Infrastructure.Services;
 using BrainCells.Presentation.Middlewares;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
@@ -27,6 +30,8 @@ builder.Services.AddAuthentication(options => {
 builder.Services.AddAuthorization(options => {
     options.AddPolicy("requireLogin",policy => policy.RequireRole("ACCOUNT"));
 });
+
+builder.Services.AddFluentEmailConfigure(builder.Configuration);
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 

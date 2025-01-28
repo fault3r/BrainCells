@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Security.Claims;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
-using BrainCells.Application.Services.Common;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;

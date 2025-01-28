@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "cyDLpCnYq696895JfX8mVqev7LglXGlDLEUgGMq7pAtp7ZzkkBM3nhlM4QPbydfmu/VUG6Gg+Q7xxI8HAAwoKA==",
+  "dgSpecHash": "pwF/mB53tl6cDEnbJpXpdoFaTwjbXR637+Wwx/SADdGWCpYP8TvVA3LkJ0hzqkkqesCtvzxjtfJ2a5HM4uBdyA==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Presentation/BrainCells.Presentation.csproj",
   "expectedPackageFiles": [
     "/home/hamed-damavandi/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/fluentemail.core/3.0.2/fluentemail.core.3.0.2.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/fluentemail.smtp/3.0.2/fluentemail.smtp.3.0.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

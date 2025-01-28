@@ -1,15 +1,15 @@
 using System;
-using BrainCells.Application.Services.Common;
+using BrainCells.Application.Common;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
 public interface IAccountRepository
 {
-    Task<RepositoryResultDto> SignInAsync(string email, string password, bool persistent);
+    Task<ResultDto> SignInAsync(string email, string password, bool persistent);
     
-    Task<RepositoryResultDto> SignUpAsync(SignUpDto account);
+    Task<ResultDto> SignUpAsync(SignUpDto account);
 
-    Task<RepositoryResultDto> SignOutAsync();
+    Task<ResultDto> SignOutAsync();
 
     Task<AccountDto> ViewAccountAsync(string id);
 }
