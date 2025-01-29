@@ -34,8 +34,12 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> sendmail()
     {
-        await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","TEST PASS","<red><h1>THE TEST PASSED!</h1></red>");
-        ViewData["MessageType"] = AppConsts.NONE;
+        var res = await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","TEST PASS","<red><h1>THE TEST PASSED!</h1></red>");
+        if(res.Success)
+            ViewData["MessageType"] = AppConsts.SUCCESS;
+        else
+            ViewData["MessageType"] = AppConsts.ERROR;
+        ModelState.AddModelError("",res.Message);
         return View("SignIn");
     }
 
@@ -115,7 +119,7 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> SignOut()
     {
-        var result = await _accountRepository.SignOutAsync();
+        var result = await _accountRepository.SignOutAsync(User.FindFirst(ClaimTypes.Email).Value.ToString());
         if(result.Success)
             ViewData["MessageType"] = AppConsts.SUCCESS;        
         else

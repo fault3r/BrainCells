@@ -9,7 +9,7 @@ public interface IAccountRepository
     
     Task<ResultDto> SignUpAsync(SignUpDto account);
 
-    Task<ResultDto> SignOutAsync();
+    Task<ResultDto> SignOutAsync(string email);
 
     Task<AccountDto> ViewAccountAsync(string id);
 }
