@@ -30,19 +30,6 @@ public class AccountController : Controller
         _signupValidator = signupValidator;
     }
 
-    [Route("sendmail")]
-    [HttpGet]
-    public async Task<IActionResult> sendmail()
-    {
-        var res = await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","TEST PASS","<red><h1>THE TEST PASSED!</h1></red>");
-        if(res.Success)
-            ViewData["MessageType"] = AppConsts.SUCCESS;
-        else
-            ViewData["MessageType"] = AppConsts.ERROR;
-        ModelState.AddModelError("",res.Message);
-        return View("SignIn");
-    }
-
     [Route("SignIn")]
     [HttpGet]
     public ActionResult SignIn()
@@ -62,7 +49,7 @@ public class AccountController : Controller
             if(result.Success)
             {
                 ViewData["MessageType"] = AppConsts.SUCCESS;
-                return Redirect("/");   //this statement made message disable
+                return Redirect("/");
             }
             else
                 ViewData["MessageType"] = AppConsts.ERROR;
@@ -99,7 +86,6 @@ public class AccountController : Controller
             if(result.Success)
             {
                 ViewData["MessageType"] = AppConsts.SUCCESS;
-                //these statements made message disable
                 await _accountRepository.SignInAsync(account.Email, account.Password, true);
                 return Redirect("/");   
             }
@@ -115,6 +101,7 @@ public class AccountController : Controller
         return View("SignUp", account);
     }
 
+    [Authorize]
     [Route("SignOut")]
     [HttpGet]
     public async Task<IActionResult> SignOut()
@@ -126,6 +113,13 @@ public class AccountController : Controller
             ViewData["MessageType"]= AppConsts.ERROR;
         ModelState.AddModelError("SignOut", result.Message);
         return View("SignIn");
+    }
+
+    [Route("ForgotPassword")]
+    [HttpGet]
+    public IActionResult ForgotPassword()
+    {
+        return View("ForgotPassword");
     }
 
     private async Task<AccountViewModel> viewAccount()
@@ -150,5 +144,6 @@ public class AccountController : Controller
     {
         ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Index");
-    }
+    } 
+
 }
