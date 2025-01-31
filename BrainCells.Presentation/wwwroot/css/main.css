@@ -107,6 +107,11 @@ html{
         flex-wrap: nowrap;
         gap: 3px;
     }
+    .mdescribe2{
+        margin: 0px 30px 0px 32px;
+        font-size: 12px;
+        text-align: justify;
+    }
     .mdescribe i{
         font-size: 12px;
     }
