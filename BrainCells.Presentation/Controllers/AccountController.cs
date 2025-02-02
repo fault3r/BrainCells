@@ -145,5 +145,4 @@ public class AccountController : Controller
         ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Index");
     } 
-
 }

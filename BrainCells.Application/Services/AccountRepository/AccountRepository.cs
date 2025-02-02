@@ -123,7 +123,7 @@ public class AccountRepository : IAccountRepository
        }
     }
 
-    public async Task<AccountDto> ViewAccountAsync(string id)
+    public async Task<AccountDto?> ViewAccountAsync(string id)
     {
         try{
             var account = await _databaseContext.Accounts.AsQueryable()
@@ -144,4 +144,25 @@ public class AccountRepository : IAccountRepository
             return null;
         }
     }
+
+    public async Task<ResultDto> ForgotPassword(string email)
+    {
+        var account = await _databaseContext.Accounts.AsQueryable()
+            .Where(p => p.Email == email.ToLower())
+            .FirstOrDefaultAsync();
+        if(account != null)
+        {
+            //now check for old code
+        }
+        else
+            return new ResultDto{
+                Success = false,
+                Message = "Account not found!",
+            };
+        
+        //first i have to get email
+        //second i have to check email existence..
+        //var account = await ViewAccountAsync();
+    }
+
 }
