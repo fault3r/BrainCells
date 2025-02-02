@@ -9,6 +9,7 @@ public interface IDatabaseContext
 {
     DbSet<Account> Accounts { get; set; }
     DbSet<Role> Roles { get; set; }
+    DbSet<ForgotPassword> ForgotPasswords { get; set; }
 
     int SaveChanges();
 

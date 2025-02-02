@@ -49,7 +49,7 @@ public class AccountController : Controller
             if(result.Success)
             {
                 ViewData["MessageType"] = AppConsts.SUCCESS;
-                return Redirect("/");
+                //return Redirect("/");
             }
             else
                 ViewData["MessageType"] = AppConsts.ERROR;
@@ -122,6 +122,27 @@ public class AccountController : Controller
         return View("ForgotPassword");
     }
 
+    [Route("ForgotPassword")]
+    [HttpPost]
+    public async Task<IActionResult> ForgotPassword([FromForm]string email)
+    {
+        var result = await _accountRepository.ForgotPasswordAsync(email);   
+        if(result.Success)
+            ViewData["MessageType"] = AppConsts.SUCCESS;        
+        else
+            ViewData["MessageType"]= AppConsts.ERROR;
+        ModelState.AddModelError("ForgotPassword", result.Message);
+        return View("ForgotPassword");
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("Index");
+    } 
+
     private async Task<AccountViewModel> viewAccount()
     {
         var account = await _accountRepository.ViewAccountAsync(
@@ -138,11 +159,5 @@ public class AccountController : Controller
             return null;
     }
 
-    [Authorize]
-    [HttpGet]
-    public async Task<IActionResult> Index()
-    {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
-        return View("Index");
-    } 
+
 }

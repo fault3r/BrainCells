@@ -18,6 +18,8 @@ public class DatabaseContext : DbContext, IDatabaseContext
 
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Role> Roles { get; set; }
+    public DbSet<ForgotPassword> ForgotPasswords { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -27,9 +29,11 @@ public class DatabaseContext : DbContext, IDatabaseContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Account>().HasKey(p => p.Id);
+        builder.Entity<Account>().HasIndex(p => p.Email).IsUnique();
         builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
             .HasForeignKey(p => p.RoleId);
-        builder.Entity<Account>().HasIndex(p => p.Email).IsUnique();
+        builder.Entity<Account>().HasOne(e => e.ForgotPassword).WithOne(e => e.Account)
+            .HasForeignKey<ForgotPassword>(p => p.AccountId);
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasData(new Role {
@@ -38,6 +42,8 @@ public class DatabaseContext : DbContext, IDatabaseContext
         }, new Role{
             Id = Guid.Parse(AppConsts.ACCOUNT),
             Name = "ACCOUNT",
-        });        
+        });
+
+        builder.Entity<ForgotPassword>().HasKey(p => p.AccountId);
     }
 }

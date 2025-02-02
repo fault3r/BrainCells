@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using BrainCells.Application.Services.LoggingService;
 using static BrainCells.Application.Services.LoggingService.LoggingService;
+using BrainCells.Application.Services.SupportEmailService;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
@@ -17,14 +18,16 @@ public class AccountRepository : IAccountRepository
 {
     private readonly ILoggingService _loggingService;
     private readonly IDatabaseContext _databaseContext;
+    private readonly ISupportEmailService _supportEmailService;
     private readonly IHttpContextAccessor _httpcontextAccessor;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
     public AccountRepository(ILoggingService loggingService, IDatabaseContext databaseContext,
-        IHttpContextAccessor httpcontextAccessor, IWebHostEnvironment webHostEnvironment)
+        ISupportEmailService supportEmailService, IHttpContextAccessor httpcontextAccessor, IWebHostEnvironment webHostEnvironment)
     {
         _loggingService = loggingService;
         _databaseContext = databaseContext;
+        _supportEmailService = supportEmailService;
         _httpcontextAccessor = httpcontextAccessor;
         _webHostEnvironment = webHostEnvironment;
     }
@@ -145,24 +148,39 @@ public class AccountRepository : IAccountRepository
         }
     }
 
-    public async Task<ResultDto> ForgotPassword(string email)
+    public async Task<ResultDto> ForgotPasswordAsync(string email)
     {
         var account = await _databaseContext.Accounts.AsQueryable()
             .Where(p => p.Email == email.ToLower())
             .FirstOrDefaultAsync();
         if(account != null)
         {
-            //now check for old code
+            var old = await _databaseContext.ForgotPasswords.AsQueryable()
+                .Where(p => p.AccountId == account.Id)
+                .FirstOrDefaultAsync();
+            if(old != null)
+                _databaseContext.ForgotPasswords.Remove(old);
+
+            //make a code
+            _databaseContext.ForgotPasswords.Add(new ForgotPassword{
+                AccountId = account.Id,
+                VerificationCode = "123456",
+            });
+
+            await _databaseContext.SaveChangesAsync();
+
+            await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","verification code","123456");
+
+            return new ResultDto{
+                Success = true,
+                Message = "The verification code has send.",
+            };
         }
         else
             return new ResultDto{
                 Success = false,
                 Message = "Account not found!",
             };
-        
-        //first i have to get email
-        //second i have to check email existence..
-        //var account = await ViewAccountAsync();
     }
 
 }
