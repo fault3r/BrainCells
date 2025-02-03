@@ -49,7 +49,7 @@ public class AccountController : Controller
             if(result.Success)
             {
                 ViewData["MessageType"] = AppConsts.SUCCESS;
-                //return Redirect("/");
+                return Redirect("/");
             }
             else
                 ViewData["MessageType"] = AppConsts.ERROR;

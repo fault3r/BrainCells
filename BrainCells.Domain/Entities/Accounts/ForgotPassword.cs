@@ -7,5 +7,5 @@ public class ForgotPassword
     public Guid AccountId { get; set; }
     public virtual Account Account { get; set; }
 
-    public string VerificationCode { get; set; }
+    public string OnetimePassword { get; set; }
 }

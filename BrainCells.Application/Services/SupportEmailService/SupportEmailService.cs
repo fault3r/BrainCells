@@ -17,19 +17,27 @@ public class SupportEmailService : ISupportEmailService
     public async Task<ResultDto> SendMailAsync(string to, string subject, string body)
     {
         try{ 
-            var result = await _fluentEmail.To(to)
+            ResultDto result = new();
+            var response = await _fluentEmail.To(to)
                 .Subject(subject)
                 .Body(body)
                 .SendAsync();
-            return new ResultDto{
-                Success = true, 
-                Message = "Email sent successfully.",
-            };
+            if(response.Successful)
+            {
+                result.Success = true;
+                result.Message = "The email has been sent successfully.";
+            }
+            else
+            {
+                result.Success = false;
+                result.Message = "Failed to send email. That's all we know!";
+            }
+            return result;
         }
         catch{
             return new ResultDto{
-                Success = false, 
-                Message = "Failed. That's all we know!",
+                Success = false,
+                Message = "Failed to send email. That's all we know!",
             };
         }
     } 

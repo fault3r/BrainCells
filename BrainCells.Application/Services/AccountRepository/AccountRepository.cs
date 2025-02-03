@@ -150,37 +150,43 @@ public class AccountRepository : IAccountRepository
 
     public async Task<ResultDto> ForgotPasswordAsync(string email)
     {
-        var account = await _databaseContext.Accounts.AsQueryable()
-            .Where(p => p.Email == email.ToLower())
-            .FirstOrDefaultAsync();
-        if(account != null)
-        {
-            var old = await _databaseContext.ForgotPasswords.AsQueryable()
-                .Where(p => p.AccountId == account.Id)
+        try{
+            var account = await _databaseContext.Accounts.AsQueryable()
+                .Where(p => p.Email == email.ToLower())
                 .FirstOrDefaultAsync();
-            if(old != null)
-                _databaseContext.ForgotPasswords.Remove(old);
-
-            //make a code
-            _databaseContext.ForgotPasswords.Add(new ForgotPassword{
-                AccountId = account.Id,
-                VerificationCode = "123456",
-            });
-
-            await _databaseContext.SaveChangesAsync();
-
-            await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","verification code","123456");
-
-            return new ResultDto{
-                Success = true,
-                Message = "The verification code has send.",
-            };
+            if(account != null)
+            {
+                var old = await _databaseContext.ForgotPasswords.AsQueryable()
+                    .Where(p => p.AccountId == account.Id)
+                    .FirstOrDefaultAsync();
+                if(old != null)
+                    _databaseContext.ForgotPasswords.Remove(old);
+                _databaseContext.ForgotPasswords.Add(new ForgotPassword{
+                    AccountId = account.Id,
+                    OnetimePassword = "123456",
+                });
+                await _databaseContext.SaveChangesAsync();
+                var result = await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","verification code","123456");
+                if(result.Success)
+                    return new ResultDto{
+                        Success = true,
+                        Message = "Your one-time password has been sent to your email. Use it to verify your identity.",
+                    };
+                else
+                    return result;
+            }
+            else
+                return new ResultDto{
+                    Success = false,
+                    Message = "No account found. If you think this is a mistake, try resetting your password!",
+                };
         }
-        else
+        catch{
             return new ResultDto{
                 Success = false,
-                Message = "Account not found!",
+                Message = "Failed to send email. That's all we know!",
             };
+        }
     }
 
 }
