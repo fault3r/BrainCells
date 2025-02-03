@@ -161,12 +161,13 @@ public class AccountRepository : IAccountRepository
                     .FirstOrDefaultAsync();
                 if(old != null)
                     _databaseContext.ForgotPasswords.Remove(old);
+                string password = OnetimePassword.Create();
                 _databaseContext.ForgotPasswords.Add(new ForgotPassword{
                     AccountId = account.Id,
-                    OnetimePassword = "123456",
+                    OnetimePassword = password,
                 });
                 await _databaseContext.SaveChangesAsync();
-                var result = await _supportEmailService.SendMailAsync("hamed.damaavandi@gmail.com","verification code","123456");
+                var result = await _supportEmailService.SendMailAsync(account.Email, "One-Time Password", password);
                 if(result.Success)
                     return new ResultDto{
                         Success = true,
