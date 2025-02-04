@@ -30,10 +30,10 @@
     function ProfileMenu()
     {
         const divMenu = document.getElementById('profile-div');
-        if (divMenu.style.height === '110px') {
+        if (divMenu.style.height === '130px') {
             divMenu.style.height = '0px';
         } else {
-            divMenu.style.height = '110px';
+            divMenu.style.height = '130px';
         }
     }
 // *END
