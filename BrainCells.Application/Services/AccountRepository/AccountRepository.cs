@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using BrainCells.Application.Services.LoggingService;
-using static BrainCells.Application.Services.LoggingService.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
+using static BrainCells.Application.Services.LoggingService.LoggingService;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
