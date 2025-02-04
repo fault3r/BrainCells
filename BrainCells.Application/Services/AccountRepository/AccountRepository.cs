@@ -37,28 +37,46 @@ public class AccountRepository : IAccountRepository
         try{
             var account = await _databaseContext.Accounts.AsQueryable()
                 .Include(e => e.Role)
-                .Where(p => p.Email == email.ToLower().Trim() && p.Password  == PasswordHasher.ComputeHash(password))
+                .Where(p => p.Email == email.ToLower().Trim())
                 .FirstOrDefaultAsync();
             if(account != null)
             {
-                var claims = new List<Claim> {
-                    new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
-                    new Claim(ClaimTypes.Email, account.Email),
-                    new Claim(ClaimTypes.Role, account.Role.Name),
-                    new Claim(ClaimTypes.Name, account.Name),
-                };
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-                var properties = new AuthenticationProperties {
-                    IsPersistent = persistent,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
-                };
-                await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
-                await _loggingService.LogAccountAsync(account.Email, LogMode.SignIn);
-                return new ResultDto{
-                    Success = true,
-                    Message = $"Welcome back, {account.Name}! You have successfully logged in.",
-                };
+                bool otpSuccess = false;
+                var otp = await _databaseContext.ForgotPasswords.FirstOrDefaultAsync(p => p.AccountId == account.Id);
+                if(otp != null)
+                    if(otp.OnetimePassword == PasswordHasher.ComputeHash(password))
+                    {
+                        otpSuccess = true;
+                        _databaseContext.ForgotPasswords.Remove(otp);
+                        await _databaseContext.SaveChangesAsync();
+                    }
+                if(otpSuccess || PasswordHasher.ComputeHash(password) == account.Password)
+                {
+                    var claims = new List<Claim> {
+                        new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
+                        new Claim(ClaimTypes.Email, account.Email),
+                        new Claim(ClaimTypes.Role, account.Role.Name),
+                        new Claim(ClaimTypes.Name, account.Name),
+                        new Claim(ClaimTypes.Version, otpSuccess ? "otp" : "normal"),
+                    };
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+                    var properties = new AuthenticationProperties {
+                        IsPersistent = persistent,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
+                    };
+                    await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
+                    await _loggingService.LogAccountAsync(account.Email, LogMode.SignIn);
+                    return new ResultDto{
+                        Success = true,
+                        Message = $"Welcome back, {account.Name}! You have successfully logged in.",
+                    };
+                }
+                else
+                    return new ResultDto{
+                        Success = false,
+                        Message = "Login failed. Please check your email and password and try again!",
+                    };
             }
             else
                 return new ResultDto{
@@ -164,14 +182,14 @@ public class AccountRepository : IAccountRepository
                 string password = OnetimePassword.Create();
                 _databaseContext.ForgotPasswords.Add(new ForgotPassword{
                     AccountId = account.Id,
-                    OnetimePassword = password,
+                    OnetimePassword = PasswordHasher.ComputeHash(password),
                 });
                 await _databaseContext.SaveChangesAsync();
                 var result = await _supportEmailService.SendMailAsync(account.Email, "One-Time Password", password);
                 if(result.Success)
                     return new ResultDto{
                         Success = true,
-                        Message = "Your one-time password has been sent to your email. Use it to verify your identity.",
+                        Message = "Your one-time password has been sent to your email. Use it to verify your identity instead of your current password.",
                     };
                 else
                     return result;

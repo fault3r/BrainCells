@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/codespace/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {}
+    "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {}
   },
   "projects": {
-    "/home/codespace/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {
+    "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codespace/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
         "projectName": "BrainCells.Domain",
-        "projectPath": "/home/codespace/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/home/codespace/BrainCells/BrainCells.Domain/obj/",
+        "projectPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/BrainCells.Domain.csproj",
+        "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
+        "outputPath": "/home/hamed-damavandi/projects/BrainCells/BrainCells.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
