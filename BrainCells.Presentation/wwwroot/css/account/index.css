@@ -11,9 +11,6 @@ gap: 10px;
     position: absolute;
     left: 15px;
     top: 15px;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 5px 5px 3px rgb(8, 75, 102);
 }
 .account-picture{
     width: 200px;

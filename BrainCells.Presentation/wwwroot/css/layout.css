@@ -239,19 +239,16 @@ body{
         .footer-links div:last-child{
             font-size: 12px;
         }
-
-/* cdn */
-.faLink{
-    text-decoration: none;
-    box-shadow: inset 0 0 0 0 #f1f1f1;
-    color: rgb(126, 207, 251);
-    padding: 0px 3px 1px 3px;
-    border-radius: 4px;
-    transition: all .3s ease-in-out;
-}
-.faLink:hover{
-    color: rgb(8, 75, 102);
-    box-shadow: inset 200px 0 0 0 #f1f1f1;
-}
-/* END */
+    .links-item{
+        text-decoration: none;
+        box-shadow: inset 0 0 0 0 #f1f1f1;
+        color: rgb(126, 207, 251);
+        padding: 0px 3px 1px 3px;
+        border-radius: 4px;
+        transition: all .3s ease-in-out;
+    }
+    .links-item:hover{
+        color: rgb(8, 75, 102);
+        box-shadow: inset 200px 0 0 0 #f1f1f1;
+    }
 
