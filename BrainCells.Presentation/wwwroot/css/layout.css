@@ -252,3 +252,29 @@ body{
         box-shadow: inset 200px 0 0 0 #f1f1f1;
     }
 
+.pwd-chk{
+    background-color: transparent;
+    height: 7px;
+}
+    .pwd-chk #pwdchk-point{
+        background-color: #D73F40;
+        border-radius: 5px;
+        width: 1%;
+        height: 100%;
+        transition: .4s;
+    }
+.pwd-eye{
+    position: relative;
+}
+    .pwd-eye i{
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%,-50%);
+        padding-right: 7px;
+        color: rgba(8, 75, 102,0.5);
+        transition: all 0.4s ease;
+    }
+    .pwd-eye i:hover{
+        color: rgba(8, 75, 102,0.9);
+    }
