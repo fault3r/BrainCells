@@ -1,0 +1,47 @@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Settings";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/account/settings.css" />
+}
+
+<div class="container-settings">
+    <div class="settings-title faHeader"><i class="fa fa-gears"></i> Settings</div>
+    <div class="faLine"></div>
+    <div class="faSpace"></div>
+    <form>
+        <table class="faTable">
+            <tr>
+                <td colspan="2" class="faTitle title">Change Account Password</td>
+            </tr>
+            <tr>
+                <td class="faText">Current Password:</td>
+                <td><input class="faInput" type="password" /></td>
+            </tr>
+            <tr>
+                <td class="faText">New Password:</td>
+                <td class="pwd-eye"><input id="Password" class="faInput" type="password" /><i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i></td>
+            </tr>
+            <tr>
+                <td class="faText">Confirm New Password:</td>
+                <td><input id="ConfirmPassword" class="faInput" type="password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"> <div class="pwd-chk"><div id="pwdchk-point"></div></div></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="faDescription title"><i class="fa fa-exclamation-circle"></i> Password must be between 8 and 30 characters, Anything.</td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="faButton" type="submit">Change Password</button></td>
+            </tr>
+        </table>
+    </form>
+    <div class="faSpace"></div>
+    <div class="faLine"></div>
+    <div class="faSpace"></div>
+    <button type="submit" class="faButton">Back ←</button>
+</div>

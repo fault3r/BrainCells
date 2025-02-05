@@ -239,19 +239,42 @@ body{
         .footer-links div:last-child{
             font-size: 12px;
         }
+    .links-item{
+        text-decoration: none;
+        box-shadow: inset 0 0 0 0 #f1f1f1;
+        color: rgb(126, 207, 251);
+        padding: 0px 3px 1px 3px;
+        border-radius: 4px;
+        transition: all .3s ease-in-out;
+    }
+    .links-item:hover{
+        color: rgb(8, 75, 102);
+        box-shadow: inset 200px 0 0 0 #f1f1f1;
+    }
 
-/* cdn */
-.faLink{
-    text-decoration: none;
-    box-shadow: inset 0 0 0 0 #f1f1f1;
-    color: rgb(126, 207, 251);
-    padding: 0px 3px 1px 3px;
-    border-radius: 4px;
-    transition: all .3s ease-in-out;
+.pwd-chk{
+    background-color: transparent;
+    height: 7px;
 }
-.faLink:hover{
-    color: rgb(8, 75, 102);
-    box-shadow: inset 200px 0 0 0 #f1f1f1;
+    .pwd-chk #pwdchk-point{
+        background-color: #D73F40;
+        border-radius: 5px;
+        width: 1%;
+        height: 100%;
+        transition: .4s;
+    }
+.pwd-eye{
+    position: relative;
 }
-/* END */
-
+    .pwd-eye i{
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%,-50%);
+        padding-right: 7px;
+        color: rgba(8, 75, 102,0.5);
+        transition: all 0.4s ease;
+    }
+    .pwd-eye i:hover{
+        color: rgba(8, 75, 102,0.9);
+    }

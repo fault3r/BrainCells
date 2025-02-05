@@ -30,10 +30,24 @@
     function ProfileMenu()
     {
         const divMenu = document.getElementById('profile-div');
-        if (divMenu.style.height === '110px') {
+        if (divMenu.style.height === '130px') {
             divMenu.style.height = '0px';
         } else {
-            divMenu.style.height = '110px';
+            divMenu.style.height = '130px';
         }
     }
 // *END
+
+function showPassword() {
+    const inpPassword = document.getElementById('Password');
+    const inpCPassword = document.getElementById('ConfirmPassword');
+    inpPassword.type = 'text';
+    inpCPassword.type = 'text';
+}
+
+function hidePassword() {
+    const inpPassword = document.getElementById('Password');
+    const inpCPassword = document.getElementById('ConfirmPassword');
+    inpPassword.type = 'password';
+    inpCPassword.type = 'password';
+}

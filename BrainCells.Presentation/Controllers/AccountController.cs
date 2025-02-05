@@ -136,6 +136,15 @@ public class AccountController : Controller
     }
 
     [Authorize]
+    [Route("Settings")]
+    [HttpGet]
+    public IActionResult Settings()
+    {
+
+        return View("Settings");
+    }
+
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Index()
     {

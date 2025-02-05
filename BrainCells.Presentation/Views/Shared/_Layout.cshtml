@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/menu-close-button.css" />
     <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/facdn.css" />
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
@@ -23,7 +24,7 @@
         </div>
         <div class="navbar-profile">
             <div class="profile-search">
-                <input type="text" placeholder="🐶 Search something..." />
+                <input type="text" placeholder="Search something..." />
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
             <div class="profile-line"></div>
@@ -45,6 +46,7 @@
     <div class="container-profile" id="profile-div">
         <a href="/Account/"><i class="fa fa-user-circle-o"></i> View Profile</a>
         <a href="#"><i class="fa fa-edit"></i> Edit Information</a>
+        <a href="/Account/Settings"><i class="fa fa-gears"></i> Settings</a>
         <a href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>
     </div>
     <div class="container-menu" id="menu-div"></div>
@@ -59,15 +61,16 @@
         <div class="footer-links">
             <div>
                 <span>BrainCells</span>
-                <a class="faLink" href="#">Terms</a>
-                <a class="faLink" href="#">Docs</a>
-                <a class="faLink" href="#">Contact</a>
+                <a class="links-item" href="#">Terms</a>
+                <a class="links-item" href="#">Docs</a>
+                <a class="links-item" href="#">Contact</a>
             </div>
             <div>a personal project to brain monitoring.</div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/pwd-chk.js"></script>
     <script src="~/js/layout.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
