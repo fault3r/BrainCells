@@ -12,10 +12,24 @@
     z-index: -1;
 }
 .faMessage{
-    border: 1px dashed orange;
     margin: 20px;
-    width: 70%;
+    padding: 10px 10px 0px 0px;
+    border: 2px solid rgb(48, 128, 159); 
+    box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+    text-shadow: 3px 3px 3px rgb(8, 75, 102);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
+    .faMessage div{
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 3px 3px 5px rgb(8, 75, 102);
+    }
 .faHeader{
     font-size: 26px;
     font-weight: bold;
@@ -27,11 +41,11 @@
     text-shadow: 5px 5px 3px rgb(8, 75, 102);
 }
 .faText{
-    text-shadow: 5px 5px 3px rgb(8, 75, 102);
+    text-shadow: 3px 3px 3px rgb(8, 75, 102);
 }
 .faDescription{
     font-size: 12px;
-    text-shadow: 5px 5px 3px rgb(8, 75, 102);
+    text-shadow: 3px 3px 3px rgb(8, 75, 102);
 }
 .faTable{
 

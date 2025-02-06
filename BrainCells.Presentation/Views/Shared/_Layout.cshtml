@@ -56,7 +56,12 @@
             {
                 if(ViewData["MessageType"].ToString() != "none")
                 {
-                    <div class="faMessage" asp-validation-summary="All"></div>
+                    string message = ViewData["MessageType"].ToString();
+                    string title = message.Split('|')[0];
+                    string color = message.Split('|')[1];
+                    <div class="faMessage" asp-validation-summary="All">
+                        <div style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</div>
+                    </div>
                 }
             }
         }

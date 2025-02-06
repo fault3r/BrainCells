@@ -142,8 +142,9 @@ public class AccountController : Controller
     [Authorize]
     [Route("Settings")]
     [HttpGet]
-    public IActionResult Settings()
+    public async Task<IActionResult> Settings()
     {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
         ViewData["MessageType"] = AppConsts.NONE;
         return View("Settings");
     }
@@ -181,6 +182,7 @@ public class AccountController : Controller
                 ViewData["MessageType"] = AppConsts.NONE;
             break;
         }
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Settings", settings);
     }
 
