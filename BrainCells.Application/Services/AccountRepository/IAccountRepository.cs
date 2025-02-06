@@ -14,4 +14,6 @@ public interface IAccountRepository
     Task<AccountDto?> ViewAccountAsync(string id);
 
     Task<ResultDto> ForgotPasswordAsync(string email);
+
+    Task<ResultDto> ChangePasswordAsync(ChangePasswordDto data);
 }

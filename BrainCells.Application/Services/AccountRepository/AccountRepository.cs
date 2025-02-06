@@ -206,4 +206,35 @@ public class AccountRepository : IAccountRepository
         }
     }
 
+    public async Task<ResultDto> ChangePasswordAsync(ChangePasswordDto data)
+    {
+        try{
+            var account = await _databaseContext.Accounts
+                .FirstOrDefaultAsync(p => p.Id.ToString() == data.Id);
+            if(data.Mode != "otp")
+            {
+                if(account.Password != PasswordHasher.ComputeHash(data.CurrentPassword))
+                {
+                    return new ResultDto{
+                        Success = false,
+                        Message = "The current password you entered is incorrect. Please try again!",
+                    };
+                }
+            }
+            account.Password = PasswordHasher.ComputeHash(data.NewPassword);
+            _databaseContext.Accounts.Update(account);
+            await _databaseContext.SaveChangesAsync();
+            return new ResultDto{
+                Success = true,
+                Message = "Your password has been successfully changed.",
+            };
+        }
+        catch{
+            return new ResultDto{
+                Success = false,
+                Message = "An unexpected error has occurred. That's all we know!",
+            }; 
+        }
+    }
+
 }

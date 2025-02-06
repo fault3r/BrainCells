@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.SupportEmailService;
@@ -150,7 +151,7 @@ public class AccountController : Controller
     [Authorize]
     [Route("Settings")]
     [HttpPost]
-    public IActionResult Settings([FromForm]SettingsViewModel settings)
+    public async Task<IActionResult> Settings([FromForm]SettingsViewModel settings)
     {
         switch(settings.Mode)
         {
@@ -158,15 +159,26 @@ public class AccountController : Controller
                 var validate = _changePasswordValidator.Validate(settings.ChangePassword);
                 if(validate.IsValid)
                 {
-                    //change password
-                    ViewData["MessageType"] = AppConsts.SUCCESS;
-                    ModelState.AddModelError("", "It is okay.");
+                    var result = await _accountRepository.ChangePasswordAsync(new ChangePasswordDto{
+                        Id = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                        Mode = User.FindFirstValue(ClaimTypes.Version),
+                        CurrentPassword = settings.ChangePassword.CurrentPassword,
+                        NewPassword = settings.ChangePassword.Password,
+                    });
+                    if(result.Success)
+                        ViewData["MessageType"] = AppConsts.SUCCESS;
+                    else
+                        ViewData["MessageType"] = AppConsts.ERROR;
+                    ModelState.AddModelError("ChangePassword", result.Message);
                 }
                 else
                 {
                     ViewData["MessageType"] = AppConsts.WARNING;    
                     ModelState.AddFluentResult(validate);
                 }
+            break;
+            default:
+                ViewData["MessageType"] = AppConsts.NONE;
             break;
         }
         return View("Settings", settings);
