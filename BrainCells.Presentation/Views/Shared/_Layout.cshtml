@@ -51,6 +51,15 @@
     </div>
     <div class="container-menu" id="menu-div"></div>
     <div class="container-main" id="container-main">
+        @{
+            if(ViewData["MessageType"] != null)
+            {
+                if(ViewData["MessageType"].ToString() != "none")
+                {
+                    <div class="faMessage" asp-validation-summary="All"></div>
+                }
+            }
+        }
         @RenderBody()
     </div>
     <div class="container-footer">

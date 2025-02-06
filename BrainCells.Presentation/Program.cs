@@ -37,8 +37,9 @@ builder.Services.AddFluentEmailConfigure(builder.Configuration);
 builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();
-builder.Services.AddScoped<IValidator<SignupViewModel>, SignupValidator>();
+    builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();
+    builder.Services.AddScoped<IValidator<SignupViewModel>, SignupValidator>();
+    builder.Services.AddScoped<IValidator<ChangePasswordViewModel>, ChangePasswordValidator>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();

@@ -20,14 +20,17 @@ public class AccountController : Controller
     private readonly IAccountRepository _accountRepository;
     private readonly IValidator<SigninViewModel> _signinValidator;
     private readonly IValidator<SignupViewModel> _signupValidator;
+    private readonly IValidator<ChangePasswordViewModel> _changePasswordValidator;
 
     public AccountController(ISupportEmailService supportEmailService, IAccountRepository accountRepository,
-        IValidator<SigninViewModel> signinValidator, IValidator<SignupViewModel> signupValidator)
+        IValidator<SigninViewModel> signinValidator, IValidator<SignupViewModel> signupValidator,
+        IValidator<ChangePasswordViewModel> changePasswordValidator)
     {
         _supportEmailService = supportEmailService;
         _accountRepository = accountRepository;
         _signinValidator = signinValidator;
         _signupValidator = signupValidator;
+        _changePasswordValidator = changePasswordValidator;
     }
 
     [Route("SignIn")]
@@ -140,8 +143,33 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult Settings()
     {
-
+        ViewData["MessageType"] = AppConsts.NONE;
         return View("Settings");
+    }
+
+    [Authorize]
+    [Route("Settings")]
+    [HttpPost]
+    public IActionResult Settings([FromForm]SettingsViewModel settings)
+    {
+        switch(settings.Mode)
+        {
+            case "ChangePassword":
+                var validate = _changePasswordValidator.Validate(settings.ChangePassword);
+                if(validate.IsValid)
+                {
+                    //change password
+                    ViewData["MessageType"] = AppConsts.SUCCESS;
+                    ModelState.AddModelError("", "It is okay.");
+                }
+                else
+                {
+                    ViewData["MessageType"] = AppConsts.WARNING;    
+                    ModelState.AddFluentResult(validate);
+                }
+            break;
+        }
+        return View("Settings", settings);
     }
 
     [Authorize]

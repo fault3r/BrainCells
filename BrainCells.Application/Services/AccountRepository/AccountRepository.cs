@@ -174,9 +174,7 @@ public class AccountRepository : IAccountRepository
                 .FirstOrDefaultAsync();
             if(account != null)
             {
-                var old = await _databaseContext.ForgotPasswords.AsQueryable()
-                    .Where(p => p.AccountId == account.Id)
-                    .FirstOrDefaultAsync();
+                var old = await _databaseContext.ForgotPasswords.FirstOrDefaultAsync(p => p.AccountId == account.Id);
                 if(old != null)
                     _databaseContext.ForgotPasswords.Remove(old);
                 string password = OnetimePassword.Create();
