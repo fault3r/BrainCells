@@ -1,4 +1,5 @@
 @using BrainCells.Presentation.Models.Account.ViewModels
+@using System.Security.Claims
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,6 +15,7 @@
 <div class="container-settings">
     <div class="settings-title faHeader"><i class="fa fa-gears"></i> Settings</div>
     <div class="faLine"></div>
+    <div class="faSpace"></div>
     <form asp-controller="Account" asp-action="Settings" method="post">
         <input asp-for="Mode" value="ChangePassword" hidden />
         <table class="faTable">
@@ -22,7 +24,19 @@
             </tr>
             <tr>
                 <td class="faText">Current Password:</td>
-                <td><input asp-for="ChangePassword.CurrentPassword" class="faInput" type="password" required /></td>
+                <td>
+                    @{
+                        if(@User.FindFirst(ClaimTypes.Version).Value.ToString() == "otp")
+                        {
+                            <input class="faInput" type="text" value="[One-Time Password Verification]" disabled />
+                            <input asp-for="ChangePassword.CurrentPassword" value="otp-mode" hidden />
+                        }
+                        else
+                        {
+                            <input asp-for="ChangePassword.CurrentPassword" class="faInput" type="password" required />
+                        }
+                    }
+                </td>
             </tr>
             <tr>
                 <td class="faText">New Password:</td>
