@@ -23,4 +23,4 @@ A project to manage personal plans.
 ![settings-scr](https://github.com/user-attachments/assets/dc5a1711-9bd3-44d5-9b28-a72e8bcfb252)
 
 
-p.s. i'm not a frontend developer!
+p.s. Project Under Development!
