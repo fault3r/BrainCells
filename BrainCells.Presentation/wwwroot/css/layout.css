@@ -153,10 +153,17 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    transition: all .3s ease-in-out;
 }
+    .profile-name{
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        color: rgb(8, 75, 102);
+        background-color: #cccccc;
+    }
     .container-profile a{
         display: flex;
         flex-direction: row;
