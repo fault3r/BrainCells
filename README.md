@@ -17,10 +17,10 @@ A project to manage personal plans.
 
 ## Screenshots
 
-![screenshot](https://github.com/user-attachments/assets/92652366-8e46-453a-865d-31f50bdabe84)
+![signin-scr](https://github.com/user-attachments/assets/45eb66bc-736b-4d00-a343-f51a0009d2d4)
 
 
-![screenshot2](https://github.com/user-attachments/assets/aa99e5f5-753a-4ce1-8279-6d68a2aa2c81)
+![settings-scr](https://github.com/user-attachments/assets/dc5a1711-9bd3-44d5-9b28-a72e8bcfb252)
 
 
 p.s. i'm not a frontend developer!
