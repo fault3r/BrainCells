@@ -33,7 +33,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
         builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
             .HasForeignKey(p => p.RoleId);
         builder.Entity<Account>().HasOne(e => e.ForgotPassword).WithOne(e => e.Account)
-            .HasForeignKey<ForgotPassword>(p => p.AccountId);
+            .HasForeignKey<ForgotPassword>(p => p.AccountId).OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasData(new Role {

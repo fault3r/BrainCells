@@ -237,4 +237,31 @@ public class AccountRepository : IAccountRepository
         }
     }
 
+    public async Task<ResultDto> DeleteAccountAsync(string id, string confirm)
+    {
+        try{
+            if(confirm == "delete")
+            {
+                var account = await _databaseContext.Accounts.FirstOrDefaultAsync(p => p.Id.ToString() == id);
+                await SignOutAsync(account.Email);
+                _databaseContext.Accounts.Remove(account);
+                await _databaseContext.SaveChangesAsync();
+                return new ResultDto{
+                    Success = true,
+                    Message = "Your account has been successfully deleted. We're sorry to see you go.",
+                }; 
+            }
+            else
+                return new ResultDto{
+                Success = false,
+                Message = "To confirm the deletion of your account, please type 'delete'!",
+            }; 
+        }
+        catch{
+            return new ResultDto{
+                Success = false,
+                Message = "An unexpected error has occurred. That's all we know!",
+            }; 
+        }
+    }
 }

@@ -7,4 +7,6 @@ public class SettingsViewModel
     public string Mode { get; set; }
     
     public ChangePasswordViewModel ChangePassword { get; set; }
+
+    public DeleteAccountViewModel DeleteAccount { get; set; }
 }

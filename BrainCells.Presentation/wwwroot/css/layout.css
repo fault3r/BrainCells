@@ -155,14 +155,15 @@ body{
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 }
     .profile-name{
         width: 100%;
         font-weight: bold;
         text-align: center;
-        padding: 3px 0px 3px 0px;
-        color: rgb(8, 75, 102);
-        background-color: #cccccc;
+        padding: 3px;
+        border: 2px solid #f1f1f1;
+        border-radius: 5px;
     }
     .container-profile a{
         display: flex;

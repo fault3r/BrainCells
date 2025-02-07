@@ -20,10 +20,10 @@
         <input asp-for="Mode" value="ChangePassword" hidden />
         <table class="faTable">
             <tr>
-                <td colspan="2" class="faTitle title">Change Account Password</td>
+                <td colspan="2" class="faTitle">Change Account Password</td>
             </tr>
             <tr>
-                <td class="faText">Current Password:</td>
+                <td class="faText right">Current Password:</td>
                 <td>
                     @{
                         if(@User.FindFirst(ClaimTypes.Version).Value.ToString() == "otp")
@@ -39,14 +39,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="faText">New Password:</td>
+                <td class="faText right">New Password:</td>
                 <td class="pwd-eye">
                     <input asp-for="ChangePassword.Password" id="Password" class="faInput" type="password" required />
                     <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
                 </td>
             </tr>
             <tr>
-                <td class="faText">Confirm New Password:</td>
+                <td class="faText right">Confirm New Password:</td>
                 <td><input asp-for="ChangePassword.ConfirmPassword" id="ConfirmPassword" class="faInput" type="password" required /></td>
             </tr>
             <tr>
@@ -56,7 +56,30 @@
                 <td colspan="2" class="faDescription title"><i class="fa fa-exclamation-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
             </tr>
             <tr>
-                <td colspan="2"><button class="faButton" type="submit">Change Password</button></td>
+                <td colspan="2" class="right"><button class="faButton" type="submit">Change Password</button></td>
+            </tr>
+        </table>
+    </form>
+    <div class="faSpace"></div>
+    <div class="faLine"></div>
+    <div class="faSpace"></div>
+    <form asp-controller="Account" asp-action="Settings" method="post">
+        <input asp-for="Mode" value="DeleteAccount" hidden />
+        <table class="faTable">    
+            <tr>
+                <td class="faTitle title">Delete Your Account</td>
+            </tr>
+            <tr>
+                <td class="faText">Deleting your account will remove all of your information from our database. This cannot be undone.</td>
+            </tr>
+            <tr>
+                <td class="faText">to confirm this, type "delete":</td>
+            </tr>
+            <tr>
+                <td><input asp-for="DeleteAccount.Confirm" class="faInput" type="text" required /></td>
+            </tr>
+            <tr>
+                <td><button class="faButton" type="submit" style="color: #521b0d;">Delete Account</button></td>
             </tr>
         </table>
     </form>

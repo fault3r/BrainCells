@@ -10,6 +10,7 @@ using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static BrainCells.Presentation.Models.Account.ViewModels.SettingsViewModel;
 
 namespace BrainCells.Presentation.Controllers;
 
@@ -154,6 +155,7 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Settings([FromForm]SettingsViewModel settings)
     {
+        ModelState.Clear();
         switch(settings.Mode)
         {
             case "ChangePassword":
@@ -177,6 +179,17 @@ public class AccountController : Controller
                     ViewData["MessageType"] = AppConsts.WARNING;    
                     ModelState.AddFluentResult(validate);
                 }
+            break;
+            case "DeleteAccount":
+                var result2 = await _accountRepository.DeleteAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier),settings.DeleteAccount.Confirm);
+                if(result2.Success)
+                {
+                    ViewData["MessageType"] = AppConsts.SUCCESS;
+                    return Redirect("/");
+                }
+                else
+                    ViewData["MessageType"] = AppConsts.ERROR;
+                ModelState.AddModelError("DeleteAccount", result2.Message);
             break;
             default:
                 ViewData["MessageType"] = AppConsts.NONE;

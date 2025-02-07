@@ -77,14 +77,14 @@
 
 }
     .faTable tr td{
-        text-align: right;
+        text-align: left;
         padding-bottom: 3px;
     }
-    .faTable td.title{
-        text-align: left;
+    .faTable td.right{
+        text-align: right;
     }
 .faInput{
-    width: 250px;
+    width: 300px;
     border-radius: 5px;
     background-color: #f1f1f1;
     border: 2px solid rgb(48, 128, 159); 

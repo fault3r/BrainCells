@@ -2,6 +2,13 @@
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
+    if(account == null)
+    {
+        account = new AccountViewModel{
+            Name = "",
+            Picture = "",
+        };
+    }
 }
 
 <!DOCTYPE html>

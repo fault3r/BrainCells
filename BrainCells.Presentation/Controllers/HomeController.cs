@@ -2,6 +2,9 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BrainCells.Presentation.Models;
 using Microsoft.AspNetCore.Authorization;
+using BrainCells.Application.Services.AccountRepository;
+using BrainCells.Presentation.Models.Account.ViewModels;
+using System.Security.Claims;
 
 namespace BrainCells.Presentation.Controllers;
 
@@ -9,17 +12,19 @@ namespace BrainCells.Presentation.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger _logger;
+    private readonly IAccountRepository _accountRepository;
 
-    public HomeController(ILoggerFactory logger)
+
+    public HomeController(ILoggerFactory logger, IAccountRepository accountRepository)
     {
         _logger = logger.CreateLogger("Home");
+        _accountRepository = accountRepository;
     }
 
     [Authorize]
     [HttpGet]
-    public IActionResult Index()
+    public async  Task<IActionResult> Index()
     {   
-        _logger.LogInformation("***It's fault3r, Inc. WELCOME..0;");
         return View("Index");
     }
 
@@ -28,4 +33,5 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
 }
