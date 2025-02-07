@@ -1,18 +1,18 @@
-BrainCells
+# BrainCells
 
-  -a project to manage personal plans.
+A project to manage personal plans.
 
-C# : Dotnet8
 
-  CSS 0;
+## Descriptions
 
-  +Visual Studio Code
-
-  +ASP.NET Core MVC 
-
-  +SQL Server
-
-  +Clean Architecture
+  - C Sharp
+  - Dotnet 8
+  - Visual Studio Code
+  - ASP.NET Core MVC 
+  - SQL Server
+  - Github
+  - Clean Architecture
+  - CSS
 
 
 ![screenshot](https://github.com/user-attachments/assets/92652366-8e46-453a-865d-31f50bdabe84)
