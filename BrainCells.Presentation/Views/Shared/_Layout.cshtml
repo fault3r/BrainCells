@@ -59,8 +59,11 @@
                     string message = ViewData["MessageType"].ToString();
                     string title = message.Split('|')[0];
                     string color = message.Split('|')[1];
-                    <div class="faMessage" asp-validation-summary="All">
-                        <div style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</div>
+                    string icon = message.Split('|')[2];
+                    <div class="faMessage" id="faMessage">
+                        <div class="mtitle" style="color: @color;"><i class="fa fa-@icon"></i> @title</div>
+                        <div class="mclose" style="color: @color;" onclick="faMessageClose()"><i class="fa fa-window-close"></i></div>
+                        <div class="mmessage" asp-validation-summary="All" style="background-color: @color;"></div>
                     </div>
                 }
             }

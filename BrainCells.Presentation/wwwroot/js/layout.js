@@ -51,3 +51,8 @@ function hidePassword() {
     inpPassword.type = 'password';
     inpCPassword.type = 'password';
 }
+
+function faMessageClose() {
+    const divMessage = document.getElementById('faMessage');
+    divMessage.style.display = 'none';
+}

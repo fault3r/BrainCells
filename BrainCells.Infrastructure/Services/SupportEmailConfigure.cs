@@ -15,13 +15,13 @@ public static class SupportEmailConfigure
         string address = configuration["SupportEmail:Address"].ToString();
         string host = configuration["SupportEmail:Host"].ToString();
         int port = Convert.ToInt32(configuration["SupportEmail:Port"].ToString());
-        string pwd = configuration["SupportEmail:AppPwd"].ToString();
+        string password = configuration["SupportEmail:AppPwd"].ToString();
 
         source.AddFluentEmail(address, name)
             .AddSmtpSender(new SmtpClient{
                 Host = host,
                 Port = port,
-                Credentials = new NetworkCredential(address, pwd),
+                Credentials = new NetworkCredential(address, password),
                 EnableSsl = true,
             });
         return source;
