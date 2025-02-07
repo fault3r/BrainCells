@@ -5,7 +5,7 @@ A project to manage personal plans.
 
 ## Descriptions
 
-  - C Sharp
+  - C#
   - Dotnet 8
   - ASP.NET Core MVC 
   - Visual Studio Code
@@ -14,6 +14,8 @@ A project to manage personal plans.
   - Clean Architecture
   - CSS
 
+
+## Screenshots
 
 ![screenshot](https://github.com/user-attachments/assets/92652366-8e46-453a-865d-31f50bdabe84)
 
