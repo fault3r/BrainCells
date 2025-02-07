@@ -7,8 +7,8 @@ A project to manage personal plans.
 
   - C Sharp
   - Dotnet 8
-  - Visual Studio Code
   - ASP.NET Core MVC 
+  - Visual Studio Code
   - SQL Server
   - Github
   - Clean Architecture
