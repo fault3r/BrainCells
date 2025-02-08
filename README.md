@@ -6,13 +6,10 @@ A project to manage personal plans.
 ## Descriptions
 
   - C#
-  - Dotnet 8
+  - .NET 8
   - ASP.NET Core MVC 
   - Visual Studio Code
-  - SQL Server
-  - Github
-  - Clean Architecture
-  - CSS
+  - MSSQL
 
 
 ## Screenshots
