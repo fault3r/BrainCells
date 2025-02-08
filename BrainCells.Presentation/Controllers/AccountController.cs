@@ -1,5 +1,4 @@
 using System;
-using System.Drawing;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BrainCells.Application.Common;
@@ -10,7 +9,6 @@ using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static BrainCells.Presentation.Models.Account.ViewModels.SettingsViewModel;
 
 namespace BrainCells.Presentation.Controllers;
 
@@ -34,6 +32,14 @@ public class AccountController : Controller
         _signupValidator = signupValidator;
         _changePasswordValidator = changePasswordValidator;
     }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("Index");
+    } 
 
     [Route("SignIn")]
     [HttpGet]
@@ -199,14 +205,6 @@ public class AccountController : Controller
         return View("Settings", settings);
     }
 
-    [Authorize]
-    [HttpGet]
-    public async Task<IActionResult> Index()
-    {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
-        return View("Index");
-    } 
-
     private async Task<AccountViewModel> viewAccount()
     {
         var account = await _accountRepository.ViewAccountAsync(
@@ -222,6 +220,5 @@ public class AccountController : Controller
         else
             return null;
     }
-
 
 }

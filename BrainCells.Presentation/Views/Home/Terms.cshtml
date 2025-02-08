@@ -1,0 +1,28 @@
+
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    ViewData["Title"] = "Terms";
+}
+
+<div id="divMessage" class="iContainer iContainer-message ediv">
+    <table>
+        <tr>
+            <td>
+                <p class="emessage">Terms</p>
+                <div class="etext">
+                    Welcome to <b>BrainCells</b>. By using our Site, you agree to these Terms and Conditions.
+                    <ul>
+                        <li>You may use the Site for lawful purposes only. You agree not to engage in any activity that could harm the Site or its users.</li>
+                        <li>If you create an account, you are responsible for keeping your password confidential and for all activities that occur under your account.</li>
+                        <li>We may update these Terms from time to time. Your continued use of the Site after changes means you accept the new Terms.</li>
+                    </ul>
+                    If you have any questions about these Terms, please contact us!
+                </div>
+                <form asp-controller="Home" asp-action="Index" method="get">
+                    <button type="submit" class="mbutton"><i class="fa fa-home"></i>Back Home</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+

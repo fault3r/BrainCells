@@ -244,18 +244,27 @@ html{
         }
     }
     .ediv{
-        backdrop-filter: blur(11px);
+        backdrop-filter: blur(15px);
+        text-shadow: -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+    }
+    .ediv button{
+        margin-top: 20px;
+    }
+    .ediv ul li{
+        font-size: 12px;
     }
     .ecode{
         margin: 0px 30px 0px 32px;
         font-size: 60px;
-        text-shadow: -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
     }
     .emessage{
         margin: 0px 30px 0px 32px;
         font-size: 30px;
-        text-shadow: -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
-        margin-bottom: 100px;
+    }
+    .etext{
+        margin: 0px 30px 0px 32px;
+        font-size: 16px;
+        text-align: justify;
     }
 
 .pwdchk{

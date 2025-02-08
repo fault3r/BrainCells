@@ -8,6 +8,7 @@ using System.Security.Claims;
 
 namespace BrainCells.Presentation.Controllers;
 
+[Authorize]
 [Controller]
 public class HomeController : Controller
 {
@@ -17,7 +18,7 @@ public class HomeController : Controller
 
     public HomeController(ILoggerFactory logger, IAccountRepository accountRepository)
     {
-        _logger = logger.CreateLogger("Home");
+        _logger = logger.CreateLogger("BrainCells");
         _accountRepository = accountRepository;
     }
 
@@ -25,7 +26,30 @@ public class HomeController : Controller
     [HttpGet]
     public async  Task<IActionResult> Index()
     {   
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Index");
+    }
+
+    private async Task<AccountViewModel> viewAccount()
+    {
+        var account = await _accountRepository.ViewAccountAsync(
+            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+        if(account != null)
+            return new AccountViewModel{
+                Id = account.Id,
+                Email = account.Email,
+                Role = account.Role,
+                Name = account.Name,
+                Picture = account.Picture,
+            };
+        else
+            return null;
+    }
+
+    [HttpGet]
+    public IActionResult Terms()
+    {
+        return View("Terms");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
