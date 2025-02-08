@@ -49,6 +49,8 @@ public class AccountRepository : IAccountRepository
                         otpSuccess = true;
                         _databaseContext.ForgotPasswords.Remove(otp);
                         await _databaseContext.SaveChangesAsync();
+                        await _loggingService.LogAccountAsync(account.Email, LogMode.OneTimePassword);
+
                     }
                 if(otpSuccess || PasswordHasher.ComputeHash(password) == account.Password)
                 {
@@ -184,6 +186,7 @@ public class AccountRepository : IAccountRepository
                 });
                 await _databaseContext.SaveChangesAsync();
                 var result = await _supportEmailService.SendMailAsync(account.Email, "One-Time Password", password);
+                await _loggingService.LogAccountAsync(account.Email, LogMode.ForgotPassword);
                 if(result.Success)
                     return new ResultDto{
                         Success = true,
@@ -224,6 +227,7 @@ public class AccountRepository : IAccountRepository
             account.Password = PasswordHasher.ComputeHash(data.NewPassword);
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
+            await _loggingService.LogAccountAsync(account.Email, LogMode.ChangePassword);
             return new ResultDto{
                 Success = true,
                 Message = "Your password has been successfully changed.",
@@ -246,6 +250,7 @@ public class AccountRepository : IAccountRepository
                 await SignOutAsync(account.Email);
                 _databaseContext.Accounts.Remove(account);
                 await _databaseContext.SaveChangesAsync();
+                await _loggingService.LogAccountAsync(account.Email, LogMode.DeleteAccount);
                 return new ResultDto{
                     Success = true,
                     Message = "Your account has been successfully deleted. We're sorry to see you go.",

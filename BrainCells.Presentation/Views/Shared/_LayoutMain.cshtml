@@ -25,8 +25,9 @@
                     string message = ViewData["MessageType"].ToString();
                     string title = message.Split('|')[0];
                     string color = message.Split('|')[1];
+                    string icon = message.Split('|')[2];
                     <div id="divMessage" class="iContainer iContainer-message">
-                        <p class="mtitle" style="color: @color;"><i class="fa fa-exclamation-circle"></i> @title</p>
+                        <p class="mtitle" style="color: @color;"><i class="fa fa-@icon"></i> @title</p>
                         <div asp-validation-summary="All"></div>
                         <button class="mbutton" onclick="hideMessage()"><i class="fa fa-check"></i>Ok</button>
                     </div>

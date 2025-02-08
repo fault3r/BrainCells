@@ -53,7 +53,7 @@
                 <td colspan="2"> <div class="pwd-chk"><div id="pwdchk-point"></div></div></td>
             </tr>
             <tr>
-                <td colspan="2" class="faDescription title"><i class="fa fa-exclamation-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
+                <td colspan="2" class="faDescription"><i class="fa fa-exclamation-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
             </tr>
             <tr>
                 <td colspan="2" class="right"><button class="faButton" type="submit">Change Password</button></td>
@@ -67,19 +67,22 @@
         <input asp-for="Mode" value="DeleteAccount" hidden />
         <table class="faTable">    
             <tr>
-                <td class="faTitle title">Delete Your Account</td>
+                <td class="faTitle">Delete Your Account</td>
             </tr>
             <tr>
-                <td class="faText">Deleting your account will remove all of your information from our database. This cannot be undone.</td>
+                <td class="faText">Deleting your account will remove all of your information from our database.</td>
             </tr>
             <tr>
-                <td class="faText">to confirm this, type "delete":</td>
+                <td class="faText">to confirm this, type "<b>delete</b>":</td>
             </tr>
             <tr>
                 <td><input asp-for="DeleteAccount.Confirm" class="faInput" type="text" required /></td>
             </tr>
             <tr>
                 <td><button class="faButton" type="submit" style="color: #521b0d;">Delete Account</button></td>
+            </tr>
+            <tr>
+                <td class="faDescription"><i class="fa fa-exclamation-circle"></i> It's could not be undone!</td>
             </tr>
         </table>
     </form>

@@ -20,9 +20,13 @@ public class LoggingService : ILoggingService
         SignIn,
         SignUp,
         SignOut,
+        ForgotPassword,
+        OneTimePassword,
+        ChangePassword,
+        DeleteAccount,
     }
 
-    private void checkDirectory()
+    private void logDirectory()
     {
         if(!Directory.Exists(logPath))
             Directory.CreateDirectory(logPath);
@@ -31,12 +35,12 @@ public class LoggingService : ILoggingService
     public async Task LogAccountAsync(string email, LogMode mode)
     {
         try{
-            checkDirectory();
+            logDirectory();
             string path = Path.Combine(logPath, "account");
             if(!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            string filePath = Path.Combine(path, email.Replace('@','-') + ".txt");
-            string log = "\n\n*" + mode.ToString() + "\n"
+            string filePath = Path.Combine(path, email.Replace('@','-') + "-log.txt");
+            string log = "\n\n*Issue: " + mode.ToString() + "\n"
                     + "  Time: " + DateTime.Now.ToLongTimeString() + "\n"
                     + "  Date: " + DateTime.Now.ToLongDateString() + "\n"
                     + "_________________________________________________";
