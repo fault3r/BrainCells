@@ -9,3 +9,18 @@ _______________________________________________
   Time: 4:48:13 PM
   Date: Saturday, February 8, 2025
 _______________________________________________
+
+*Issue: SignOut
+  Time: 7:57:27 PM
+  Date: Saturday, February 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 7:57:55 PM
+  Date: Saturday, February 8, 2025
+_______________________________________________
+
+*Issue: ChangePassword
+  Time: 9:03:02 PM
+  Date: Saturday, February 8, 2025
+_______________________________________________

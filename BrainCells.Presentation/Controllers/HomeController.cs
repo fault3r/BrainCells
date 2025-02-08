@@ -46,6 +46,7 @@ public class HomeController : Controller
             return null;
     }
 
+    [AllowAnonymous]
     [HttpGet]
     public IActionResult Terms()
     {

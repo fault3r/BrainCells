@@ -1,10 +1,4 @@
-.colors{
-    color: #4a180b;
-    color: #4c3a0b;
-    color: #09413a;
-    color: #f1f1f1;
-    color: rgb(8, 75, 102);
-}
+
 html{
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -282,4 +276,93 @@ body{
     }
     .pwd-eye i:hover{
         color: rgba(8, 75, 102,0.9);
+    }
+.DeleteButton{
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+    margin: 6px 0px 5px 0px;
+    width: 300px;
+}
+    .DeleteButton .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+        600ms
+        cubic-bezier(.3, .7, .4, 1);
+    }
+
+    .DeleteButton .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+        to left,
+        hsl(340deg 100% 16%) 0%,
+        hsl(340, 98%, 25%) 8%,
+        hsl(340deg 98% 25%) 92%,
+        hsl(340deg 100% 16%) 100%
+        );
+    }
+
+    .DeleteButton .front {
+    display: block;
+    position: relative;
+    padding: 4px 27px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+    color: #dcdcdc;
+    background: #521b0d;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+        600ms
+        cubic-bezier(.3, .7, .4, 1);
+    transition: color 1s linear;
+    }
+    .DeleteButton .front:hover{
+        color: #f1f1f1;
+    }
+    .DeleteButton:hover {
+    filter: brightness(107%);
+    }
+    .DeleteButton:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+        250ms
+        cubic-bezier(.3, .7, .4, 1.5);
+    }
+    .DeleteButton:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+    }
+    .DeleteButton:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+        250ms
+        cubic-bezier(.3, .7, .4, 1.5);
+    }
+    .DeleteButton:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+    }
+    .DeleteButton:focus:not(:focus-visible) {
+    outline: none;
     }
