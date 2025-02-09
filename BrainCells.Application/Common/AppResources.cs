@@ -10,13 +10,13 @@ public static class AppResources
 
     public const string EmailTemplate = "otp-template.html";
  
-    public static MemoryStream GetResource(IWebHostEnvironment webHost, string resource)
+    public async static Task<MemoryStream> GetResourceAsync(IWebHostEnvironment webHost, string resource)
     {
         string path = Path.Combine(webHost.WebRootPath, "resource", resource);
         MemoryStream memory = new();
         using(FileStream file = new FileStream(path, FileMode.Open))
         {
-            file.CopyToAsync(memory);
+            await file.CopyToAsync(memory);
         }
         memory.Close();
         return memory;

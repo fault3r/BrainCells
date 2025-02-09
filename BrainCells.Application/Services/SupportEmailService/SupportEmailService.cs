@@ -18,18 +18,19 @@ public class SupportEmailService : ISupportEmailService
         _webHostEnvironment = webHostEnvironment;
     }
 
-    private string useTemplate(string data)
+    private async Task<string> useTemplate(string data)
     {
-        var templateFile = AppResources.GetResource(_webHostEnvironment, AppResources.EmailTemplate);
+        var templateFile = await AppResources.GetResourceAsync(_webHostEnvironment, AppResources.EmailTemplate);
         string template  = Encoding.UTF8.GetString(templateFile.ToArray());
-        return template.Replace("[OTP-PWD]", data);
+        template = template.Replace("|OnetimePassword|", data);
+        return template;
     } 
 
     public async Task<ResultDto> SendMailAsync(string to, string subject, string body)
     {
         try{ 
             ResultDto result = new();
-            body = useTemplate(body);
+            body = await useTemplate(body);
             var response = await _fluentEmail.To(to)
                 .Subject(subject)
                 .Body(body, true)

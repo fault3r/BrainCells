@@ -102,7 +102,7 @@ public class AccountRepository : IAccountRepository
                 Password = PasswordHasher.ComputeHash(account.Password),
                 RoleId = Guid.Parse(AppConsts.ACCOUNT),
                 Name = account.Name.Trim(),
-                Picture = AppResources.GetResource(_webHostEnvironment, AppResources.ProfilePicture).ToArray(),
+                Picture = (await AppResources.GetResourceAsync(_webHostEnvironment, AppResources.ProfilePicture)).ToArray(),
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
