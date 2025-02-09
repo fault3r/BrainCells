@@ -99,3 +99,43 @@ _______________________________________________
   Time: 7:39:21 PM
   Date: Sunday, February 9, 2025
 _______________________________________________
+
+*Issue: ChangePassword
+  Time: 8:43:20 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: ChangePassword
+  Time: 8:49:04 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: ChangePassword
+  Time: 8:49:57 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: ChangePassword
+  Time: 9:08:29 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 10:35:51 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: ForgotPassword
+  Time: 10:36:00 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: ForgotPassword
+  Time: 10:36:29 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 10:37:24 PM
+  Date: Sunday, February 9, 2025
+_______________________________________________

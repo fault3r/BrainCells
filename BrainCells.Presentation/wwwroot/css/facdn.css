@@ -1,5 +1,10 @@
 /* fault3r CSS cdn */
-
+.colors{
+    color: #09413a;
+    color: #521b0d;
+    color: #4c3a0b;
+    color: #07313b;
+}
 .faSpace{
     height: 20px;
     z-index: -1;
@@ -88,6 +93,7 @@
     border-radius: 5px;
     background-color: #f1f1f1;
     border: 2px solid rgb(48, 128, 159); 
+    box-shadow: 1px 1px 3px rgb(8, 75, 102);
     outline: none;
     transition: all .3s ease;
 }
@@ -97,17 +103,19 @@
 .faButton{
     width: 300px;
     height: 35px;
+    margin-bottom: 5px;
     border-radius: 10px;
-    color: rgb(8, 75, 102);
-    background-color: #f1f1f1;
-    border: 2px solid rgb(48, 128, 159); 
     outline: none;
     font-weight: bold;
     font-size: 14px;
-    transition: all .3s ease;
+    color: rgb(8, 75, 102);
+    border: 1px solid rgb(8, 75, 102); 
+    box-shadow: 2px 2px 3px rgb(8, 75, 102);
+    transition: all .3s ease-in-out;
 }
-    .faButton:hover, .faButton:focus{
-        background-color: rgb(219, 219, 219);
-        box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
-        border: 2px solid rgb(8, 75, 102);
-    }
+.faButton:hover, .faButton:focus{
+    color: #f1f1f1;
+    border: 1px solid #f1f1f1;
+    background-color: #07313b;
+    box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
+}

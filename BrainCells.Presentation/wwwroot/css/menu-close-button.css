@@ -59,7 +59,6 @@
     -webkit-transform:rotate(-45deg);
 }
 .btn-menu span,.btn-menu span:before,.btn-menu span:after,.close span,.close span:before,.close span:after {
-    filter: drop-shadow(1px 1px 1px rgb(8, 75, 102));
     width: 30px;
     height: 5px;
     border-radius: 0.2em;
