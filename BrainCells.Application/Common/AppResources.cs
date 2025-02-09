@@ -8,7 +8,7 @@ public static class AppResources
     public const string AppLogo = "app-logo.png";
     public const string ProfilePicture = "profile-picture.png";
 
-    public const string EmailTemplate = "otp-template.html";
+    public const string OTPTemplate = "otp-tmail.html";
  
     public async static Task<MemoryStream> GetResourceAsync(IWebHostEnvironment webHost, string resource)
     {

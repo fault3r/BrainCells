@@ -185,7 +185,7 @@ public class AccountRepository : IAccountRepository
                     OnetimePassword = PasswordHasher.ComputeHash(password),
                 });
                 await _databaseContext.SaveChangesAsync();
-                var result = await _supportEmailService.SendMailAsync(account.Email, "One-Time Password", password);
+                var result = await _supportEmailService.SendOTPAsync(account.Email, password);
                 await _loggingService.LogAccountAsync(account.Email, LogMode.ForgotPassword);
                 if(result.Success)
                     return new ResultDto{

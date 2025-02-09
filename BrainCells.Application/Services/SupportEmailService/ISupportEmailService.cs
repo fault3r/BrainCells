@@ -5,5 +5,5 @@ namespace BrainCells.Application.Services.SupportEmailService;
 
 public interface ISupportEmailService
 {
-    Task<ResultDto> SendMailAsync(string to, string subject, string body);
+    Task<ResultDto> SendOTPAsync(string to, string otp);
 }
