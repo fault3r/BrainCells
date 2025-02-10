@@ -227,7 +227,6 @@ body{
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     border-radius: 20px;
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(32, 32, 32, 0.22) 0px 15px 12px;
-    height: 1500px;
 }
 .container-footer{
     width: 100%;
@@ -243,6 +242,8 @@ body{
     gap: 15px;
     z-index: 1;
     opacity: .9;
+    position: relative;
+    overflow: hidden;
 }
     .footer-copyright{
         display: flex;
@@ -418,3 +419,40 @@ body{
     background-image: linear-gradient(to right, #2dbeb4, #2fdbd5);
     transition: width .3s ease;
 }
+.footer {
+    width:100%;
+    position: absolute;
+    bottom: -160px;
+    z-index: -1;
+    opacity: .6;
+}
+    .footer svg {
+        width:100%;
+    }
+    .footer .wave {
+        animation: wave 20s linear;
+        animation-iteration-count:infinite;
+        fill:rgb(31, 92, 116);
+    }
+    .gooeff {
+            filter: url(#goo);
+    }
+    #wave2 {
+        animation-duration: 15s;
+        animation-direction: reverse;
+        opacity: .5;
+    }
+    #wave3 {
+        animation-duration: 17s;
+        opacity: .4;
+    }
+    @keyframes wave {
+        to {transform: translateX(-100%);}
+    }
+  
+  
+  
+
+
+
+
