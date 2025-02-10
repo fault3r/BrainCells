@@ -208,7 +208,7 @@ body{
         font-weight: bold;
         text-align: center;
         padding: 3px;
-        border: 1px solid #f1f1f1;
+        border: 2px solid #f1f1f1;
         border-radius: 0px 0px 7px 7px;
     }
     .container-profile .menu-item{
@@ -227,7 +227,7 @@ body{
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     border-radius: 20px;
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(32, 32, 32, 0.22) 0px 15px 12px;
-    height: 1000px;
+    height: 1500px;
 }
 .container-footer{
     width: 100%;
@@ -407,3 +407,14 @@ body{
     .DeleteButton:focus:not(:focus-visible) {
     outline: none;
     }
+.progress-bar{
+    position: fixed;
+    top: 60;
+    left: 0;
+    height: 3px;
+    opacity: .7;
+    z-index: 10;
+    width: 0%;
+    background-image: linear-gradient(to right, #2dbeb4, #2f91db);
+    transition: width .3s ease;
+}

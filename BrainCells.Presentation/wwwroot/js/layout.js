@@ -56,3 +56,12 @@ function faMessageClose() {
     const divMessage = document.getElementById('faMessage');
     divMessage.style.display = 'none';
 }
+window.addEventListener('scroll', function() {
+    const documentHeight = document.documentElement.scrollHeight;
+    const viewportHeight = window.innerHeight;
+    const scrollPosition = window.scrollY;
+    const maxScrollableHeight = documentHeight - viewportHeight;
+    const widthPercentage = (scrollPosition / maxScrollableHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = widthPercentage + '%';
+});
