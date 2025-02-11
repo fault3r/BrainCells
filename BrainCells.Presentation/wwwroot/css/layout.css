@@ -222,7 +222,6 @@ body{
 .container-main{
     min-height: 110px;
     width: calc(80%);
-    height: 1400px;
     padding: 20px;
     margin: 30px 10% 30px 10%;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));

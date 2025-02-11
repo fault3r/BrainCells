@@ -53,6 +53,14 @@ public class HomeController : Controller
         return View("Terms");
     }
 
+    [AllowAnonymous]
+    [HttpGet]
+    public IActionResult Contact()
+    {
+        return View("Contact");
+    }
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
