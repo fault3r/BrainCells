@@ -131,6 +131,11 @@ html{
             box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
             border: 2px solid rgb(8, 75, 102);
         }
+        .mtextwide{
+            height: 80px;
+            resize: none;
+            overflow-y: scroll;
+        }
     .mpassword{
         position: relative;
     }
@@ -248,12 +253,7 @@ html{
         text-shadow: -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
     }
     .ediv button{
-        margin-top: 20px;
-    }
-    .ediv ul li{
-        font-size: 12px;
-        padding: 5px 20px 0px 0px;
-        text-shadow: 2px 2px 3px rgb(8, 75, 102);
+        margin-top: 60px;
     }
     .ecode{
         margin: 0px 30px 0px 32px;
@@ -263,12 +263,6 @@ html{
         margin: 0px 30px 0px 32px;
         font-size: 30px;
     }
-    .etext{
-        margin: 0px 30px 0px 32px;
-        font-size: 16px;
-        text-align: justify;
-    }
-
 .pwdchk{
     background-color: transparent;
     margin: 0px 33px 0px 33px;

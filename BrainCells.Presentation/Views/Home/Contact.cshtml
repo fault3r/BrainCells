@@ -1,0 +1,60 @@
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    ViewData["Title"] = "ContactUs";
+}
+
+<form>
+    <table>
+        <tr>
+            <td class="mtitle">
+                <p><i class="fa fa-coffee"></i> Contact Us</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
+                <label>Whether you have a question, feedback, or just want to say hello, feel free to reach out to us.</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
+                <i class="fa fa-envelope"></i>
+                <label for="Email">Your email address</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="Email" id="Email" type="email" class="mtext" required />
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
+                <i class="fa fa-commenting"></i>
+                <label for="Message">Message</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea name="Message" id="Message" type="text" class="mtext mtextwide" required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mdescribe">
+                    <i class="fa fa-info-circle"></i>We answer your email as soon as possible.
+                </div>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <button type="submit" class="mbutton">Send Message</button>
+            </td>
+        </tr>
+ </form>
+        <tr>
+            <td>
+                <form asp-controller="Account" asp-action="SignIn" method="get">
+                    <button type="submit" class="mbutton">Back ←</button>
+                </form>
+            </td>
+        </tr>
+    </table>
