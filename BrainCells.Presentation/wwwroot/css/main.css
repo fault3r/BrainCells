@@ -141,7 +141,7 @@ html{
             transform: translate(-100%,-50%);
             padding-right: 36px;
             color: rgba(8, 75, 102,0.5);
-            transition: all 0.4s ease;
+            transition: all .3s ease;
         }
         .mpassword i:hover{
             color: rgba(8, 75, 102,0.9);
@@ -194,7 +194,7 @@ html{
         justify-content: center;
         align-items: center;
         gap: 3px;
-        transition: all 0.3s ease;
+        transition: all .3s ease;
     }
         .mbutton:hover,.mbutton:focus{
             background-color: #f1f1f1;
@@ -252,6 +252,8 @@ html{
     }
     .ediv ul li{
         font-size: 12px;
+        padding: 5px 20px 0px 0px;
+        text-shadow: 2px 2px 3px rgb(8, 75, 102);
     }
     .ecode{
         margin: 0px 30px 0px 32px;

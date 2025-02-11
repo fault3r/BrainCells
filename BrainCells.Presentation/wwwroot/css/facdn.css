@@ -111,7 +111,7 @@
     color: rgb(8, 75, 102);
     border: 1px solid rgb(8, 75, 102); 
     box-shadow: 2px 2px 3px rgb(8, 75, 102);
-    transition: all .3s ease-in-out;
+    transition: all .3s ease;
 }
 .faButton:hover, .faButton:focus{
     color: #f1f1f1;

@@ -159,3 +159,23 @@ _______________________________________________
   Time: 9:58:49 PM
   Date: Monday, February 10, 2025
 _______________________________________________
+
+*Issue: SignOut
+  Time: 7:43:17 PM
+  Date: Tuesday, February 11, 2025
+_______________________________________________
+
+*Issue: ForgotPassword
+  Time: 7:44:09 PM
+  Date: Tuesday, February 11, 2025
+_______________________________________________
+
+*Issue: OneTimePassword
+  Time: 7:44:56 PM
+  Date: Tuesday, February 11, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 7:44:56 PM
+  Date: Tuesday, February 11, 2025
+_______________________________________________

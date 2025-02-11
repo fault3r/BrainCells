@@ -108,7 +108,7 @@ body{
                 height: 40px;
                 width: 250px;
                 padding-left: 7px;
-                transition: all .3s ease-in-out;
+                transition: all .3s ease;
             }
             .profile-search input:focus{
                 box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -125,7 +125,7 @@ body{
                 font-size: 20px;
                 padding: 1px 5px 1px 5px;
                 height: 40px;
-                transition: all .3s ease-in-out;
+                transition: all .3s ease;
             }
             .profile-search button:hover{
                 box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -155,7 +155,7 @@ body{
     border-radius: 0px 0px 30px 0px;
     backdrop-filter: blur(3px);
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
-    transition: all .3s ease-in-out;
+    transition: all .3s ease;
 }
     .menu-main{
         width: 100%;
@@ -222,6 +222,7 @@ body{
 .container-main{
     min-height: 110px;
     width: calc(80%);
+    height: 1400px;
     padding: 20px;
     margin: 30px 10% 30px 10%;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
@@ -316,7 +317,7 @@ body{
         transform: translate(-100%,-50%);
         padding-right: 7px;
         color: rgba(8, 75, 102,0.5);
-        transition: all 0.4s ease;
+        transition: all .3s ease;
     }
     .pwd-eye i:hover{
         color: rgba(8, 75, 102,0.9);
@@ -417,7 +418,7 @@ body{
     z-index: 10;
     width: 0%;
     background-image: linear-gradient(to right, #2dbeb4, #2fdbd5);
-    transition: width .3s ease;
+    transition: all .3s ease;
 }
 .footer {
     width:100%;
