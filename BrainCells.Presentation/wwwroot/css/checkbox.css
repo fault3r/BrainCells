@@ -3,16 +3,13 @@
     justify-content: center;
     align-items: center;
 }
-
 .checkbox-wrapper-26 input[type="checkbox"] {
 display: none;
 visibility: hidden;
 }
-
 .checkbox-wrapper-26 label {
 display: inline-block;
 }
-
 .checkbox-wrapper-26 .cbx {
 position: relative;
 top: 1px;
