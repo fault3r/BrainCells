@@ -11,6 +11,8 @@ using BrainCells.Infrastructure.Services;
 using BrainCells.Presentation.Middlewares;
 using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
+using BrainCells.Presentation.Models.Home.Validators;
+using BrainCells.Presentation.Models.Home.ViewModels;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +40,7 @@ builder.Services.AddFluentEmailConfigure(builder.Configuration);
 builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();
 
 builder.Services.AddScoped<IContactService, ContactService>();
+    builder.Services.AddScoped<IValidator<ContactViewModel>,ContactValidator>();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
     builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();

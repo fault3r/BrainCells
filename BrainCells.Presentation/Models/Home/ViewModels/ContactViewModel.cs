@@ -1,6 +1,6 @@
 using System;
 
-namespace BrainCells.Presentation.Models.ViewModels;
+namespace BrainCells.Presentation.Models.Home.ViewModels;
 
 public class ContactViewModel
 {

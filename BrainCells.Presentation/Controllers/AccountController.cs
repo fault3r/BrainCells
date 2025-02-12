@@ -18,19 +18,21 @@ public class AccountController : Controller
 {
     private readonly ISupportEmailService _supportEmailService;
     private readonly IAccountRepository _accountRepository;
-    private readonly IValidator<SigninViewModel> _signinValidator;
-    private readonly IValidator<SignupViewModel> _signupValidator;
-    private readonly IValidator<ChangePasswordViewModel> _changePasswordValidator;
+        private readonly IValidator<SigninViewModel> _signinValidator;
+        private readonly IValidator<SignupViewModel> _signupValidator;
+        private readonly IValidator<ChangePasswordViewModel> _changePasswordValidator;
 
-    public AccountController(ISupportEmailService supportEmailService, IAccountRepository accountRepository,
-        IValidator<SigninViewModel> signinValidator, IValidator<SignupViewModel> signupValidator,
-        IValidator<ChangePasswordViewModel> changePasswordValidator)
+    public AccountController(ISupportEmailService supportEmailService,
+        IAccountRepository accountRepository,
+            IValidator<SigninViewModel> signinValidator,
+            IValidator<SignupViewModel> signupValidator,
+            IValidator<ChangePasswordViewModel> changePasswordValidator)
     {
         _supportEmailService = supportEmailService;
         _accountRepository = accountRepository;
-        _signinValidator = signinValidator;
-        _signupValidator = signupValidator;
-        _changePasswordValidator = changePasswordValidator;
+            _signinValidator = signinValidator;
+            _signupValidator = signupValidator;
+            _changePasswordValidator = changePasswordValidator;
     }
 
     [Authorize]
@@ -96,8 +98,8 @@ public class AccountController : Controller
             });
             if(result.Success)
             {
-                ViewData["MessageType"] = AppConsts.SUCCESS;
                 await _accountRepository.SignInAsync(account.Email, account.Password, true);
+                ViewData["MessageType"] = AppConsts.SUCCESS;
                 return Redirect("/");   
             }
             else
@@ -106,8 +108,8 @@ public class AccountController : Controller
         }
         else
         {
-            ViewData["MessageType"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
+            ViewData["MessageType"] = AppConsts.WARNING;
         }
         return View("SignUp", account);
     }

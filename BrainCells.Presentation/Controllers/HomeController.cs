@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Authorization;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using System.Security.Claims;
-using BrainCells.Presentation.Models.ViewModels;
 using BrainCells.Presentation.Models.Home.ViewModels;
+using BrainCells.Application.Services.ContactService;
+using FluentValidation;
+using BrainCells.Application.Common;
 
 namespace BrainCells.Presentation.Controllers;
 
@@ -14,12 +16,18 @@ namespace BrainCells.Presentation.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger _logger;
+    private readonly IContactService _contactService;
+        private readonly IValidator<ContactViewModel> _saveMessageValidator;
     private readonly IAccountRepository _accountRepository;
 
-
-    public HomeController(ILoggerFactory logger, IAccountRepository accountRepository)
+    public HomeController(ILoggerFactory logger, 
+        IContactService contactService,
+            IValidator<ContactViewModel> saveMessageValidator,
+        IAccountRepository accountRepository)
     {
         _logger = logger.CreateLogger("BrainCells");
+        _contactService = contactService;
+            _saveMessageValidator = saveMessageValidator;
         _accountRepository = accountRepository;
     }
 
@@ -63,8 +71,26 @@ public class HomeController : Controller
     
     [AllowAnonymous]
     [HttpPost]
-    public IActionResult Contact([FromForm]ContactViewModel contact)
+    public async Task<IActionResult> Contact([FromForm]ContactViewModel contact)
     {
+        var validate = _saveMessageValidator.Validate(contact);
+        if(validate.IsValid)
+        {
+            var result = await _contactService.SaveMessageAsync(contact.FullName, contact.Email, contact.Message);
+            if(result.Success)
+            {
+                ModelState.Clear();
+                ViewData["MessageType"] = AppConsts.SUCCESS;
+            }
+            else
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("Contact", result.Message);
+        }
+        else
+        {
+            ModelState.AddFluentResult(validate);
+            ViewData["MessageType"]= AppConsts.WARNING;
+        }
         return View("Contact");
     }
 

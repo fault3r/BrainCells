@@ -1,7 +1,11 @@
+@using BrainCells.Presentation.Models.Home.ViewModels
+
 @{
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
     ViewData["Title"] = "ContactUs";
 }
+
+@model ContactViewModel
 
 <form asp-controller="Home" asp-action="Contact" method="post">
     <table>
@@ -18,12 +22,12 @@
         <tr>
             <td class="mlabel">
                 <i class="fa fa-user"></i>
-                <label for="Name">Enter your full name:</label>
+                <label for="FullName">Enter your full name:</label>
             </td>
         </tr>
         <tr>
             <td>
-                <input name="Name" id="Name" type="text" class="mtext" required />
+                <input asp-for="FullName" id="FullName" type="text" class="mtext" required />
             </td>
         </tr>
         <tr>
@@ -34,7 +38,7 @@
         </tr>
         <tr>
             <td>
-                <input name="Email" id="Email" type="email" class="mtext" required />
+                <input asp-for="Email" id="Email" type="email" class="mtext" required />
             </td>
         </tr>
         <tr>
@@ -45,7 +49,7 @@
         </tr>
         <tr>
             <td>
-                <textarea name="Message" id="Message" type="text" class="mtext mtextwide" required></textarea>
+                <textarea asp-for="Message" id="Message" type="text" class="mtext mtextwide" required></textarea>
             </td>
         </tr>
         <tr>
