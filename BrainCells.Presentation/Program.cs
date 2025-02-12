@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
+using BrainCells.Application.Services.ContactService;
 using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Infrastructure.Contexts;
@@ -35,6 +36,8 @@ builder.Services.AddScoped<ILoggingService,LoggingService>();
 
 builder.Services.AddFluentEmailConfigure(builder.Configuration);
 builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();
+
+builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
     builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();

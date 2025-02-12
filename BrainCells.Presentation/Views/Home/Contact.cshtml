@@ -3,7 +3,7 @@
     ViewData["Title"] = "ContactUs";
 }
 
-<form>
+<form asp-controller="Home" asp-action="Contact" method="post">
     <table>
         <tr>
             <td class="mtitle">
@@ -17,8 +17,19 @@
         </tr>
         <tr>
             <td class="mlabel">
+                <i class="fa fa-user"></i>
+                <label for="Name">Enter your full name:</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="Name" id="Name" type="text" class="mtext" required />
+            </td>
+        </tr>
+        <tr>
+            <td class="mlabel">
                 <i class="fa fa-envelope"></i>
-                <label for="Email">Your email address</label>
+                <label for="Email">Email address</label>
             </td>
         </tr>
         <tr>
@@ -40,7 +51,7 @@
         <tr>
             <td>
                 <div class="mdescribe">
-                    <i class="fa fa-info-circle"></i>We answer your email as soon as possible.
+                    <i class="fa fa-info-circle"></i>We answer your message as soon as possible.
                 </div>
             </td>
         </tr> 

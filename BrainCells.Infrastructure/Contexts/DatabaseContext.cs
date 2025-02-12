@@ -1,6 +1,7 @@
 using System;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
+using BrainCells.Domain.Entities;
 using BrainCells.Domain.Entities.Accounts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<ForgotPassword> ForgotPasswords { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -45,5 +47,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
         });
 
         builder.Entity<ForgotPassword>().HasKey(p => p.AccountId);
+
+        builder.Entity<Contact>().HasKey(p => p.Id);
     }
 }

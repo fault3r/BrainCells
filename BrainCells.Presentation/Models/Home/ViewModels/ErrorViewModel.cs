@@ -1,4 +1,4 @@
-namespace BrainCells.Presentation.Models;
+namespace BrainCells.Presentation.Models.Home.ViewModels;
 
 public class ErrorViewModel
 {

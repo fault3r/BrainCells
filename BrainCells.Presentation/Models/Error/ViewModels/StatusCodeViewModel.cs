@@ -1,6 +1,6 @@
 using System;
 
-namespace BrainCells.Presentation.Models;
+namespace BrainCells.Presentation.Models.Error.ViewModels;
 
 public class StatusCodeViewModel
 {

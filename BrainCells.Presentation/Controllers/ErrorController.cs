@@ -1,5 +1,5 @@
 using System;
-using BrainCells.Presentation.Models;
+using BrainCells.Presentation.Models.Error.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrainCells.Presentation.Controllers;
