@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainCells.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainCells.Presentation", "BrainCells.Presentation\BrainCells.Presentation.csproj", "{EF19D5F3-1DF9-4CB6-B9EB-117CD4BC6E6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainCells.Tests", "..\tests\BrainCells.Tests\BrainCells.Tests.csproj", "{D0BDCC1F-31A0-4EDB-B7E7-B6363959AD37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{EF19D5F3-1DF9-4CB6-B9EB-117CD4BC6E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF19D5F3-1DF9-4CB6-B9EB-117CD4BC6E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF19D5F3-1DF9-4CB6-B9EB-117CD4BC6E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0BDCC1F-31A0-4EDB-B7E7-B6363959AD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BDCC1F-31A0-4EDB-B7E7-B6363959AD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BDCC1F-31A0-4EDB-B7E7-B6363959AD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BDCC1F-31A0-4EDB-B7E7-B6363959AD37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
