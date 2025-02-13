@@ -25,6 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BrainCells.Presentation\BrainCells.Presentation.csproj" />
+    <ProjectReference Include="..\..\src\BrainCells.Domain\BrainCells.Domain.csproj" />
+    <ProjectReference Include="..\..\src\BrainCells.Application\BrainCells.Application.csproj" />
+    <ProjectReference Include="..\..\src\BrainCells.Infrastructure\BrainCells.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

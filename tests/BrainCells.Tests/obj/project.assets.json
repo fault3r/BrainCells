@@ -10377,6 +10377,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "BrainCells.Application >= 1.0.0",
+      "BrainCells.Domain >= 1.0.0",
+      "BrainCells.Infrastructure >= 1.0.0",
       "BrainCells.Presentation >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.6.0",
       "Moq >= 4.20.72",
@@ -10410,6 +10413,15 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj"
+            },
+            "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
+              "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj"
+            },
+            "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj": {
+              "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj"
+            },
             "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj": {
               "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj"
             }

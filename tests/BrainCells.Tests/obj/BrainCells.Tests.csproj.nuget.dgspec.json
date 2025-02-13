@@ -340,6 +340,15 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj": {
+                "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj"
+              },
+              "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
+                "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj"
+              },
+              "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj": {
+                "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj"
+              },
               "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj": {
                 "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj"
               }
