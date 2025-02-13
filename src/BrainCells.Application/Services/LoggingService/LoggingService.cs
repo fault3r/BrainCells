@@ -26,19 +26,11 @@ public class LoggingService : ILoggingService
         DeleteAccount,
     }
 
-    private void logDirectory()
-    {
-        if(!Directory.Exists(logPath))
-            Directory.CreateDirectory(logPath);
-    }
-
     public async Task LogAccountAsync(string email, LogMode mode)
     {
         try{
-            logDirectory();
             string path = Path.Combine(logPath, "account");
-            if(!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            Directory.CreateDirectory(path);
             string filePath = Path.Combine(path, email.Replace('@','-') + "-log.txt");
             string log = "\n\n*Issue: " + mode.ToString() + "\n"
                     + "  Time: " + DateTime.Now.ToLongTimeString() + "\n"
