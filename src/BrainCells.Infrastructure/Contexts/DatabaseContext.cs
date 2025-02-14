@@ -22,7 +22,6 @@ public class DatabaseContext : DbContext, IDatabaseContext
     public DbSet<ForgotPassword> ForgotPasswords { get; set; }
     public DbSet<Contact> Contacts { get; set; }
 
-
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
         builder.UseSqlServer(_configuration.GetSection("ConnectionStrings")["Default"]);
