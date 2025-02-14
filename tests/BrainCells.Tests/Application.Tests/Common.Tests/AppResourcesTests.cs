@@ -16,7 +16,7 @@ public class AppResourcesTests
         Directory.CreateDirectory(Path.Combine(path, "resource"));
         string filename = "test.txt";
         string filepath = Path.Combine(path, "resource", filename);
-        string expected = "this is a file for test purpose.";
+        string expected = "this is a file for testing purpose.";
         await File.WriteAllTextAsync(filepath, expected);
         var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
         mockWebHostEnvironment.Setup(obj => obj.WebRootPath).Returns(path);

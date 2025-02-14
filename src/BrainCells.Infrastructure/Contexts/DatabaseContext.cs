@@ -25,7 +25,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-        builder.UseSqlServer(_configuration.GetConnectionString("Default"));
+        builder.UseSqlServer(_configuration.GetSection("ConnectionStrings")["Default"]);
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
