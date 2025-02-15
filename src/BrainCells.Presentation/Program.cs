@@ -1,6 +1,4 @@
 using System;
-using System.Net;
-using System.Net.Mail;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.ContactService;
@@ -19,7 +17,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<DatabaseContext>();
+builder.Services.AddDbContext<DatabaseContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+});
 builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 
 builder.Services.AddAuthentication(options => {

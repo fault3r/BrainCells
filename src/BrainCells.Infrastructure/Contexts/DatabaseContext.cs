@@ -4,28 +4,19 @@ using BrainCells.Application.Interfaces;
 using BrainCells.Domain.Entities;
 using BrainCells.Domain.Entities.Accounts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace BrainCells.Infrastructure.Contexts;
 
 public class DatabaseContext : DbContext, IDatabaseContext
 {
-    private readonly IConfiguration _configuration;
-
-    public DatabaseContext(DbContextOptions options, IConfiguration configuration) :base(options)
+    public DatabaseContext(DbContextOptions options) :base(options)
     {
-        _configuration = configuration;
     }
 
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<ForgotPassword> ForgotPasswords { get; set; }
     public DbSet<Contact> Contacts { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder builder)
-    {
-        builder.UseSqlServer(_configuration.GetSection("ConnectionStrings")["Default"]);
-    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
