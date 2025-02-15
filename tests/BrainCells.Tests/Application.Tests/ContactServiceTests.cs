@@ -12,33 +12,30 @@ namespace BrainCells.Tests.Application.Tests;
 public class ContactServiceTests
 {
     [Fact]
-    public async Task SaveMessageAsync_WhenConnectionOkay_ReturnsSuccess()
+    public async Task SaveMessageAsync_WhenDatabaseConnectionOkay_SaveMessage()
     {
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("dbTest")
             .Options;
         var databaseContext = new DatabaseContext(options);
         var contactService = new ContactService(databaseContext);
-        string fullname = "xUnit Test";
-        string email = "test@unit.x";
-        string message = "this is a test message.";
+        string input = "xUnitTest";
 
-        var result = await contactService.SaveMessageAsync(fullname, email, message);
+        var result = await contactService.SaveMessageAsync(input, input, input);
 
         Assert.True(result.Success);
     }
 
     [Fact]
-    public async Task SaveMessageAsync_WhenThrownException_ReturnFailure()
+    public async Task SaveMessageAsync_WhenDatabaseConnectionError_ReturnFailure()
     {
         var mockDatabaseContext = new Mock<IDatabaseContext>();
-        mockDatabaseContext.Setup(m => m.SaveChangesAsync(default)).ThrowsAsync(new Exception());
+        mockDatabaseContext.Setup(m => m.SaveChangesAsync(default))
+            .ThrowsAsync(new Exception());
         var contactService = new ContactService(mockDatabaseContext.Object);
-        string fullname = "xUnit Test";
-        string email = "test@unit.x";
-        string message = "this is a test message.";
+        string input = "xUnitTest";
 
-        var result = await contactService.SaveMessageAsync(fullname, email, message);
+        var result = await contactService.SaveMessageAsync(input, input, input);
 
         Assert.False(result.Success);
     }

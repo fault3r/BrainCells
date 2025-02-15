@@ -9,9 +9,7 @@ namespace BrainCells.Infrastructure.Contexts;
 
 public class DatabaseContext : DbContext, IDatabaseContext
 {
-    public DatabaseContext(DbContextOptions options) :base(options)
-    {
-    }
+    public DatabaseContext(DbContextOptions options) : base(options){}
 
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Role> Roles { get; set; }

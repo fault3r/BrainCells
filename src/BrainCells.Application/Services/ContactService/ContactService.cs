@@ -2,8 +2,6 @@ using System;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
 using BrainCells.Domain.Entities;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 
 namespace BrainCells.Application.Services.ContactService;
 
@@ -28,7 +26,7 @@ public class ContactService : IContactService
             await _databaseContext.SaveChangesAsync();
             return new ResultDto{
                 Success = true,
-                Message = "Your message has been sent successfully.",
+                Message = "Your message has been successfully sent. We appreciate you contacting us and will respond as soon as possible.",
             };
         }
         catch{
