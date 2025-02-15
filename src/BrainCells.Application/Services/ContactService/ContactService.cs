@@ -2,6 +2,8 @@ using System;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
 using BrainCells.Domain.Entities;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrainCells.Application.Services.ContactService;
 

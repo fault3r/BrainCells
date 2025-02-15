@@ -9,7 +9,7 @@ public class LoggingService : ILoggingService
     private string logPath;
     private readonly IWebHostEnvironment _webHostEnvironment;
    
-    public LoggingService(string tasr, IWebHostEnvironment webHostEnvironment)
+    public LoggingService(IWebHostEnvironment webHostEnvironment)
     {
         _webHostEnvironment = webHostEnvironment;
         logPath = Path.Combine(_webHostEnvironment.WebRootPath, "log");
