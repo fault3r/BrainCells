@@ -34,7 +34,7 @@ public class ContactService : IContactService
         catch{
             return new ResultDto{
                 Success = false,
-                Message = "Failed to send email. That's all we know!",
+                Message = "Unable to connect to the database. That's all we know!",
             };
         }
     }    
