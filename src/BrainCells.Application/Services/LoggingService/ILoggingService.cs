@@ -5,5 +5,5 @@ namespace BrainCells.Application.Services.LoggingService;
 
 public interface ILoggingService
 {
-    Task LogAccountAsync(string email, LogMode mode);
+    Task<bool> LogAccountAsync(string email, LogMode mode);
 }

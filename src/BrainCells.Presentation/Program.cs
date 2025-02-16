@@ -34,7 +34,9 @@ builder.Services.AddAuthorization(options => {
     options.AddPolicy("requireLogin",policy => policy.RequireRole("ACCOUNT"));
 });
 
-builder.Services.AddScoped<ILoggingService,LoggingService>();
+builder.Services.AddScoped<ILoggingService>(provider => 
+        new LoggingService(builder.Environment.WebRootPath)
+);
 
 builder.Services.AddFluentEmailConfigure(builder.Configuration);
 builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();

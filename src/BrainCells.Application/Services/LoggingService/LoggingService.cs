@@ -1,18 +1,15 @@
 using System;
 using System.Text;
-using Microsoft.AspNetCore.Hosting;
 
 namespace BrainCells.Application.Services.LoggingService;
 
 public class LoggingService : ILoggingService
 {
-    private string logPath;
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    private string _rootPath;
    
-    public LoggingService(IWebHostEnvironment webHostEnvironment)
+    public LoggingService(string rootPath)
     {
-        _webHostEnvironment = webHostEnvironment;
-        logPath = Path.Combine(_webHostEnvironment.WebRootPath, "log");
+        _rootPath = Path.Combine(rootPath, "log");
     }
 
     public enum LogMode
@@ -26,10 +23,10 @@ public class LoggingService : ILoggingService
         DeleteAccount,
     }
 
-    public async Task LogAccountAsync(string email, LogMode mode)
+    public async Task<bool> LogAccountAsync(string email, LogMode mode)
     {
         try{
-            string path = Path.Combine(logPath, "account");
+            string path = Path.Combine(_rootPath, "account");
             Directory.CreateDirectory(path);
             string filePath = Path.Combine(path, email.Replace('@','-') + "-log.txt");
             string log = "\n\n*Issue: " + mode.ToString() + "\n"
@@ -39,7 +36,10 @@ public class LoggingService : ILoggingService
             FileStream file = new FileStream(filePath, FileMode.Append, FileAccess.Write);
             await file.WriteAsync(Encoding.UTF8.GetBytes(log), 0, log.Length);
             file.Close();
+            return true;
         }
-        catch{}
+        catch{
+            return false;
+        }
     }
 }
