@@ -14,6 +14,8 @@ public class ContactServiceTests
     [Fact]
     public async Task SaveMessageAsync_WhenDatabaseConnectionOkay_SaveMessage()
     {
+        //Unit Test
+        //Arrange
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("dbTest")
             .Options;
@@ -21,22 +23,28 @@ public class ContactServiceTests
         var contactService = new ContactService(databaseContext);
         string input = "xUnitTest";
 
+        //Act
         var result = await contactService.SaveMessageAsync(input, input, input);
 
+        //Assert
         Assert.True(result.Success);
     }
 
     [Fact]
     public async Task SaveMessageAsync_WhenDatabaseConnectionError_ReturnFailure()
     {
+        //Unit Test
+        //Arrange
         var mockDatabaseContext = new Mock<IDatabaseContext>();
         mockDatabaseContext.Setup(m => m.SaveChangesAsync(default))
             .ThrowsAsync(new Exception());
         var contactService = new ContactService(mockDatabaseContext.Object);
         string input = "xUnitTest";
 
+        //Act
         var result = await contactService.SaveMessageAsync(input, input, input);
 
+        //Assert
         Assert.False(result.Success);
     }
 }

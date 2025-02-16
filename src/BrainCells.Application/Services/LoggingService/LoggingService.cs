@@ -12,7 +12,7 @@ public class LoggingService : ILoggingService
         _rootPath = Path.Combine(rootPath, "log");
     }
 
-    public enum LogMode
+    public enum LogTitle
     {
         SignIn,
         SignUp,
@@ -23,23 +23,29 @@ public class LoggingService : ILoggingService
         DeleteAccount,
     }
 
-    public async Task<bool> LogAccountAsync(string email, LogMode mode)
+    private async Task setLog(string filePath, string log)
+    {
+        using(FileStream file = new FileStream(filePath, FileMode.Append, FileAccess.Write))
+        {
+            await file.WriteAsync(Encoding.UTF8.GetBytes(log), 0, log.Length);
+        }
+    }
+
+    public async Task<string> LogAccountAsync(string email, LogTitle title)
     {
         try{
             string path = Path.Combine(_rootPath, "account");
             Directory.CreateDirectory(path);
             string filePath = Path.Combine(path, email.Replace('@','-') + "-log.txt");
-            string log = "\n\n*Issue: " + mode.ToString() + "\n"
+            string log = "\n\n*Issue: " + title.ToString() + "\n"
                     + "  Time: " + DateTime.Now.ToLongTimeString() + "\n"
                     + "  Date: " + DateTime.Now.ToLongDateString() + "\n"
                     + "_________________________________________________";
-            FileStream file = new FileStream(filePath, FileMode.Append, FileAccess.Write);
-            await file.WriteAsync(Encoding.UTF8.GetBytes(log), 0, log.Length);
-            file.Close();
-            return true;
+            await setLog(filePath, log);
+            return filePath;
         }
         catch{
-            return false;
+            return "error";
         }
     }
 }

@@ -49,7 +49,7 @@ public class AccountRepository : IAccountRepository
                         otpSuccess = true;
                         _databaseContext.ForgotPasswords.Remove(otp);
                         await _databaseContext.SaveChangesAsync();
-                        await _loggingService.LogAccountAsync(account.Email, LogMode.OneTimePassword);
+                        await _loggingService.LogAccountAsync(account.Email, LogTitle.OneTimePassword);
 
                     }
                 if(otpSuccess || PasswordHasher.ComputeHash(password) == account.Password)
@@ -68,7 +68,7 @@ public class AccountRepository : IAccountRepository
                         ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
                     };
                     await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
-                    await _loggingService.LogAccountAsync(account.Email, LogMode.SignIn);
+                    await _loggingService.LogAccountAsync(account.Email, LogTitle.SignIn);
                     return new ResultDto{
                         Success = true,
                         Message = $"Welcome back, {account.Name}! You have successfully logged in.",
@@ -106,7 +106,7 @@ public class AccountRepository : IAccountRepository
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
-            await _loggingService.LogAccountAsync(tAccount.Email, LogMode.SignUp);
+            await _loggingService.LogAccountAsync(tAccount.Email, LogTitle.SignUp);
             return new ResultDto{
                 Success = true,
                 Message = $"Congratulations, {tAccount.Name}! Your account has been created successfully. You can now log in.",
@@ -132,7 +132,7 @@ public class AccountRepository : IAccountRepository
     {
         try{
             await _httpcontextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            await _loggingService.LogAccountAsync(email, LogMode.SignOut);
+            await _loggingService.LogAccountAsync(email, LogTitle.SignOut);
             return new ResultDto{
                 Success = true,
                 Message = "You have successfully logged out. We hope to see you again soon.",
@@ -186,7 +186,7 @@ public class AccountRepository : IAccountRepository
                 });
                 await _databaseContext.SaveChangesAsync();
                 var result = await _supportEmailService.SendOTPAsync(account.Email, password);
-                await _loggingService.LogAccountAsync(account.Email, LogMode.ForgotPassword);
+                await _loggingService.LogAccountAsync(account.Email, LogTitle.ForgotPassword);
                 if(result.Success)
                     return new ResultDto{
                         Success = true,
@@ -227,7 +227,7 @@ public class AccountRepository : IAccountRepository
             account.Password = PasswordHasher.ComputeHash(data.NewPassword);
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
-            await _loggingService.LogAccountAsync(account.Email, LogMode.ChangePassword);
+            await _loggingService.LogAccountAsync(account.Email, LogTitle.ChangePassword);
             return new ResultDto{
                 Success = true,
                 Message = "Your password has been successfully changed.",
@@ -250,7 +250,7 @@ public class AccountRepository : IAccountRepository
                 await SignOutAsync(account.Email);
                 _databaseContext.Accounts.Remove(account);
                 await _databaseContext.SaveChangesAsync();
-                await _loggingService.LogAccountAsync(account.Email, LogMode.DeleteAccount);
+                await _loggingService.LogAccountAsync(account.Email, LogTitle.DeleteAccount);
                 return new ResultDto{
                     Success = true,
                     Message = "Your account has been successfully deleted. We're sorry to see you go.",
