@@ -14,8 +14,7 @@ public class ContactServiceTests
 {
     [Fact]
     public async Task SaveMessageAsync_Can_Write_To_Database()
-    {
-        //System Test
+    {//System Test
         //Arrange
         string connectionString = "Server=localhost,1433; Database=dbfa2; User Id=SA; Password=SQL@server; TrustServerCertificate=true;";
         string input = "SystemTest";
@@ -40,8 +39,7 @@ public class ContactServiceTests
 
     [Fact]
     public async Task SaveMessageAsync_WhenDatabaseConnectionOkay_SaveMessage()
-    {
-        //Unit Test
+    {//UnitTest
         //Arrange
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("dbTest")
@@ -59,8 +57,7 @@ public class ContactServiceTests
 
     [Fact]
     public async Task SaveMessageAsync_WhenDatabaseConnectionError_ReturnFailure()
-    {
-        //Unit Test
+    {//Unit Test
         //Arrange
         var mockDatabaseContext = new Mock<IDatabaseContext>();
         mockDatabaseContext.Setup(m => m.SaveChangesAsync(default))

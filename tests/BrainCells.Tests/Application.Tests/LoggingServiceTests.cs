@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using BrainCells.Application.Services.LoggingService;
-using Moq;
 using Xunit;
 using static BrainCells.Application.Services.LoggingService.LoggingService;
 
@@ -11,8 +10,7 @@ public class LoggingServiceTests
 {
     [Fact]
     public async Task LogAccountAsync_Can_Write_Log()
-    {
-        //System Test
+    {//System Test
         //Arrange
         string email = "system@test";
         LogTitle logTitle = LogTitle.SignIn;
