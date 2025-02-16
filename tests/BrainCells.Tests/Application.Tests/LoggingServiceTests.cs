@@ -14,7 +14,7 @@ public class LoggingServiceTests
     {
         //System Test
         //Arrange
-        string email = "test@x.x";
+        string email = "system@test";
         LogTitle logTitle = LogTitle.SignIn;
         string path = "testRoot";
         var loggingService = new LoggingService(path);
