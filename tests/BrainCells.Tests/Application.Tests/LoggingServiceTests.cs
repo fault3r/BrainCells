@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using BrainCells.Application.Services.LoggingService;
 using Xunit;
-using static BrainCells.Application.Services.LoggingService.LoggingService;
+using static BrainCells.Application.Services.LoggingService.ILoggingService;
 
 namespace BrainCells.Tests.Application.Tests;
 
@@ -14,8 +14,8 @@ public class LoggingServiceTests
         //Arrange
         string email = "system@test";
         LogTitle logTitle = LogTitle.SignIn;
-        string path = "testRoot";
-        var loggingService = new LoggingService(path);
+        string root = "logRoot";
+        var loggingService = new LoggingService(root);
         
         //Act
         var filePath = await loggingService.LogAccountAsync(email, logTitle);
@@ -26,6 +26,6 @@ public class LoggingServiceTests
         Assert.True(fileExist);
 
         //Cleanup
-        Directory.Delete(path, true);
+        Directory.Delete(root, true);
     }
 }

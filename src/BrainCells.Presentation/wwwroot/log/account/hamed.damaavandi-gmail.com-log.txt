@@ -1,31 +1,11 @@
 
 
-*Issue: SignIn
-  Time: 7:45:39 PM
-  Date: Sunday, February 16, 2025
-_______________________________________________
-
 *Issue: SignOut
-  Time: 7:51:40 PM
-  Date: Sunday, February 16, 2025
-_______________________________________________
-
-*Issue: SignOut
-  Time: 7:54:53 PM
-  Date: Sunday, February 16, 2025
-_______________________________________________
-
-*Issue: ForgotPassword
-  Time: 4:33:06 PM
-  Date: Monday, February 17, 2025
-_______________________________________________
-
-*Issue: OneTimePassword
-  Time: 4:33:39 PM
+  Time: 6:42:43 PM
   Date: Monday, February 17, 2025
 _______________________________________________
 
 *Issue: SignIn
-  Time: 4:33:39 PM
+  Time: 6:44:31 PM
   Date: Monday, February 17, 2025
 _______________________________________________

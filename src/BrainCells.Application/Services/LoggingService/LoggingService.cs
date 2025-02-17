@@ -1,26 +1,18 @@
 using System;
 using System.Text;
+using static BrainCells.Application.Services.LoggingService.ILoggingService;
 
 namespace BrainCells.Application.Services.LoggingService;
 
 public class LoggingService : ILoggingService
 {
+
     private string _rootPath;
    
     public LoggingService(string rootPath)
     {
         _rootPath = Path.Combine(rootPath, "log");
-    }
-
-    public enum LogTitle
-    {
-        SignIn,
-        SignUp,
-        SignOut,
-        ForgotPassword,
-        OneTimePassword,
-        ChangePassword,
-        DeleteAccount,
+        Directory.CreateDirectory(_rootPath);
     }
 
     private async Task setLog(string filePath, string log)
