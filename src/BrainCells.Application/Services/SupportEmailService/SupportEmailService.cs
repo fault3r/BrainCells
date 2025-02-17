@@ -2,6 +2,7 @@ using System;
 using System.Linq.Expressions;
 using System.Text;
 using BrainCells.Application.Common;
+using BrainCells.Application.Services.ResourceMemoryService;
 using FluentEmail.Core;
 using Microsoft.AspNetCore.Hosting;
 
@@ -10,18 +11,18 @@ namespace BrainCells.Application.Services.SupportEmailService;
 public class SupportEmailService : ISupportEmailService
 {
     private readonly IFluentEmail _fluentEmail;
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    private readonly IResourceMemoryService _resourceMemoryService;
 
-    public SupportEmailService(IFluentEmail fluentEmail, IWebHostEnvironment webHostEnvironment)
+    public SupportEmailService(IFluentEmail fluentEmail, IResourceMemoryService resourceMemoryService)
     {
         _fluentEmail = fluentEmail;
-        _webHostEnvironment = webHostEnvironment;
+        _resourceMemoryService = resourceMemoryService;
     }
 
     public async Task<ResultDto> SendOTPAsync(string to, string otp)
     {
         try{ 
-            var resource = await AppResources.GetResourceAsync(_webHostEnvironment, AppResources.OTPTemplate);
+            var resource = await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.OTPTemplate);
             string template = Encoding.UTF8.GetString(resource.ToArray());
             string body = template.Replace("[OneTimePassword]", otp);
             var response = await _fluentEmail

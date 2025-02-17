@@ -14,3 +14,18 @@ _______________________________________________
   Time: 7:54:53 PM
   Date: Sunday, February 16, 2025
 _______________________________________________
+
+*Issue: ForgotPassword
+  Time: 4:33:06 PM
+  Date: Monday, February 17, 2025
+_______________________________________________
+
+*Issue: OneTimePassword
+  Time: 4:33:39 PM
+  Date: Monday, February 17, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 4:33:39 PM
+  Date: Monday, February 17, 2025
+_______________________________________________

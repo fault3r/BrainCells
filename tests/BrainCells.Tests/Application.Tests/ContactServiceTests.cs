@@ -4,7 +4,6 @@ using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.ContactService;
 using BrainCells.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Moq;
 using Xunit;
 
@@ -26,7 +25,7 @@ public class ContactServiceTests
 
         //Act
         var result = await contactService.SaveMessageAsync(input, input, input);
-        var contact = await databaseContext.Contacts.FirstOrDefaultAsync(p => p.Email == input);
+        var contact = await databaseContext.Contacts.FirstOrDefaultAsync(p => p.Email == input.ToLower());
 
         //Assert
         Assert.True(result.Success);
@@ -39,7 +38,7 @@ public class ContactServiceTests
 
     [Fact]
     public async Task SaveMessageAsync_WhenDatabaseConnectionOkay_SaveMessage()
-    {//UnitTest
+    {//Unit Test
         //Arrange
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("dbTest")

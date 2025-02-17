@@ -11,25 +11,26 @@ using Microsoft.AspNetCore.Hosting;
 using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
 using static BrainCells.Application.Services.LoggingService.LoggingService;
+using BrainCells.Application.Services.ResourceMemoryService;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
 public class AccountRepository : IAccountRepository
 {
+    private readonly IResourceMemoryService _resourceMemoryService;
     private readonly ILoggingService _loggingService;
     private readonly IDatabaseContext _databaseContext;
     private readonly ISupportEmailService _supportEmailService;
     private readonly IHttpContextAccessor _httpcontextAccessor;
-    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public AccountRepository(ILoggingService loggingService, IDatabaseContext databaseContext,
-        ISupportEmailService supportEmailService, IHttpContextAccessor httpcontextAccessor, IWebHostEnvironment webHostEnvironment)
+    public AccountRepository(IResourceMemoryService resourceMemoryService, ILoggingService loggingService, IDatabaseContext databaseContext,
+        ISupportEmailService supportEmailService, IHttpContextAccessor httpcontextAccessor)
     {
         _loggingService = loggingService;
         _databaseContext = databaseContext;
         _supportEmailService = supportEmailService;
         _httpcontextAccessor = httpcontextAccessor;
-        _webHostEnvironment = webHostEnvironment;
+        _resourceMemoryService = resourceMemoryService;
     }
 
     public async Task<ResultDto> SignInAsync(string email, string password, bool persistent)
@@ -102,7 +103,7 @@ public class AccountRepository : IAccountRepository
                 Password = PasswordHasher.ComputeHash(account.Password),
                 RoleId = Guid.Parse(AppConsts.ACCOUNT),
                 Name = account.Name.Trim(),
-                Picture = (await AppResources.GetResourceAsync(_webHostEnvironment, AppResources.ProfilePicture)).ToArray(),
+                Picture = (await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.ProfilePicture)).ToArray(),
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();

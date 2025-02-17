@@ -6,12 +6,11 @@ public static class OnetimePassword
 {
     public static string Create()
     {
-        Random rnd = new Random();
+        Random rnd = new();
         string password = string.Empty;
-        int x;
         for(int i=0; i<8; i++)
         {
-            int n = rnd.Next(3);
+            int x, n = rnd.Next(3);
             if(n==0)
                 x=rnd.Next(48,58);
             else if(n==1)

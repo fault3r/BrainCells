@@ -3,6 +3,7 @@ using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.ContactService;
 using BrainCells.Application.Services.LoggingService;
+using BrainCells.Application.Services.ResourceMemoryService;
 using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Infrastructure.Contexts;
 using BrainCells.Infrastructure.Services;
@@ -34,11 +35,16 @@ builder.Services.AddAuthorization(options => {
     options.AddPolicy("requireLogin",policy => policy.RequireRole("ACCOUNT"));
 });
 
+builder.Services.AddScoped<IResourceMemoryService>(provider => 
+    new ResourceMemoryService(builder.Environment.WebRootPath)
+);
+
 builder.Services.AddScoped<ILoggingService>(provider => 
-        new LoggingService(builder.Environment.WebRootPath)
+    new LoggingService(builder.Environment.WebRootPath)
 );
 
 builder.Services.AddFluentEmailConfigure(builder.Configuration);
+
 builder.Services.AddScoped<ISupportEmailService, SupportEmailService>();
 
 builder.Services.AddScoped<IContactService, ContactService>();
