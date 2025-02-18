@@ -22,7 +22,7 @@ public class SupportEmailService : ISupportEmailService
     public async Task<ResultDto> SendOTPAsync(string to, string otp)
     {
         try{ 
-            var resource = await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.OTPTemplate);
+            var resource = await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.OtpTemplate);
             string template = Encoding.UTF8.GetString(resource.ToArray());
             string body = template.Replace("[OneTimePassword]", otp);
             var response = await _fluentEmail

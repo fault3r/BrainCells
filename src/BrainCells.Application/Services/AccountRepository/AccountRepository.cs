@@ -26,11 +26,11 @@ public class AccountRepository : IAccountRepository
     public AccountRepository(IResourceMemoryService resourceMemoryService, ILoggingService loggingService, IDatabaseContext databaseContext,
         ISupportEmailService supportEmailService, IHttpContextAccessor httpcontextAccessor)
     {
+        _resourceMemoryService = resourceMemoryService;
         _loggingService = loggingService;
         _databaseContext = databaseContext;
         _supportEmailService = supportEmailService;
         _httpcontextAccessor = httpcontextAccessor;
-        _resourceMemoryService = resourceMemoryService;
     }
 
     public async Task<ResultDto> SignInAsync(string email, string password, bool persistent)

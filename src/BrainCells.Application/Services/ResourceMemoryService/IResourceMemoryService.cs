@@ -6,7 +6,7 @@ public interface IResourceMemoryService
 {
     const string AppLogo = "app-logo.png";
     const string ProfilePicture = "profile-picture.png";
-    const string OTPTemplate = "otp-tmail.html";
+    const string OtpTemplate = "otp-tmail.html";
 
     Task<MemoryStream> GetResourceAsync(string filename);   
 }

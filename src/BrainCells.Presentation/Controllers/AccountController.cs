@@ -36,6 +36,7 @@ public class AccountController : Controller
     }
 
     [Authorize]
+    [Route("")]
     [HttpGet]
     public async Task<IActionResult> Index()
     {

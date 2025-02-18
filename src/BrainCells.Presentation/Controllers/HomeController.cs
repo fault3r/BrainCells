@@ -30,15 +30,6 @@ public class HomeController : Controller
             _saveMessageValidator = saveMessageValidator;
         _accountRepository = accountRepository;
     }
-
-    [Authorize]
-    [HttpGet]
-    public async  Task<IActionResult> Index()
-    {   
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
-        return View("Index");
-    }
-
     private async Task<AccountViewModel> viewAccount()
     {
         var account = await _accountRepository.ViewAccountAsync(
@@ -55,6 +46,16 @@ public class HomeController : Controller
             return null;
     }
 
+    [Authorize]
+    [Route("")]
+    [HttpGet]
+    public async  Task<IActionResult> Index()
+    {   
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("Index");
+    }
+
+    [Route("Terms")]
     [AllowAnonymous]
     [HttpGet]
     public IActionResult Terms()
@@ -62,13 +63,15 @@ public class HomeController : Controller
         return View("Terms");
     }
 
+    [Route("Contact")]
     [AllowAnonymous]
     [HttpGet]
     public IActionResult Contact()
     {
         return View("Contact");
     }
-    
+
+    [Route("Contact")]
     [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Contact([FromForm]ContactViewModel contact)
