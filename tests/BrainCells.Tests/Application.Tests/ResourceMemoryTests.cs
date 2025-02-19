@@ -14,11 +14,11 @@ public class ResourceMemoryTests
         //Arrange
         string rootPath = "resourceRoot";
         string resourcePath = Path.Combine(rootPath, "resource");
-        string file = Path.Combine(resourcePath, "test.txt");
+        string filePath = Path.Combine(resourcePath, "test.txt");
         Directory.CreateDirectory(rootPath);
         Directory.CreateDirectory(resourcePath);
         string expected = "System Test.";
-        using(FileStream stream = new FileStream(file, FileMode.Create, FileAccess.Write))
+        using(FileStream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
         {
             await stream.WriteAsync(Encoding.UTF8.GetBytes(expected), 0, expected.Length);
         }

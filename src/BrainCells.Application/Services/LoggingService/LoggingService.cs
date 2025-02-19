@@ -6,7 +6,6 @@ namespace BrainCells.Application.Services.LoggingService;
 
 public class LoggingService : ILoggingService
 {
-
     private string _rootPath;
    
     public LoggingService(string rootPath)
@@ -17,9 +16,9 @@ public class LoggingService : ILoggingService
 
     private async Task setLog(string filePath, string log)
     {
-        using(FileStream file = new FileStream(filePath, FileMode.Append, FileAccess.Write))
+        using(FileStream stream = new FileStream(filePath, FileMode.Append, FileAccess.Write))
         {
-            await file.WriteAsync(Encoding.UTF8.GetBytes(log), 0, log.Length);
+            await stream.WriteAsync(Encoding.UTF8.GetBytes(log), 0, log.Length);
         }
     }
 

@@ -12,10 +12,10 @@ public class LoggingServiceTests
     public async Task LogAccountAsync_Can_Write_Log()
     {//System Test
         //Arrange
-        string email = "system@test";
+        string rootPath = "logRoot";
+        var loggingService = new LoggingService(rootPath);
         LogTitle logTitle = LogTitle.SignIn;
-        string root = "logRoot";
-        var loggingService = new LoggingService(root);
+        string email = "system@test";
         
         //Act
         var filePath = await loggingService.LogAccountAsync(email, logTitle);
@@ -26,6 +26,6 @@ public class LoggingServiceTests
         Assert.True(fileExist);
 
         //Cleanup
-        Directory.Delete(root, true);
+        Directory.Delete(rootPath, true);
     }
 }
