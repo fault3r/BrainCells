@@ -35,15 +35,6 @@ public class AccountController : Controller
             _changePasswordValidator = changePasswordValidator;
     }
 
-    [Authorize]
-    [Route("")]
-    [HttpGet]
-    public async Task<IActionResult> Index()
-    {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
-        return View("Index");
-    } 
-
     [Route("SignIn")]
     [HttpGet]
     public ActionResult SignIn()
@@ -150,6 +141,25 @@ public class AccountController : Controller
     }
 
     [Authorize]
+    [Route("")]
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("Index");
+    } 
+
+    [Authorize]
+    [Route("EditInformation")]
+    [HttpGet]
+    public async Task<IActionResult> EditInformation()
+    {
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        ViewData["MessageType"] = AppConsts.NONE;
+        return View("EditInformation");
+    }
+
+    [Authorize]
     [Route("Settings")]
     [HttpGet]
     public async Task<IActionResult> Settings()
@@ -188,21 +198,21 @@ public class AccountController : Controller
                     ViewData["MessageType"] = AppConsts.WARNING;    
                     ModelState.AddFluentResult(validate);
                 }
-            break;
+                break;
             case "DeleteAccount":
                 var result2 = await _accountRepository.DeleteAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier),settings.DeleteAccount.Confirm);
                 if(result2.Success)
                 {
                     ViewData["MessageType"] = AppConsts.SUCCESS;
-                    return Redirect("/");
+                    return Redirect("/"); 
                 }
                 else
                     ViewData["MessageType"] = AppConsts.ERROR;
                 ModelState.AddModelError("DeleteAccount", result2.Message);
-            break;
+                break;
             default:
                 ViewData["MessageType"] = AppConsts.NONE;
-            break;
+                break;
         }
         ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Settings", settings);

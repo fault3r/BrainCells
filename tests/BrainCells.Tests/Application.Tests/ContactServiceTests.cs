@@ -16,12 +16,12 @@ public class ContactServiceTests
     {//System Test
         //Arrange
         string connectionString = "Server=localhost,1433; Database=dbfa2; User Id=SA; Password=SQL@server; TrustServerCertificate=true;";
-        string input = "SystemTest";
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseSqlServer(connectionString)
             .Options;
         var databaseContext = new DatabaseContext(options);
         var contactService = new ContactService(databaseContext);
+        string input = "SystemTest";
 
         //Act
         var result = await contactService.SaveMessageAsync(input, input, input);

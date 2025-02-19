@@ -12,88 +12,87 @@
     <link rel="stylesheet" href="~/css/account/settings.css" />
 }
 
-<div class="container-settings">
-    <div class="settings-title faHeader"><i class="fa fa-gears"></i> Settings</div>
-    <div class="faLine"></div>
-    <div class="faSpace"></div>
-    <form asp-controller="Account" asp-action="Settings" method="post">
-        <input asp-for="Mode" value="ChangePassword" hidden />
-        <table class="faTable">
-            <tr>
-                <td colspan="2" class="faTitle"><i class="fa fa-lock"></i> Change Account Password</td>
-            </tr>
-            <tr>
-                <td class="faText right">Current Password:</td>
-                <td>
-                    @{
-                        if(@User.FindFirst(ClaimTypes.Version).Value.ToString() == "otp")
-                        {
-                            <input class="faInput" type="text" value="[One-Time Password Verification]" disabled />
-                            <input asp-for="ChangePassword.CurrentPassword" value="otp-mode" hidden />
-                        }
-                        else
-                        {
-                            <input asp-for="ChangePassword.CurrentPassword" class="faInput" type="password" required />
-                        }
+<div class="faHeader"><i class="fa fa-gears"></i> Settings</div>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Account" asp-action="Settings" method="post">
+    <input asp-for="Mode" value="ChangePassword" hidden />
+    <table class="faTable">
+        <tr>
+            <td colspan="2" class="faTitle"><i class="fa fa-lock"></i> Change Account Password</td>
+        </tr>
+        <tr>
+            <td class="faText right">Current Password:</td>
+            <td>
+                @{
+                    if(@User.FindFirst(ClaimTypes.Version).Value.ToString() == "otp")
+                    {
+                        <input class="faInput" type="text" value="[One-Time Password Verification]" disabled />
+                        <input asp-for="ChangePassword.CurrentPassword" value="otp-mode" hidden />
                     }
-                </td>
-            </tr>
-            <tr>
-                <td class="faText right">New Password:</td>
-                <td class="pwd-eye">
-                    <input asp-for="ChangePassword.Password" id="Password" class="faInput" type="password" required />
-                    <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
-                </td>
-            </tr>
-            <tr>
-                <td class="faText right">Confirm New Password:</td>
-                <td><input asp-for="ChangePassword.ConfirmPassword" id="ConfirmPassword" class="faInput" type="password" required /></td>
-            </tr>
-            <tr>
-                <td colspan="2"> <div class="pwd-chk"><div id="pwdchk-point"></div></div></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="right"><button class="faButton" type="submit">Change Password</button></td>
-            </tr>
-        </table>
-    </form>
-    <div class="faLine"></div>
-    <div class="faSpace"></div>
-    <form asp-controller="Account" asp-action="Settings" method="post">
-        <input asp-for="Mode" value="DeleteAccount" hidden />
-        <table class="faTable">    
-            <tr>
-                <td class="faTitle"><i class="fa fa-trash-o"></i> Delete Your Account</td>
-            </tr>
-            <tr>
-                <td class="faText">Deleting your account will remove all of your information from our database.</td>
-            </tr>
-            <tr>
-                <td class="faText">to confirm this, type "<b>delete</b>":</td>
-            </tr>
-            <tr>
-                <td><input asp-for="DeleteAccount.Confirm" class="faInput" type="text" required /></td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="DeleteButton" type="submit">
-                        <span class="shadow"></span>
-                        <span class="edge"></span>
-                        <span class="front text">Delete Account</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td class="faDescription"><i class="fa fa-info-circle"></i> It's could not be undone!</td>
-            </tr>
-        </table>
-    </form>
-    <div class="faLine"></div>
-    <div class="faSpace"></div>
-    <form asp-controller="Account" asp-action="Index" method="get">
-        <button type="submit" class="faButton">Back ←</button>
-    </form>
-</div>
+                    else
+                    {
+                        <input asp-for="ChangePassword.CurrentPassword" class="faInput" type="password" required />
+                    }
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="faText right">New Password:</td>
+            <td class="pwd-eye">
+                <input asp-for="ChangePassword.Password" id="Password" class="faInput" type="password" required />
+                <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
+            </td>
+        </tr>
+        <tr>
+            <td class="faText right">Confirm New Password:</td>
+            <td><input asp-for="ChangePassword.ConfirmPassword" id="ConfirmPassword" class="faInput" type="password" required /></td>
+        </tr>
+        <tr>
+            <td colspan="2"> <div class="pwd-chk"><div id="pwdchk-point"></div></div></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="right"><button class="faButton" type="submit">Change Password</button></td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Account" asp-action="Settings" method="post">
+    <input asp-for="Mode" value="DeleteAccount" hidden />
+    <table class="faTable">    
+        <tr>
+            <td class="faTitle"><i class="fa fa-trash-o"></i> Delete Your Account</td>
+        </tr>
+        <tr>
+            <td class="faText">Deleting your account will remove all of your information from our database.</td>
+        </tr>
+        <tr>
+            <td class="faText">to confirm this, type "<b>delete</b>":</td>
+        </tr>
+        <tr>
+            <td><input asp-for="DeleteAccount.Confirm" class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td>
+                <button class="DeleteButton" type="submit">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text">Delete Account</span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="faDescription"><i class="fa fa-info-circle"></i> It's could not be undone!</td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Account" asp-action="Index" method="get">
+    <button type="submit" class="faButton">Back ←</button>
+</form>
+

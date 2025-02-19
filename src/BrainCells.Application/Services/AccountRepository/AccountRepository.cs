@@ -17,18 +17,21 @@ namespace BrainCells.Application.Services.AccountRepository;
 
 public class AccountRepository : IAccountRepository
 {
+    private readonly IDatabaseContext _databaseContext;
     private readonly IResourceMemoryService _resourceMemoryService;
     private readonly ILoggingService _loggingService;
-    private readonly IDatabaseContext _databaseContext;
     private readonly ISupportEmailService _supportEmailService;
     private readonly IHttpContextAccessor _httpcontextAccessor;
 
-    public AccountRepository(IResourceMemoryService resourceMemoryService, ILoggingService loggingService, IDatabaseContext databaseContext,
-        ISupportEmailService supportEmailService, IHttpContextAccessor httpcontextAccessor)
+    public AccountRepository(IDatabaseContext databaseContext,
+        IResourceMemoryService resourceMemoryService,
+        ILoggingService loggingService,
+        ISupportEmailService supportEmailService, 
+        IHttpContextAccessor httpcontextAccessor)
     {
+        _databaseContext = databaseContext;
         _resourceMemoryService = resourceMemoryService;
         _loggingService = loggingService;
-        _databaseContext = databaseContext;
         _supportEmailService = supportEmailService;
         _httpcontextAccessor = httpcontextAccessor;
     }
@@ -58,8 +61,8 @@ public class AccountRepository : IAccountRepository
                     var claims = new List<Claim> {
                         new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
                         new Claim(ClaimTypes.Email, account.Email),
-                        new Claim(ClaimTypes.Role, account.Role.Name),
                         new Claim(ClaimTypes.Name, account.Name),
+                        new Claim(ClaimTypes.Role, account.Role.Name),
                         new Claim(ClaimTypes.Version, otpSuccess ? "otp" : "normal"),
                     };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

@@ -2,7 +2,7 @@
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
-    if(account == null)
+    if(account is null)
     {
         account = new AccountViewModel{
             Id = "00000000-0000-0000-0000-000000000000",
@@ -49,7 +49,7 @@
     <div class="container-profile" id="profile-div">
         <div class="profile-name">@account.Name</div>
         <a class="menu-item" href="/Account/"><i class="fa fa-user-circle-o"></i> View Profile</a>
-        <a class="menu-item" href="#"><i class="fa fa-edit"></i> Edit Information</a>
+        <a class="menu-item" href="/Account/EditInformation"><i class="fa fa-edit"></i> Edit Information</a>
         <a class="menu-item" href="/Account/Settings"><i class="fa fa-gears"></i> Settings</a>
         <a class="menu-item" href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>
     </div>

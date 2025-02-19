@@ -12,17 +12,17 @@ public class ResourceMemoryTests
     public async Task GetResourceAsync_Can_Get_Resource()
     {//System Test
         //Arrange
-        string root = "resourceRoot";
-        string resource = Path.Combine(root, "resource");
-        string file = Path.Combine(resource, "test.txt");
-        Directory.CreateDirectory(root);
-        Directory.CreateDirectory(resource);
+        string rootPath = "resourceRoot";
+        string resourcePath = Path.Combine(rootPath, "resource");
+        string file = Path.Combine(resourcePath, "test.txt");
+        Directory.CreateDirectory(rootPath);
+        Directory.CreateDirectory(resourcePath);
         string expected = "System Test.";
-        using(FileStream xfile = new FileStream(file, FileMode.Create, FileAccess.Write))
+        using(FileStream stream = new FileStream(file, FileMode.Create, FileAccess.Write))
         {
-            await xfile.WriteAsync(Encoding.UTF8.GetBytes(expected), 0, expected.Length);
+            await stream.WriteAsync(Encoding.UTF8.GetBytes(expected), 0, expected.Length);
         }
-        var resourceMemoryService = new ResourceMemoryService(root);
+        var resourceMemoryService = new ResourceMemoryService(rootPath);
 
         var memory = await resourceMemoryService.GetResourceAsync("test.txt");
         string actual = Encoding.UTF8.GetString(memory.ToArray());
@@ -30,6 +30,6 @@ public class ResourceMemoryTests
         Assert.NotNull(memory);
         Assert.Equal(expected, actual);
 
-        Directory.Delete(root, true);
+        Directory.Delete(rootPath, true);
     }
 }
