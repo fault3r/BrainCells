@@ -449,7 +449,24 @@ body{
     @keyframes wave {
         to {transform: translateX(-100%);}
     }
-  
+.btnUpload{
+    position: absolute;
+    top: calc(100% - 35px);
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #f1f1f1;
+    background-color: #07313b;
+    box-shadow: 1px 1px 3px rgb(8, 75, 102);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+    .btnUpload input{
+        display: none;
+    }
   
   
 

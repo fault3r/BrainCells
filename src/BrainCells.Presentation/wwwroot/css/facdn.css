@@ -78,9 +78,9 @@
     font-size: 12px;
     text-shadow: 3px 3px 3px rgb(8, 75, 102);
 }
-.faTable{
-
-}
+/* .faTable tr,td{
+    border: 1px dashed orange;
+} */
     .faTable tr td{
         text-align: left;
         padding-bottom: 3px;
@@ -128,4 +128,5 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    margin-bottom: 3px;
 }
