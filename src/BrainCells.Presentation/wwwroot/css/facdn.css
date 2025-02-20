@@ -119,3 +119,13 @@
     background-color: #07313b;
     box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
 }
+.faImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    box-shadow: 2px 2px 3px rgb(8, 75, 102);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

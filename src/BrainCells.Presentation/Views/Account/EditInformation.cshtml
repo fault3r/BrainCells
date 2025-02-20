@@ -6,3 +6,52 @@
 <div class="faHeader"><i class="fa fa-edit"></i> Edit Information</div>
 <div class="faLine"></div>
 <div class="faSpace"></div>
+<form>
+    <table class="faTable">
+        <tr>
+            <td class="faTitle"><i class="fa fa-user-circle-o"></i> Change Account Picture</td>
+        </tr>
+        <tr>
+            <td class="faText">Choose a new picture for your account.</td>
+        </tr>
+        <tr>
+            <td><img class="faImage" /> </td>
+        </tr>
+
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form>
+    <table class="faTable">
+        <tr>
+            <td class="faTitle"><i class="fa fa-edit"></i> Edit Your Information</td>
+        </tr>
+        <tr>
+            <td class="faText">Update your personal information below.</td>
+        </tr>
+        <tr>
+            <td class="faText">Email address:</td>
+        </tr>
+        <tr>
+            <td><input class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td class="faText">Your full name:</td>
+        </tr>
+        <tr>
+            <td><input class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td><button type="submit" class="faButton">Update Information</button></td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Account" asp-action="Index" method="get">
+    <button type="submit" class="faButton">Back ←</button>
+</form>
