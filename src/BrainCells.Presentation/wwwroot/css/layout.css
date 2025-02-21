@@ -452,18 +452,25 @@ body{
 .btnUpload{
     position: absolute;
     top: calc(100% - 35px);
-    left: 50%;
+    left: calc(50% + 50px);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    color: #f1f1f1;
-    background-color: #07313b;
+    color:  rgb(8, 75, 102);
+    background-color: #f1f1f1;
+    border: 1px solid rgb(8, 75, 102);
     box-shadow: 1px 1px 3px rgb(8, 75, 102);
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    transition: all .3s ease;
 }
+    .btnUpload:hover{
+        color:  #f1f1f1;
+        background-color: rgb(8, 75, 102);
+        border: 1px solid #f1f1f1;
+    }
     .btnUpload input{
         display: none;
     }
