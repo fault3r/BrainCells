@@ -12,6 +12,7 @@ public interface ILoggingService
         SignOut,
         ForgotPassword,
         OneTimePassword,
+        EditInformation,
         ChangePassword,
         DeleteAccount,
     }

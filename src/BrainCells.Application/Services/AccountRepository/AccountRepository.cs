@@ -213,6 +213,29 @@ public class AccountRepository : IAccountRepository
         }
     }
 
+    public async Task<ResultDto> EditInformationAsync(EditInformationDto information)
+    {
+        try{
+            var account = await _databaseContext.Accounts
+                .FirstOrDefaultAsync(p => p.Id.ToString() == information.Id);
+            account.Email = information.Email.ToLower();
+            account.Name = information.Name;
+            _databaseContext.Accounts.Update(account);
+            await _databaseContext.SaveChangesAsync();
+            await _loggingService.LogAccountAsync(information.Email.ToLower(), LogTitle.EditInformation);
+            return new ResultDto{
+                Success = true,
+                Message = "Success! Your profile information is now up to date.",
+            };
+        }
+        catch{
+            return new ResultDto{
+                Success = false,
+                Message = "An unexpected error has occurred. That's all we know!",
+            }; 
+        }
+    }
+
     public async Task<ResultDto> ChangePasswordAsync(ChangePasswordDto data)
     {
         try{

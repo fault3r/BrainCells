@@ -65,3 +65,23 @@ window.addEventListener('scroll', function() {
 document.getElementById('upload-file').addEventListener('click', function() {
     document.getElementById('fileInput').click();
 });
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Get the selected file
+    const imagePreview = document.getElementById('imagePreview');
+
+    if (file) {
+        if (file.type === 'image/jpeg') {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+});
+document.getElementById('remove-file').addEventListener('click', function() {
+    const imagePreview = document.getElementById('imagePreview');
+    imagePreview.src = "/resource/profile-picture.png";
+    const fileInput = document.getElementById('fileInput');
+    fileInput.value = '';
+});

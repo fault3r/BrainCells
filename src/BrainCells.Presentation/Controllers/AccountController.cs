@@ -21,18 +21,21 @@ public class AccountController : Controller
         private readonly IValidator<SigninViewModel> _signinValidator;
         private readonly IValidator<SignupViewModel> _signupValidator;
         private readonly IValidator<ChangePasswordViewModel> _changePasswordValidator;
+        private readonly IValidator<EditInformationViewModel> _editInformationValidator;
 
     public AccountController(ISupportEmailService supportEmailService,
         IAccountRepository accountRepository,
             IValidator<SigninViewModel> signinValidator,
             IValidator<SignupViewModel> signupValidator,
-            IValidator<ChangePasswordViewModel> changePasswordValidator)
+            IValidator<ChangePasswordViewModel> changePasswordValidator,
+            IValidator<EditInformationViewModel> editInformationValidator)
     {
         _supportEmailService = supportEmailService;
         _accountRepository = accountRepository;
             _signinValidator = signinValidator;
             _signupValidator = signupValidator;
             _changePasswordValidator = changePasswordValidator;
+            _editInformationValidator = editInformationValidator;
     }
 
     [Route("SignIn")]
@@ -47,6 +50,7 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> SignIn([FromForm]SigninViewModel account)
     {
+        ModelState.Clear();
         var validate = _signinValidator.Validate(account);
         if(validate.IsValid)
         {
@@ -80,6 +84,7 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> SignUp([FromForm]SignupViewModel account)
     {
+        ModelState.Clear();
         var validate = _signupValidator.Validate(account);
         if(validate.IsValid)
         {
@@ -111,6 +116,7 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> SignOut()
     {
+        ModelState.Clear();
         var result = await _accountRepository.SignOutAsync(User.FindFirst(ClaimTypes.Email).Value.ToString());
         if(result.Success)
             ViewData["MessageType"] = AppConsts.SUCCESS;        
@@ -131,6 +137,7 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> ForgotPassword([FromForm]string email)
     {
+        ModelState.Clear();
         var result = await _accountRepository.ForgotPasswordAsync(email);   
         if(result.Success)
             ViewData["MessageType"] = AppConsts.SUCCESS;        
@@ -154,9 +161,39 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> EditInformation()
     {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
         ViewData["MessageType"] = AppConsts.NONE;
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("EditInformation");
+    }
+
+    [Authorize]
+    [Route("EditInformation")]
+    [HttpPost]
+    public async Task<IActionResult> EditInformation([FromForm]EditInformationViewModel information)
+    {
+        ModelState.Clear();
+        var validate = _editInformationValidator.Validate(information);
+        if(validate.IsValid)
+        {
+            var result = await _accountRepository.EditInformationAsync(new EditInformationDto{
+                Id = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                Email = information.Email,
+                Name = information.Name,
+                Picture = information.Picture,
+            });
+            if(result.Success)
+                ViewData["MessageType"] = AppConsts.SUCCESS;
+            else
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("EditInformation", result.Message);
+        }   
+        else
+        {
+            ViewData["MessageType"] = AppConsts.WARNING;
+            ModelState.AddFluentResult(validate);
+        }     
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        return View("EditInformation", information);
     }
 
     [Authorize]

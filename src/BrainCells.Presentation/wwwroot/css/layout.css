@@ -485,12 +485,12 @@ body{
     .upload-btn .upload-menu{
         width: 150px;
         position: absolute;
-        top: 100%;
-        left: 40%;
+        top: calc(100% - 5px);
+        left: calc(50% - 5px);
         font-size: 14px;
         display: none;
         border: 1px solid #f1f1f1;
-        border-radius: 5px;
+        border-radius: 0px 5px 5px 5px;
         background-color: #f1f1f1;
         color:  rgb(8, 75, 102);
         overflow: hidden;

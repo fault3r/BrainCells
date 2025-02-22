@@ -54,6 +54,7 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
     builder.Services.AddScoped<IValidator<SigninViewModel>, SigninValidator>();
     builder.Services.AddScoped<IValidator<SignupViewModel>, SignupValidator>();
     builder.Services.AddScoped<IValidator<ChangePasswordViewModel>, ChangePasswordValidator>();
+    builder.Services.AddScoped<IValidator<EditInformationViewModel>, EditInformationValidator>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();

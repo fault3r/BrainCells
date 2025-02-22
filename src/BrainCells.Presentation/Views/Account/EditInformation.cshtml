@@ -5,6 +5,8 @@
     ViewData["Title"] = "Edit Information";
 }
 
+@model EditInformationViewModel
+
 @{
     var account = ViewData["Account"] as AccountViewModel;
     if(account is null)
@@ -20,7 +22,7 @@
 <div class="faHeader"><i class="fa fa-edit"></i> Edit Information</div>
 <div class="faLine"></div>
 <div class="faSpace"></div>
-<form>
+<form asp-controller="Account" asp-action="EditInformation" method="post" enctype="multipart/form-data">
     <table class="faTable">
         <tr>
             <td class="faTitle"><i class="fa fa-user-circle-o"></i> Change Account Picture</td>
@@ -30,12 +32,13 @@
         </tr>
         <tr>
             <td style="position: relative;">
-                <img class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
+                <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
                 <div class="upload-btn">
-                    <i class="fa fa-upload"></i><input type="file" id="fileInput">
+                    <i class="fa fa-upload"></i>
+                    <input asp-for="Picture" type="file" accept=".jpg" id="fileInput">
                     <div class="upload-menu">
                         <div id="upload-file">Upload a photo...</div>
-                        <div>Remove photo</div>
+                        <div id="remove-file">Remove photo</div>
                     </div>
                 </div>
             </td>
@@ -50,13 +53,13 @@
             <td class="faText">Email address:</td>
         </tr>
         <tr>
-            <td><input class="faInput" type="text" required /></td>
+            <td><input asp-for="Email" class="faInput" type="text" required /></td>
         </tr>
         <tr>
             <td class="faText">Your full name:</td>
         </tr>
         <tr>
-            <td><input class="faInput" type="text" required /></td>
+            <td><input asp-for="Name" class="faInput" type="text" required /></td>
         </tr>
         <tr>
             <td><button type="submit" class="faButton">Update Profile</button></td>
