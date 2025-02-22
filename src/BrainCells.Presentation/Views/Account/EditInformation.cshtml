@@ -1,6 +1,20 @@
+@using BrainCells.Presentation.Models.Account.ViewModels
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Edit Information";
+}
+
+@{
+    var account = ViewData["Account"] as AccountViewModel;
+    if(account is null)
+    {
+        account = new AccountViewModel{
+            Id = "00000000-0000-0000-0000-000000000000",
+            Name = "[ACCOUNT]",
+            Picture = "null",
+        };
+    }
 }
 
 <div class="faHeader"><i class="fa fa-edit"></i> Edit Information</div>
@@ -16,19 +30,16 @@
         </tr>
         <tr>
             <td style="position: relative;">
-                <img class="faImage" /> 
-                <div class="btnUpload" id="btnUpload"><i class="fa fa-upload"></i><input type="file" id="fileInput"></div>
+                <img class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
+                <div class="upload-btn">
+                    <i class="fa fa-upload"></i><input type="file" id="fileInput">
+                    <div class="upload-menu">
+                        <div id="upload-file">Upload a photo...</div>
+                        <div>Remove photo</div>
+                    </div>
+                </div>
             </td>
         </tr>
-        <tr>
-            <td><button type="submit" class="faButton">Update Picture</button></td>
-        </tr>
-    </table>
-</form>
-<div class="faLine"></div>
-<div class="faSpace"></div>
-<form>
-    <table class="faTable">
         <tr>
             <td class="faTitle"><i class="fa fa-edit"></i> Edit Your Information</td>
         </tr>
@@ -48,7 +59,7 @@
             <td><input class="faInput" type="text" required /></td>
         </tr>
         <tr>
-            <td><button type="submit" class="faButton">Update Information</button></td>
+            <td><button type="submit" class="faButton">Update Profile</button></td>
         </tr>
     </table>
 </form>

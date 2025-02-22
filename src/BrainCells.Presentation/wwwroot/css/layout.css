@@ -449,7 +449,7 @@ body{
     @keyframes wave {
         to {transform: translateX(-100%);}
     }
-.btnUpload{
+.upload-btn{
     position: absolute;
     top: calc(100% - 35px);
     left: calc(50% + 50px);
@@ -466,14 +466,45 @@ body{
     justify-content: center;
     transition: all .3s ease;
 }
-    .btnUpload:hover{
+    .upload-btn:hover{
         color:  #f1f1f1;
         background-color: rgb(8, 75, 102);
         border: 1px solid #f1f1f1;
     }
-    .btnUpload input{
+    .upload-btn:hover .upload-menu{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 3px;
+    }
+    .upload-btn input{
         display: none;
     }
+    .upload-btn .upload-menu{
+        width: 150px;
+        position: absolute;
+        top: 100%;
+        left: 40%;
+        font-size: 14px;
+        display: none;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        color:  rgb(8, 75, 102);
+        overflow: hidden;
+    }
+    .upload-menu div{
+        all: unset;
+        width: 100%;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+        .upload-menu div:hover{
+            color: #f1f1f1;
+            background-color: rgb(8, 75, 102);
+        }
   
   
 

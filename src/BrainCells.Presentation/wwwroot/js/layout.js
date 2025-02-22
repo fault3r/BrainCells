@@ -62,6 +62,6 @@ window.addEventListener('scroll', function() {
     progressBar.style.width = widthPercentage + '%';
 });
 
-document.getElementById('btnUpload').addEventListener('click', function() {
+document.getElementById('upload-file').addEventListener('click', function() {
     document.getElementById('fileInput').click();
 });
