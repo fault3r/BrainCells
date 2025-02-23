@@ -23,6 +23,7 @@
 <div class="faLine"></div>
 <div class="faSpace"></div>
 <form asp-controller="Account" asp-action="EditInformation" method="post" enctype="multipart/form-data">
+    <input asp-for="DefaultPicture" type="checkbox" id="DefaultPicture" hidden />
     <table class="faTable">
         <tr>
             <td class="faTitle"><i class="fa fa-user-circle-o"></i> Change Account Picture</td>
@@ -53,13 +54,13 @@
             <td class="faText">Email address:</td>
         </tr>
         <tr>
-            <td><input asp-for="Email" class="faInput" type="text" required /></td>
+            <td><input asp-for="Email" class="faInput" type="text" value="@account.Email" required /></td>
         </tr>
         <tr>
             <td class="faText">Your full name:</td>
         </tr>
         <tr>
-            <td><input asp-for="Name" class="faInput" type="text" required /></td>
+            <td><input asp-for="Name" class="faInput" type="text" value="@account.Name" required /></td>
         </tr>
         <tr>
             <td><button type="submit" class="faButton">Update Profile</button></td>

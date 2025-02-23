@@ -1,3 +1,4 @@
+
 function toggleClass(element, className){
     if (!element || !className){
         return;
@@ -66,7 +67,7 @@ document.getElementById('upload-file').addEventListener('click', function() {
     document.getElementById('fileInput').click();
 });
 document.getElementById('fileInput').addEventListener('change', function(event) {
-    const file = event.target.files[0]; // Get the selected file
+    const file = event.target.files[0];
     const imagePreview = document.getElementById('imagePreview');
 
     if (file) {
@@ -76,12 +77,18 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
                 imagePreview.src = e.target.result;
             };
             reader.readAsDataURL(file);
+            const defaultPicture = document.getElementById('DefaultPicture');
+            defaultPicture.checked = false;
+        }
+        else {
+            document.getElementById('fileInput').value = '';
         }
     }
 });
 document.getElementById('remove-file').addEventListener('click', function() {
     const imagePreview = document.getElementById('imagePreview');
     imagePreview.src = "/resource/profile-picture.png";
-    const fileInput = document.getElementById('fileInput');
-    fileInput.value = '';
+    document.getElementById('fileInput').value = '';
+    const defaultPicture = document.getElementById('DefaultPicture');
+    defaultPicture.checked = true;
 });

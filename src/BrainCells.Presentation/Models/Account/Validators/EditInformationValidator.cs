@@ -1,5 +1,4 @@
 using System;
-using System.Data;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using FluentValidation;
 
@@ -21,6 +20,5 @@ public class EditInformationValidator : AbstractValidator<EditInformationViewMod
             .Must(p => p.Picture.FileName.Contains("jpg"))
             .When(p => p.Picture != null)
             .WithMessage("'Picture' Please choose a jpg file!");
-            
     }
 }

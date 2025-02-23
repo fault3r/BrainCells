@@ -1,4 +1,5 @@
-﻿function showPassword() {
+﻿
+function showPassword() {
     const inpPassword = document.getElementById('Password');
     const inpCPassword = document.getElementById('ConfirmPassword');
     inpPassword.type = 'text';

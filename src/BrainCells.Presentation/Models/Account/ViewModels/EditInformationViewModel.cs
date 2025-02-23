@@ -9,4 +9,6 @@ public class EditInformationViewModel
     public string Name { get; set; }
 
     public IFormFile Picture { get; set; }
+
+    public bool DefaultPicture { get; set; } = false;
 }

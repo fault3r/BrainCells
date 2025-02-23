@@ -220,6 +220,18 @@ public class AccountRepository : IAccountRepository
                 .FirstOrDefaultAsync(p => p.Id.ToString() == information.Id);
             account.Email = information.Email.ToLower();
             account.Name = information.Name;
+            if(information.DefaultPicture)
+                account.Picture = (await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.ProfilePicture)).ToArray();
+            else
+                if(information.Picture!=null){
+                    byte[] picture;
+                    using(MemoryStream stream = new())
+                    {
+                        await information.Picture.CopyToAsync(stream);
+                        picture = stream.ToArray();
+                    }
+                    account.Picture = picture;
+                }
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
             await _loggingService.LogAccountAsync(information.Email.ToLower(), LogTitle.EditInformation);

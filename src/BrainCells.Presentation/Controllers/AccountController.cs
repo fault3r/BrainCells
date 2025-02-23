@@ -180,6 +180,7 @@ public class AccountController : Controller
                 Email = information.Email,
                 Name = information.Name,
                 Picture = information.Picture,
+                DefaultPicture = information.DefaultPicture,
             });
             if(result.Success)
                 ViewData["MessageType"] = AppConsts.SUCCESS;
@@ -191,7 +192,8 @@ public class AccountController : Controller
         {
             ViewData["MessageType"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
-        }     
+        }    
+        information.DefaultPicture = false; 
         ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("EditInformation", information);
     }
