@@ -483,11 +483,11 @@ body{
         display: none;
     }
     .upload-btn .upload-menu{
-        width: 150px;
+        width: 110px;
         position: absolute;
         top: calc(100% - 5px);
         left: calc(50% - 5px);
-        font-size: 14px;
+        font-size: 12px;
         display: none;
         border: 1px solid #f1f1f1;
         border-radius: 0px 5px 5px 5px;

@@ -12,7 +12,7 @@ function toggleClass(element, className){
     }
     element.className = classString;
 }
-    document.getElementById('btn-menu-responsive').addEventListener('click', function() {
+    document.getElementById('btn-menu').addEventListener('click', function() {
         toggleClass(this, 'close');
     });
 

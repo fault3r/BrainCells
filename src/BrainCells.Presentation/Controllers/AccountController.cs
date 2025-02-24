@@ -130,6 +130,7 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult ForgotPassword()
     {
+        ViewData["MessageType"] = AppConsts.NONE;
         return View("ForgotPassword");
     }
 
@@ -203,8 +204,8 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> Settings()
     {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
         ViewData["MessageType"] = AppConsts.NONE;
+        ViewData["Account"] = await viewAccount() as AccountViewModel;
         return View("Settings");
     }
 

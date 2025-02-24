@@ -54,7 +54,6 @@ public class AccountRepository : IAccountRepository
                         _databaseContext.ForgotPasswords.Remove(otp);
                         await _databaseContext.SaveChangesAsync();
                         await _loggingService.LogAccountAsync(account.Email, LogTitle.OneTimePassword);
-
                     }
                 if(otpSuccess || PasswordHasher.ComputeHash(password) == account.Password)
                 {
