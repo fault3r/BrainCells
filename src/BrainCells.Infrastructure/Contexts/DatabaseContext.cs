@@ -3,6 +3,7 @@ using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
 using BrainCells.Domain.Entities;
 using BrainCells.Domain.Entities.Accounts;
+using BrainCells.Domain.Entities.Todo;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrainCells.Infrastructure.Contexts;
@@ -15,6 +16,9 @@ public class DatabaseContext : DbContext, IDatabaseContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<ForgotPassword> ForgotPasswords { get; set; }
     public DbSet<Contact> Contacts { get; set; }
+    public DbSet<TodoList> TodoLists { get; set; }
+    public DbSet<TodoTask> TodoTasks { get; set; }
+    public DbSet<TodoSubTask> TodoSubTasks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -37,5 +41,15 @@ public class DatabaseContext : DbContext, IDatabaseContext
         builder.Entity<ForgotPassword>().HasKey(p => p.AccountId);
 
         builder.Entity<Contact>().HasKey(p => p.Id);
+
+        builder.Entity<TodoList>().HasKey(p => p.Id);
+
+        builder.Entity<TodoTask>().HasKey(p => p.Id);
+        builder.Entity<TodoTask>().HasOne(e => e.TodoList).WithMany(e => e.Tasks)
+            .HasForeignKey(p => p.TodoListId);
+
+        builder.Entity<TodoSubTask>().HasKey(p => p.Id);
+        builder.Entity<TodoSubTask>().HasOne(e => e.TodoTask).WithMany(e => e.SubTasks)
+            .HasForeignKey(p => p.TodoTaskId);
     }
 }

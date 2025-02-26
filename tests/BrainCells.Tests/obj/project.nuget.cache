@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pBa/sLOpC6eGOY2o7fJX1FVa8qRFlzxzQK8MyjrX/m7BEV98L2Uq9fK0/9itYeJkJq83h9oYYeoXL3pzgPMZRQ==",
+  "dgSpecHash": "DnXDerXUfupWaGRR4yGE4ENoNrgbM+lBJIgjvCjMGnTDHBCzkN2jOSVmoiq+aSLmanPwgjiUc7Y22AWB7ZZZTA==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/BrainCells/tests/BrainCells.Tests/BrainCells.Tests.csproj",
   "expectedPackageFiles": [
@@ -90,7 +90,7 @@
     "/home/hamed-damavandi/.nuget/packages/microsoft.testplatform.testhost/17.6.0/microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "/home/hamed-damavandi/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.win32.systemevents/9.0.2/microsoft.win32.systemevents.9.0.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/moq/4.20.72/moq.4.20.72.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
@@ -132,7 +132,7 @@
     "/home/hamed-damavandi/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.diagnostics.tracing/4.3.0/system.diagnostics.tracing.4.3.0.nupkg.sha512",
-    "/home/hamed-damavandi/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/system.drawing.common/9.0.2/system.drawing.common.9.0.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.formats.asn1/8.0.1/system.formats.asn1.8.0.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.globalization/4.3.0/system.globalization.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.globalization.calendars/4.3.0/system.globalization.calendars.4.3.0.nupkg.sha512",

@@ -15,7 +15,7 @@ public class ContactServiceTests
     public async Task SaveMessageAsync_Can_Write_To_Database()
     {//System Test
         //Arrange
-        string connectionString = "Server=localhost,1433; Database=dbfa2; User Id=SA; Password=SQL@server; TrustServerCertificate=true;";
+        string connectionString = CommonTests.ConnectionString;
         var options = new DbContextOptionsBuilder<DatabaseContext>()
             .UseSqlServer(connectionString)
             .Options;
