@@ -23,13 +23,18 @@ public class DatabaseContext : DbContext, IDatabaseContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Account>().HasKey(p => p.Id);
-        builder.Entity<Account>().HasIndex(p => p.Email).IsUnique();
+        builder.Entity<Account>().HasIndex(p => p.Email)
+            .IsUnique();
         builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
             .HasForeignKey(p => p.RoleId);
         builder.Entity<Account>().HasOne(e => e.ForgotPassword).WithOne(e => e.Account)
-            .HasForeignKey<ForgotPassword>(p => p.AccountId).OnDelete(DeleteBehavior.Cascade);
+            .HasForeignKey<ForgotPassword>(p => p.AccountId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Role>().HasKey(p => p.Id);
+        builder.Entity<Role>().HasMany(e => e.Accounts).WithOne(e => e.Role)
+            .HasForeignKey(p => p.RoleId)
+            .OnDelete(DeleteBehavior.Restrict);
         builder.Entity<Role>().HasData(new Role {
             Id = Guid.Parse(AppConsts.ADMIN),
             Name = "ADMIN",
@@ -43,10 +48,14 @@ public class DatabaseContext : DbContext, IDatabaseContext
         builder.Entity<Contact>().HasKey(p => p.Id);
 
         builder.Entity<TodoList>().HasKey(p => p.Id);
+        builder.Entity<TodoList>().HasMany(e => e.Tasks).WithOne(e => e.TodoList)
+            .HasForeignKey(p => p.TodoListId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<TodoTask>().HasKey(p => p.Id);
         builder.Entity<TodoTask>().HasOne(e => e.TodoList).WithMany(e => e.Tasks)
-            .HasForeignKey(p => p.TodoListId);
+            .HasForeignKey(p => p.TodoListId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<TodoSubTask>().HasKey(p => p.Id);
         builder.Entity<TodoSubTask>().HasOne(e => e.TodoTask).WithMany(e => e.SubTasks)
