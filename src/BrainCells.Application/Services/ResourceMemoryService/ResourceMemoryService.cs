@@ -2,6 +2,12 @@ using System;
 
 namespace BrainCells.Application.Services.ResourceMemoryService;
 
+public struct ResourceMemoryItems{
+    public const string AppLogo = "app-logo.png";
+    public const string ProfilePicture = "profile-picture.png";
+    public const string OtpTemplate = "otp-tmail.html";
+}
+
 public class ResourceMemoryService : IResourceMemoryService
 {
     private string _rootPath;

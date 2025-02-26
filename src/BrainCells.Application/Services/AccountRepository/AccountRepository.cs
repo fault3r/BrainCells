@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Hosting;
 using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Application.Services.ResourceMemoryService;
-using static BrainCells.Application.Services.LoggingService.ILoggingService;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
@@ -105,7 +103,7 @@ public class AccountRepository : IAccountRepository
                 Password = PasswordHasher.ComputeHash(account.Password),
                 RoleId = Guid.Parse(AppConsts.ACCOUNT),
                 Name = account.Name.Trim(),
-                Picture = (await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.ProfilePicture)).ToArray(),
+                Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.ProfilePicture)).ToArray(),
             };
             _databaseContext.Accounts.Add(tAccount);
             await _databaseContext.SaveChangesAsync();
@@ -220,7 +218,7 @@ public class AccountRepository : IAccountRepository
             account.Email = information.Email.ToLower();
             account.Name = information.Name;
             if(information.DefaultPicture)
-                account.Picture = (await _resourceMemoryService.GetResourceAsync(IResourceMemoryService.ProfilePicture)).ToArray();
+                account.Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.ProfilePicture)).ToArray();
             else
                 if(information.Picture!=null){
                     byte[] picture;

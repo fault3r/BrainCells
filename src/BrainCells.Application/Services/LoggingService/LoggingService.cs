@@ -1,8 +1,19 @@
 using System;
 using System.Text;
-using static BrainCells.Application.Services.LoggingService.ILoggingService;
 
 namespace BrainCells.Application.Services.LoggingService;
+
+public enum LogTitle
+{
+    SignIn,
+    SignUp,
+    SignOut,
+    ForgotPassword,
+    OneTimePassword,
+    EditInformation,
+    ChangePassword,
+    DeleteAccount,
+}
 
 public class LoggingService : ILoggingService
 {

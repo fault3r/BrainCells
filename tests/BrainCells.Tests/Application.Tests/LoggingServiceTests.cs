@@ -1,8 +1,6 @@
 using System;
-using System.Threading.Tasks;
 using BrainCells.Application.Services.LoggingService;
 using Xunit;
-using static BrainCells.Application.Services.LoggingService.ILoggingService;
 
 namespace BrainCells.Tests.Application.Tests;
 
