@@ -452,7 +452,7 @@ body{
 .upload-btn{
     position: absolute;
     top: calc(100% - 35px);
-    left: calc(50% + 50px);
+    left: 200px;
     width: 30px;
     height: 30px;
     border-radius: 50%;

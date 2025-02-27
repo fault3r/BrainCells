@@ -26,13 +26,13 @@
     <input asp-for="DefaultPicture" type="checkbox" id="DefaultPicture" hidden />
     <table class="faTable">
         <tr>
-            <td class="faTitle"><i class="fa fa-user-circle-o"></i> Change Account Picture</td>
+            <td colspan="2" class="faTitle"><i class="fa fa-user-circle-o"></i> Change Account Picture</td>
         </tr>
         <tr>
-            <td class="faText">Choose a new picture for your account.</td>
+            <td colspan="2" class="faText">Choose a new picture for your account.</td>
         </tr>
         <tr>
-            <td style="position: relative;">
+            <td colspan="2" style="position: relative;">
                 <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
                 <div class="upload-btn">
                     <i class="fa fa-upload"></i>
@@ -45,25 +45,21 @@
             </td>
         </tr>
         <tr>
-            <td class="faTitle"><i class="fa fa-edit"></i> Edit Your Information</td>
+            <td colspan="2" class="faTitle"><i class="fa fa-edit"></i> Edit Your Information</td>
         </tr>
         <tr>
-            <td class="faText">Update your personal information below.</td>
+            <td colspan="2" class="faText">Update your personal information below.</td>
         </tr>
         <tr>
-            <td class="faText">Email address:</td>
-        </tr>
-        <tr>
+            <td class="faText right">Email address:</td>
             <td><input asp-for="Email" class="faInput" type="email" value="@account.Email" required /></td>
         </tr>
         <tr>
-            <td class="faText">Your full name:</td>
-        </tr>
-        <tr>
+            <td class="faText right">Your full name:</td>
             <td><input asp-for="Name" class="faInput" type="text" value="@account.Name" required /></td>
         </tr>
         <tr>
-            <td><button type="submit" class="faButton">Update Profile</button></td>
+            <td colspan="2" class="right"><button type="submit" class="faButton">Update Profile</button></td>
         </tr>
     </table>
 </form>
