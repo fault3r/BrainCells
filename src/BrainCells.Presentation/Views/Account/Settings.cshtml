@@ -21,7 +21,7 @@
             <td class="faText right">Current Password:</td>
             <td>
                 @{
-                    if(@User.FindFirst(ClaimTypes.Version).Value.ToString() == "otp")
+                    if(@User.FindFirstValue(ClaimTypes.Version) == "otp")
                     {
                         <input class="faInput" type="text" value="[One-Time Password Verification]" disabled />
                         <input asp-for="ChangePassword.CurrentPassword" value="otp-mode" hidden />

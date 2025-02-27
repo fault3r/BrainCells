@@ -147,7 +147,7 @@ public class AccountRepository : IAccountRepository
        }
     }
 
-    public async Task<AccountDto?> ViewAccountAsync(string id)
+    public async Task<AccountDto?> GetAccountAsync(string id)
     {
         try{
             var account = await _databaseContext.Accounts.AsQueryable()

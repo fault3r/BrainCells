@@ -42,7 +42,6 @@ public class AccountController : Controller
     [HttpGet]
     public ActionResult SignIn()
     {
-        ViewData["MessageType"] = AppConsts.NONE;
         return View("SignIn");
     }
 
@@ -76,7 +75,6 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult SignUp()
     {
-        ViewData["MessageType"] = AppConsts.NONE;
         return View("SignUp");
     }
 
@@ -117,7 +115,7 @@ public class AccountController : Controller
     public async Task<IActionResult> SignOut()
     {
         ModelState.Clear();
-        var result = await _accountRepository.SignOutAsync(User.FindFirst(ClaimTypes.Email).Value.ToString());
+        var result = await _accountRepository.SignOutAsync(User.FindFirstValue(ClaimTypes.Email).ToString());
         if(result.Success)
             ViewData["MessageType"] = AppConsts.SUCCESS;        
         else
@@ -126,11 +124,22 @@ public class AccountController : Controller
         return View("SignIn");
     }
 
+    private async Task setAccount()
+    {
+        var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        ViewData["Account"] = new AccountViewModel{
+            Id = account.Id,
+            Email = account.Email,
+            Role = account.Role,
+            Name = account.Name,
+            Picture = account.Picture,
+        };
+    }
+    
     [Route("ForgotPassword")]
     [HttpGet]
     public IActionResult ForgotPassword()
     {
-        ViewData["MessageType"] = AppConsts.NONE;
         return View("ForgotPassword");
     }
 
@@ -153,7 +162,7 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("Index");
     } 
 
@@ -162,8 +171,7 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> EditInformation()
     {
-        ViewData["MessageType"] = AppConsts.NONE;
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("EditInformation");
     }
 
@@ -195,7 +203,7 @@ public class AccountController : Controller
             ModelState.AddFluentResult(validate);
         }    
         information.DefaultPicture = false; 
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("EditInformation", information);
     }
 
@@ -204,8 +212,7 @@ public class AccountController : Controller
     [HttpGet]
     public async Task<IActionResult> Settings()
     {
-        ViewData["MessageType"] = AppConsts.NONE;
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("Settings");
     }
 
@@ -250,28 +257,8 @@ public class AccountController : Controller
                     ViewData["MessageType"] = AppConsts.ERROR;
                 ModelState.AddModelError("DeleteAccount", result2.Message);
                 break;
-            default:
-                ViewData["MessageType"] = AppConsts.NONE;
-                break;
         }
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("Settings", settings);
     }
-
-    private async Task<AccountViewModel> viewAccount()
-    {
-        var account = await _accountRepository.ViewAccountAsync(
-            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
-        if(account != null)
-            return new AccountViewModel{
-                Id = account.Id,
-                Email = account.Email,
-                Role = account.Role,
-                Name = account.Name,
-                Picture = account.Picture,
-            };
-        else
-            return null;
-    }
-
 }

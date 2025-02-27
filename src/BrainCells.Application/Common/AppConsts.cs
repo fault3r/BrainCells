@@ -10,5 +10,4 @@ public static class AppConsts
     public const string SUCCESS = "Success|#09413a|check-circle";
     public const string ERROR = "Error|#521b0d|times-circle";
     public const string WARNING = "Warning|#4c3a0b|exclamation-circle";
-    public const string NONE = "none";
 }

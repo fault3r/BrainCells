@@ -29,21 +29,18 @@ public class HomeController : Controller
         _contactService = contactService;
             _saveMessageValidator = saveMessageValidator;
         _accountRepository = accountRepository;
-    }
-    private async Task<AccountViewModel> viewAccount()
+    } 
+
+    private async Task setAccount()
     {
-        var account = await _accountRepository.ViewAccountAsync(
-            User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
-        if(account != null)
-            return new AccountViewModel{
-                Id = account.Id,
-                Email = account.Email,
-                Role = account.Role,
-                Name = account.Name,
-                Picture = account.Picture,
-            };
-        else
-            return null;
+        var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        ViewData["Account"] = new AccountViewModel{
+            Id = account.Id,
+            Email = account.Email,
+            Role = account.Role,
+            Name = account.Name,
+            Picture = account.Picture,
+        };
     }
 
     [Authorize]
@@ -51,7 +48,7 @@ public class HomeController : Controller
     [HttpGet]
     public async  Task<IActionResult> Index()
     {   
-        ViewData["Account"] = await viewAccount() as AccountViewModel;
+        await setAccount();
         return View("Index");
     }
 

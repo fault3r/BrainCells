@@ -24,3 +24,103 @@ _______________________________________________
   Time: 10:08:43 PM
   Date: Wednesday, February 26, 2025
 _______________________________________________
+
+*Issue: SignUp
+  Time: 2:33:59 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 2:33:59 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 2:34:36 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 7:57:36 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 7:57:44 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 8:03:27 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 8:03:37 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 8:05:53 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 8:08:02 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 8:08:41 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 8:32:21 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 8:32:38 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 8:33:52 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 8:54:37 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 8:55:21 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 8:59:47 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 8:59:58 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 9:08:00 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 9:08:26 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 9:09:18 PM
+  Date: Thursday, February 27, 2025
+_______________________________________________

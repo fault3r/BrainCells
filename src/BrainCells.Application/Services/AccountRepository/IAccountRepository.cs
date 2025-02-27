@@ -11,7 +11,7 @@ public interface IAccountRepository
 
     Task<ResultDto> SignOutAsync(string email);
 
-    Task<AccountDto?> ViewAccountAsync(string id);
+    Task<AccountDto?> GetAccountAsync(string id);
 
     Task<ResultDto> ForgotPasswordAsync(string email);
 
