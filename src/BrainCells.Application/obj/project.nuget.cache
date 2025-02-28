@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "v/Bi9y5NunJXLeXxwKGj89L5eCdW4kySV2he3okxabzZcjo5AslwiQsiczlXaHWRr2eRwX0oapgKGrVIKTvDTg==",
+  "dgSpecHash": "5TMOpHeZIWFdqrVZLBYmfKF7WoFxe3rxsWM9Ql9aYwVG94OSM9jTKfEZLjqlCveEU5zDkXQ6St4JLNqS3jJZoA==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj",
   "expectedPackageFiles": [
@@ -76,6 +76,10 @@
     "/home/hamed-damavandi/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.win32.systemevents/9.0.2/microsoft.win32.systemevents.9.0.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp/3.116.1/skiasharp.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.linux.nodependencies/3.116.1/skiasharp.nativeassets.linux.nodependencies.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.win32/3.116.1/skiasharp.nativeassets.win32.3.116.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.clientmodel/1.0.0/system.clientmodel.1.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",

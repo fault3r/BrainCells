@@ -5,7 +5,7 @@
             "name": "C#: BrainCells.Presentation Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/src/BrainCells.Presentation/BrainCells.Presentation.csproj",
+            "projectPath": "${workspaceFolder}/src/BrainCells.Presentation/BrainCells.Presentation.csproj",   
         }
     ]
 }

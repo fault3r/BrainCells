@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PhyjcdukO9h2LLrf+SDxnO1EWFaRErOcyEerSc1aBPgETIrDPGc+o5aktwgVqJ01sPwm+Mh/pWGwuIedInis0Q==",
+  "dgSpecHash": "z5Xa3Kh2V8FrlmXi/YyEhE9raGhH1HA4beXjx00hG+OE91PImqqOREl5w/9qDL9q4NkAQlPzD5w18q/9/wUwqA==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj",
-  "expectedPackageFiles": [
-    "/home/hamed-damavandi/.nuget/packages/microsoft.win32.systemevents/9.0.2/microsoft.win32.systemevents.9.0.2.nupkg.sha512",
-    "/home/hamed-damavandi/.nuget/packages/system.drawing.common/9.0.2/system.drawing.common.9.0.2.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

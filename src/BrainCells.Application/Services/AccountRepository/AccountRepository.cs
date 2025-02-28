@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Application.Services.ResourceMemoryService;
+using SkiaSharp;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
@@ -220,15 +221,8 @@ public class AccountRepository : IAccountRepository
             if(information.DefaultPicture)
                 account.Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.ProfilePicture)).ToArray();
             else
-                if(information.Picture!=null){
-                    byte[] picture;
-                    using(MemoryStream stream = new())
-                    {
-                        await information.Picture.CopyToAsync(stream);
-                        picture = stream.ToArray();
-                    }
-                    account.Picture = picture;
-                }
+                if(information.Picture!=null)
+                    account.Picture = (await ImageResizer.ResizeAsync(information.Picture, 600, 700)).ToArray();
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
             await _loggingService.LogAccountAsync(information.Email.ToLower(), LogTitle.EditInformation);

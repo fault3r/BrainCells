@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DnXDerXUfupWaGRR4yGE4ENoNrgbM+lBJIgjvCjMGnTDHBCzkN2jOSVmoiq+aSLmanPwgjiUc7Y22AWB7ZZZTA==",
+  "dgSpecHash": "qHx9NfNEWOBi4ELHvyzVu8i3BSnjIjcgr9BFeYTlbdcMIjW2UOJcuLwmjAGCvuF1JgDRzWxGW0N0wMmOmdiKpQ==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/BrainCells/tests/BrainCells.Tests/BrainCells.Tests.csproj",
   "expectedPackageFiles": [
@@ -112,6 +112,10 @@
     "/home/hamed-damavandi/.nuget/packages/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp/3.116.1/skiasharp.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.linux.nodependencies/3.116.1/skiasharp.nativeassets.linux.nodependencies.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/skiasharp.nativeassets.win32/3.116.1/skiasharp.nativeassets.win32.3.116.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.buffers/4.6.0/system.buffers.4.6.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.clientmodel/1.0.0/system.clientmodel.1.0.0.nupkg.sha512",
