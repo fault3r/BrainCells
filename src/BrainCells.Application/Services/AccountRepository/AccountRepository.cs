@@ -222,7 +222,7 @@ public class AccountRepository : IAccountRepository
                 account.Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.ProfilePicture)).ToArray();
             else
                 if(information.Picture!=null)
-                    account.Picture = (await ImageResizer.ResizeAsync(information.Picture, 600, 700)).ToArray();
+                    account.Picture = (await ImageResizer.ResizeAsync(information.Picture)).ToArray();
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
             await _loggingService.LogAccountAsync(information.Email.ToLower(), LogTitle.EditInformation);
