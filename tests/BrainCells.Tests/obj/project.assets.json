@@ -4018,7 +4018,6 @@
           "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.11",
-          "SkiaSharp": "3.116.1",
           "System.Drawing.Common": "9.0.2"
         },
         "compile": {

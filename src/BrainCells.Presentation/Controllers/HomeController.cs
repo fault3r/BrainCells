@@ -8,6 +8,7 @@ using BrainCells.Presentation.Models.Home.ViewModels;
 using BrainCells.Application.Services.ContactService;
 using FluentValidation;
 using BrainCells.Application.Common;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace BrainCells.Presentation.Controllers;
 
@@ -31,9 +32,11 @@ public class HomeController : Controller
         _accountRepository = accountRepository;
     } 
 
-    private async Task setAccount()
+    private async Task<bool> setAccount()
     {
         var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        if(account == null)
+            return false;
         ViewData["Account"] = new AccountViewModel{
             Id = account.Id,
             Email = account.Email,
@@ -41,12 +44,13 @@ public class HomeController : Controller
             Name = account.Name,
             Picture = account.Picture,
         };
+        return true;
     }
 
     [Authorize]
     [Route("")]
     [HttpGet]
-    public async  Task<IActionResult> Index()
+    public async Task<IActionResult> Index()
     {   
         await setAccount();
         return View("Index");
