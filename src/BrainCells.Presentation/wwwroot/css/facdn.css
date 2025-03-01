@@ -130,3 +130,62 @@
     background-position: center;
     margin: 3px 50px 3px 50px;
 }
+.faCheckbox{
+    width: auto;
+}
+.faUploadButton{
+    position: absolute;
+    top: calc(100% - 35px);
+    left: 200px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color:  rgb(8, 75, 102);
+    background-color: #f1f1f1;
+    border: 1px solid rgb(8, 75, 102);
+    box-shadow: 1px 1px 3px rgb(8, 75, 102);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+    .faUploadButton:hover{
+        color:  #f1f1f1;
+        background-color: rgb(8, 75, 102);
+        border: 1px solid #f1f1f1;
+    }
+    .faUploadButton:hover .faUploadButton-menu{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 3px;
+    }
+    .faUploadButton input{
+        display: none;
+    }
+    .faUploadButton .faUploadButton-menu{
+        width: 110px;
+        position: absolute;
+        top: calc(100% - 5px);
+        left: calc(50% - 5px);
+        font-size: 12px;
+        display: none;
+        border: 1px solid #f1f1f1;
+        border-radius: 0px 5px 5px 5px;
+        background-color: #f1f1f1;
+        color:  rgb(8, 75, 102);
+        overflow: hidden;
+    }
+    .faUploadButton-menu div{
+        all: unset;
+        width: 100%;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+        .faUploadButton-menu div:hover{
+            color: #f1f1f1;
+            background-color: rgb(8, 75, 102);
+        }

@@ -6,6 +6,7 @@ public struct ResourceMemoryItems{
     public const string AppLogo = "app-logo.png";
     public const string ProfilePicture = "profile-picture.png";
     public const string OtpTemplate = "otp-tmail.html";
+    public const string TodoList = "todo-list.png";
 }
 
 public class ResourceMemoryService : IResourceMemoryService

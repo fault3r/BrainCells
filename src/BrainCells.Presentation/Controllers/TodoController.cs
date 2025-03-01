@@ -1,8 +1,13 @@
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
+using BrainCells.Application.Services.TodoRepository;
+using BrainCells.Application.Services.TodoRepository.Dto;
 using BrainCells.Presentation.Models.Account.ViewModels;
+using BrainCells.Presentation.Models.Todo.ViewModels;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrainCells.Presentation.Controllers;
@@ -12,10 +17,17 @@ namespace BrainCells.Presentation.Controllers;
 public class TodoController : Controller
 {
     private readonly IAccountRepository _accountRepository;
+    private readonly ITodoRepository _todoRepository;
+        private readonly IValidator<AddListViewModel> _addListValidator;
 
-    public TodoController(IAccountRepository accountRepository)
+
+    public TodoController(IAccountRepository accountRepository,
+        ITodoRepository todoRepository,
+            IValidator<AddListViewModel> addListValidator)
     {
         _accountRepository = accountRepository;
+        _todoRepository = todoRepository;
+            _addListValidator = addListValidator;
     }
 
     private async Task setAccount()
@@ -36,5 +48,42 @@ public class TodoController : Controller
     {
         await setAccount();
         return View("Index");
+    }
+
+    [Route("AddList")]
+    [HttpGet]
+    public async Task<IActionResult> AddList()
+    {
+        await setAccount();
+        return View("AddList");
+    }
+
+    [Route("AddList")]
+    [HttpPost]
+    public async Task<IActionResult> AddList(AddListViewModel list)
+    {
+        ModelState.Clear();
+        var validate = _addListValidator.Validate(list);
+        if(validate.IsValid)
+        {
+            var result = await _todoRepository.AddListAsync(new TodoListDto{
+                Name = list.Name,
+                Description = list.Description,
+                Color = list.Color,
+            });
+            if(result.Success)
+                ViewData["MessageType"] = AppConsts.SUCCESS;
+            else
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("AddList", result.Message);
+        }
+        else
+        {
+            ViewData["MessageType"] = AppConsts.WARNING;
+            ModelState.AddFluentResult(validate);
+        }
+
+        await setAccount();
+        return View("AddList", list);
     }
 }

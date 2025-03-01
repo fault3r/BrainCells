@@ -9,14 +9,6 @@
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
-    if(account is null)
-    {
-        account = new AccountViewModel{
-            Id = "00000000-0000-0000-0000-000000000000",
-            Name = "[ACCOUNT]",
-            Picture = "null",
-        };
-    }
 }
 
 <div class="faHeader"><i class="fa fa-edit"></i> Edit Information</div>
@@ -34,10 +26,10 @@
         <tr>
             <td colspan="2" style="position: relative;">
                 <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
-                <div class="upload-btn">
+                <div class="faUploadButton">
                     <i class="fa fa-upload"></i>
                     <input asp-for="Picture" type="file" accept=".jpg" id="fileInput">
-                    <div class="upload-menu">
+                    <div class="faUploadButton-menu">
                         <div id="upload-file">Upload a photo...</div>
                         <div id="remove-file">Remove photo</div>
                     </div>

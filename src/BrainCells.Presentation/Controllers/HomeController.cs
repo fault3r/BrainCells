@@ -30,13 +30,11 @@ public class HomeController : Controller
         _contactService = contactService;
             _saveMessageValidator = saveMessageValidator;
         _accountRepository = accountRepository;
-    } 
-
-    private async Task<bool> setAccount()
+    }
+     
+    private async Task setAccount()
     {
         var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        if(account == null)
-            return false;
         ViewData["Account"] = new AccountViewModel{
             Id = account.Id,
             Email = account.Email,
@@ -44,7 +42,6 @@ public class HomeController : Controller
             Name = account.Name,
             Picture = account.Picture,
         };
-        return true;
     }
 
     [Authorize]

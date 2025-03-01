@@ -1,0 +1,54 @@
+﻿
+@using BrainCells.Presentation.Models.Todo.ViewModels
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Add TodoList";
+}
+
+@model AddListViewModel
+
+<div class="faHeader"><i class="fa fa-check-square-o"></i> Todo List</div>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Todo" asp-action="AddList" method="post" enctype="multipart/form-data">
+    <table class="faTable">
+        <tr>
+            <td colspan="2" class="faTitle"><i class="fa fa-check-square-o"></i> Add Todo List</td>
+        </tr>
+        <tr>
+            <td class="faText right">List Name:</td>
+            <td><input asp-for="Name" class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td class="faText right">Description:</td>
+            <td><input asp-for="Description" class="faInput" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="faText right">Color:</td>
+            <td><input asp-for="Color" class="faInput" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="faText right"></td>
+            <td style="position: relative;">
+                <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,00000000');" /> 
+                <div class="faUploadButton">
+                    <i class="fa fa-upload"></i>
+                    <input asp-for="Picture" type="file" accept=".jpg" id="fileInput">
+                    <div class="faUploadButton-menu">
+                        <div id="upload-file">Upload a photo...</div>
+                        <div id="remove-file">Remove photo</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="right"><button type="submit" class="faButton">Add List</button></td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Todo" asp-action="Index" method="get">
+    <button type="submit" class="faButton">Back ←</button>
+</form>

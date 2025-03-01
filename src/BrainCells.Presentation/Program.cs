@@ -5,6 +5,7 @@ using BrainCells.Application.Services.ContactService;
 using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.ResourceMemoryService;
 using BrainCells.Application.Services.SupportEmailService;
+using BrainCells.Application.Services.TodoRepository;
 using BrainCells.Infrastructure.Contexts;
 using BrainCells.Infrastructure.Services;
 using BrainCells.Presentation.Middlewares;
@@ -12,6 +13,8 @@ using BrainCells.Presentation.Models.Account.Validators;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using BrainCells.Presentation.Models.Home.Validators;
 using BrainCells.Presentation.Models.Home.ViewModels;
+using BrainCells.Presentation.Models.Todo.Validators;
+using BrainCells.Presentation.Models.Todo.ViewModels;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -55,6 +58,10 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
     builder.Services.AddScoped<IValidator<SignupViewModel>, SignupValidator>();
     builder.Services.AddScoped<IValidator<ChangePasswordViewModel>, ChangePasswordValidator>();
     builder.Services.AddScoped<IValidator<EditInformationViewModel>, EditInformationValidator>();
+
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+    builder.Services.AddScoped<IValidator<AddListViewModel>, AddListValidator>();
+
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
