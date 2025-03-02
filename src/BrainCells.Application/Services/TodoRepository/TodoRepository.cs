@@ -1,10 +1,12 @@
 using System;
 using System.Drawing;
+using System.Text;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.ResourceMemoryService;
-using BrainCells.Application.Services.TodoRepository.Dto;
+using BrainCells.Application.Services.TodoRepository;
 using BrainCells.Domain.Entities.Todo;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
 namespace BrainCells.Application.Services.TodoRepository;
@@ -21,7 +23,7 @@ public class TodoRepository : ITodoRepository
         _resourceMemoryService = resourceMemoryService;
     }
 
-    public async Task<ResultDto> AddListAsync(TodoListDto list)
+    public async Task<ResultDto> AddListAsync(AddListDto list)
     {
         try{
             byte[] listPicture;
@@ -47,6 +49,25 @@ public class TodoRepository : ITodoRepository
                 Success = false,
                 Message = "An unexpected error has occurred. That's all we know!",
             };
+        }
+    }
+
+    public async Task<IEnumerable<ListDto>?> GetListsAsync()
+    {
+        try{
+            var lists = await _databaseContext.TodoLists.AsQueryable()
+                .Select(r => new ListDto{
+                    Id = r.Id.ToString(),
+                    Name = r.Name,
+                    Description = r.Description,
+                    Color = r.Color,
+                    Picture = Convert.ToBase64String(r.Picture),
+                })
+                .ToListAsync();
+            return lists;
+        }
+        catch{
+            return null;
         }
     }
 }

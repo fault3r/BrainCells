@@ -8,14 +8,14 @@
 
 @model AddListViewModel
 
-<div class="faHeader"><i class="fa fa-check-square-o"></i> Todo List</div>
+<div class="faHeader"><i class="fa fa-calendar-check-o"></i> Todo Lists</div>
 <div class="faLine"></div>
 <div class="faSpace"></div>
 <form asp-controller="Todo" asp-action="AddList" method="post" enctype="multipart/form-data">
     <input asp-for="DefaultPicture" type="checkbox" id="DefaultPicture" hidden />
     <table class="faTable">
         <tr>
-            <td colspan="2" class="faTitle"><i class="fa fa-check-square-o"></i> Add Todo List</td>
+            <td colspan="2" class="faTitle"><i class="fa fa-calendar-plus-o"></i> Add Todo List</td>
         </tr>
         <tr>
             <td class="faText right">List Name:</td>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <td class="faText right">Description:</td>
-            <td><input asp-for="Description" class="faInput" type="text" /></td>
+            <td><input asp-for="Description" class="faInput" type="text" required /></td>
         </tr>
         <tr>
             <td class="faText right">Color:</td>

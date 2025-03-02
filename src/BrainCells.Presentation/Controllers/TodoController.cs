@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.TodoRepository;
-using BrainCells.Application.Services.TodoRepository.Dto;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using BrainCells.Presentation.Models.Todo.ViewModels;
 using FluentValidation;
@@ -44,11 +43,25 @@ public class TodoController : Controller
         };
     }
 
+    private async Task setLists()
+    {
+        var tLists = await _todoRepository.GetListsAsync();
+        var lists = tLists.Select(r => new ListViewModel{
+            Id = r.Id,
+            Name = r.Name,
+            Description = r.Description,
+            Color = r.Color,
+            Picture = r.Picture,
+        }).ToList();
+        ViewData["Lists"] = lists as IEnumerable<ListViewModel>;
+    }
+
     [Route("")]
     [HttpGet]
     public async Task<IActionResult> Index()
     {
         await setAccount();
+        await setLists();
         return View("Index");
     }
 
@@ -68,7 +81,7 @@ public class TodoController : Controller
         var validate = _addListValidator.Validate(list);
         if(validate.IsValid)
         {
-            var result = await _todoRepository.AddListAsync(new TodoListDto{
+            var result = await _todoRepository.AddListAsync(new AddListDto{
                 Name = list.Name,
                 Description = list.Description,
                 Color = list.Color,

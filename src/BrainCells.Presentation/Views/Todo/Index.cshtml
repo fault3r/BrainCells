@@ -1,8 +1,35 @@
-﻿@{
+﻿@using BrainCells.Presentation.Models.Todo.ViewModels
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Todo";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/todo.css" />
+}
+
+@{
+    var lists = ViewData["Lists"] as IEnumerable<ListViewModel>;
 }
 
 <div class="faHeader"><i class="fa fa-check-square-o"></i> Todo</div>
 <div class="faLine"></div>
 <div class="faSpace"></div>
+<table class="faTable">
+    <tr>
+        <td colspan="2" class="faTitle"><i class="fa fa-calendar-check-o"></i> Todo Lists</td>
+    </tr>
+</table> 
+<div class="container-lists">
+    @{
+        foreach(var list in lists)
+        {
+            <div style="background-color: @list.Color;" class="faList">
+                <p>@list.Name</p>
+                <p>@list.Description</p>
+                <div style="background-image: url('data:image/*;base64,@list.Picture');"></div>
+            </div>
+        }       
+    }
+</div>

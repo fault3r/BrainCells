@@ -1,10 +1,10 @@
 using System;
 using Microsoft.AspNetCore.Http;
 
-namespace BrainCells.Application.Services.TodoRepository.Dto;
+namespace BrainCells.Application.Services.TodoRepository;
 
-public class TodoListDto
-{
+public class AddListDto
+{    
     public string Name { get; set; }
 
     public string Description { get; set; }
