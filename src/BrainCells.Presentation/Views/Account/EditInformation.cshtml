@@ -24,18 +24,21 @@
             <td colspan="2" class="faText">Choose a new picture for your account.</td>
         </tr>
         <tr>
-            <td colspan="2" style="position: relative;">
+            <td style="position: relative;">
                 <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,@account.Picture');" /> 
                 <div class="faUploadButton">
                     <i class="fa fa-upload"></i>
-                    <input asp-for="Picture" type="file" accept=".jpg" id="fileInput">
+                    <input asp-for="Picture" type="file" accept=".jpg, .png" id="fileInput">
                     <div class="faUploadButton-menu">
                         <div id="upload-file">Upload a photo...</div>
-                        <div id="remove-file">Remove photo</div>
+                        <div id="remove-file" onclick="UploadButtonRemove('profile-picture')">Remove photo</div>
                     </div>
                 </div>
             </td>
+            <td></td>
         </tr>
+    </table>
+    <table class="faTable">
         <tr>
             <td colspan="2" class="faTitle"><i class="fa fa-edit"></i> Edit Your Information</td>
         </tr>

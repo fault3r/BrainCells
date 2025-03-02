@@ -1,9 +1,12 @@
 /* fault3r CSS cdn */
-.colors{
-    color: #09413a;
-    color: #521b0d;
-    color: #4c3a0b;
-    color: #07313b;
+:root{
+    --colorGreen: #09413a;
+    --colorRed: #521b0d;
+    --colorYellow: #4c3a0b;
+    --colorBlue: #07313b;
+
+    --color-Base: rgb(8, 75, 102);
+    --color-White: #f1f1f1;
 }
 .faSpace{
     height: 20px;
@@ -12,8 +15,8 @@
 .faLine{
     height: 2px;
     width: 100%;
-    border-top: 1px solid #f1f1f1;
-    box-shadow: 0px 0px 30px rgb(8, 75, 102);
+    border-top: 1px solid var(--color-White);;
+    box-shadow: 0px 0px 30px var(--color-Base);
     z-index: -1;
 }
 .faMessage{
@@ -64,23 +67,23 @@
 .faHeader{
     font-size: 26px;
     font-weight: bold;
-    text-shadow: 5px 5px 3px rgb(8, 75, 102);
+    text-shadow: 5px 5px 3px var(--color-Base);
 }
 .faTitle{
     font-size: 18px;
     font-weight: bold;
-    text-shadow: 5px 5px 3px rgb(8, 75, 102);
+    text-shadow: 5px 5px 3px var(--color-Base);
 }
 .faText{
-    text-shadow: 3px 3px 3px rgb(8, 75, 102);
+    text-shadow: 3px 3px 3px var(--color-Base);
 }
 .faDescription{
     font-size: 12px;
-    text-shadow: 3px 3px 3px rgb(8, 75, 102);
+    text-shadow: 3px 3px 3px var(--color-Base);
 }
-/* .faTable tr,td{
-    border: 1px dashed orange;
-} */
+    /* .faTable tr,td{
+        border: 1px dashed orange;
+    } */
     .faTable tr td{
         text-align: left;
         padding-bottom: 3px;
@@ -88,12 +91,16 @@
     .faTable td.right{
         text-align: right;
     }
+    .faTable td.top{
+        text-align: right;
+        vertical-align: top;
+    }
 .faInput{
     width: 300px;
     border-radius: 5px;
-    background-color: #f1f1f1;
+    background-color: var(--color-White);;
     border: 2px solid rgb(48, 128, 159); 
-    box-shadow: 1px 1px 3px rgb(8, 75, 102);
+    box-shadow: 1px 1px 3px var(--color-Base);
     outline: none;
     transition: all .3s ease;
 }
@@ -108,14 +115,14 @@
     outline: none;
     font-weight: bold;
     font-size: 14px;
-    color: rgb(8, 75, 102);
-    border: 1px solid rgb(8, 75, 102); 
-    box-shadow: 2px 2px 3px rgb(8, 75, 102);
+    color: var(--color-Base);
+    border: 1px solid var(--color-Base); 
+    box-shadow: 2px 2px 3px var(--color-Base);
     transition: all .3s ease;
 }
 .faButton:hover, .faButton:focus{
-    color: #f1f1f1;
-    border: 1px solid #f1f1f1;
+    color: var(--color-White);;
+    border: 1px solid var(--color-White);;
     background-color: #07313b;
     box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
 }
@@ -123,27 +130,33 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 1px solid #f1f1f1;
-    box-shadow: 2px 2px 3px rgb(8, 75, 102);
+    border: 1px solid var(--color-White);;
+    box-shadow: 2px 2px 3px var(--color-Base);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    backdrop-filter: blur(5px);
     margin: 3px 50px 3px 50px;
 }
+    .faImageS{
+        width: 100px;
+        height: 100px;
+        margin: 3px 100px 3px 100px;
+    }
 .faCheckbox{
     width: auto;
 }
 .faUploadButton{
     position: absolute;
     top: calc(100% - 35px);
-    left: 200px;
+    left: calc(50% + 30px);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    color:  rgb(8, 75, 102);
-    background-color: #f1f1f1;
-    border: 1px solid rgb(8, 75, 102);
-    box-shadow: 1px 1px 3px rgb(8, 75, 102);
+    color:  var(--color-Base);
+    background-color: var(--color-White);;
+    border: 1px solid var(--color-Base);
+    box-shadow: 1px 1px 3px var(--color-Base);
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -151,9 +164,9 @@
     transition: all .3s ease;
 }
     .faUploadButton:hover{
-        color:  #f1f1f1;
-        background-color: rgb(8, 75, 102);
-        border: 1px solid #f1f1f1;
+        color:  var(--color-White);;
+        background-color: var(--color-Base);
+        border: 1px solid var(--color-White);;
     }
     .faUploadButton:hover .faUploadButton-menu{
         display: flex;
@@ -173,10 +186,10 @@
         left: calc(50% - 5px);
         font-size: 12px;
         display: none;
-        border: 1px solid #f1f1f1;
+        border: 1px solid var(--color-White);;
         border-radius: 0px 5px 5px 5px;
-        background-color: #f1f1f1;
-        color:  rgb(8, 75, 102);
+        background-color: var(--color-White);;
+        color:  var(--color-Base);
         overflow: hidden;
     }
     .faUploadButton-menu div{
@@ -186,6 +199,6 @@
         transition: all .3s ease;
     }
         .faUploadButton-menu div:hover{
-            color: #f1f1f1;
-            background-color: rgb(8, 75, 102);
+            color: var(--color-White);;
+            background-color: var(--color-Base);
         }

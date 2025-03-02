@@ -26,18 +26,18 @@
         </tr>
         <tr>
             <td class="faText right">Color:</td>
-            <td><input asp-for="Color" class="faInput" type="text" /></td>
+            <td><input asp-for="Color" class="faInput" type="color" /></td>
         </tr>
         <tr>
-            <td class="faText right"></td>
+            <td class="faText right top">Picture:</td>
             <td style="position: relative;">
-                <img id="imagePreview" class="faImage" style="background-image: url('data:image/*;base64,00000000');" /> 
+                <img id="imagePreview" class="faImage faImageS" style="background-image: url('/resource/todo-list.png');" /> 
                 <div class="faUploadButton">
                     <i class="fa fa-upload"></i>
-                    <input asp-for="Picture" type="file" accept=".jpg" id="fileInput">
+                    <input asp-for="Picture" type="file" accept=".jpg, .png" id="fileInput">
                     <div class="faUploadButton-menu">
                         <div id="upload-file">Upload a photo...</div>
-                        <div id="remove-file">Remove photo</div>
+                        <div id="remove-file" onclick="UploadButtonRemove('todo-list')">Remove photo</div>
                     </div>
                 </div>
             </td>

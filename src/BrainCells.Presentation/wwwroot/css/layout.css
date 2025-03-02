@@ -76,7 +76,7 @@ body{
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            background-color: #323232;
+            backdrop-filter: blur(5px);
             border: 1px solid #f1f1f1;
             box-shadow: 3px 3px 4px rgb(8, 75, 102); 
             transition: all .3s ease;

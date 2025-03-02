@@ -17,7 +17,7 @@ public class EditInformationValidator : AbstractValidator<EditInformationViewMod
             .Length(2,30);
         
         RuleFor(p => p)
-            .Must(p => p.Picture.FileName.Contains("jpg"))
+            .Must(p => p.Picture.FileName.Contains(".jpg") || p.Picture.FileName.Contains(".png"))
             .When(p => p.Picture != null)
             .WithMessage("'Picture' Please choose a jpg file!");
     }
