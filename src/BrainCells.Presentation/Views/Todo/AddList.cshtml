@@ -12,6 +12,7 @@
 <div class="faLine"></div>
 <div class="faSpace"></div>
 <form asp-controller="Todo" asp-action="AddList" method="post" enctype="multipart/form-data">
+    <input asp-for="DefaultPicture" type="checkbox" id="DefaultPicture" hidden />
     <table class="faTable">
         <tr>
             <td colspan="2" class="faTitle"><i class="fa fa-check-square-o"></i> Add Todo List</td>
@@ -26,7 +27,7 @@
         </tr>
         <tr>
             <td class="faText right">Color:</td>
-            <td><input asp-for="Color" class="faInput" type="color" /></td>
+            <td><input asp-for="Color" class="faInput" type="color" value="#f1f1f1" /></td>
         </tr>
         <tr>
             <td class="faText right top">Picture:</td>

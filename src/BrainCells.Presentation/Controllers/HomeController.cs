@@ -74,13 +74,14 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Contact([FromForm]ContactViewModel contact)
     {
+        ModelState.Clear();
         var validate = _saveMessageValidator.Validate(contact);
         if(validate.IsValid)
         {
             var result = await _contactService.SaveMessageAsync(contact.FullName, contact.Email, contact.Message);
             if(result.Success)
             {
-                ModelState.Clear();
+                contact = new ContactViewModel();
                 ViewData["MessageType"] = AppConsts.SUCCESS;
             }
             else
@@ -92,7 +93,7 @@ public class HomeController : Controller
             ModelState.AddFluentResult(validate);
             ViewData["MessageType"]= AppConsts.WARNING;
         }
-        return View("Contact");
+        return View("Contact", contact);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

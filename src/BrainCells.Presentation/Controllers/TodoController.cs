@@ -8,10 +8,12 @@ using BrainCells.Application.Services.TodoRepository.Dto;
 using BrainCells.Presentation.Models.Account.ViewModels;
 using BrainCells.Presentation.Models.Todo.ViewModels;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrainCells.Presentation.Controllers;
 
+[Authorize]
 [Route("[controller]")]
 [Controller]
 public class TodoController : Controller
@@ -60,7 +62,7 @@ public class TodoController : Controller
 
     [Route("AddList")]
     [HttpPost]
-    public async Task<IActionResult> AddList(AddListViewModel list)
+    public async Task<IActionResult> AddList([FromForm]AddListViewModel list)
     {
         ModelState.Clear();
         var validate = _addListValidator.Validate(list);
@@ -70,9 +72,14 @@ public class TodoController : Controller
                 Name = list.Name,
                 Description = list.Description,
                 Color = list.Color,
+                Picture = list.Picture,
+                DefaultPicture = list.DefaultPicture,
             });
             if(result.Success)
+            {
+                list = new AddListViewModel(); 
                 ViewData["MessageType"] = AppConsts.SUCCESS;
+            }
             else
                 ViewData["MessageType"] = AppConsts.ERROR;
             ModelState.AddModelError("AddList", result.Message);
@@ -82,7 +89,6 @@ public class TodoController : Controller
             ViewData["MessageType"] = AppConsts.WARNING;
             ModelState.AddFluentResult(validate);
         }
-
         await setAccount();
         return View("AddList", list);
     }

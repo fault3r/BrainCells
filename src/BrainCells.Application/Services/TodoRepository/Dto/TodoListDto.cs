@@ -12,4 +12,6 @@ public class TodoListDto
     public string Color { get; set; }
 
     public IFormFile Picture { get; set; }
+
+    public bool DefaultPicture { get; set; }
 }

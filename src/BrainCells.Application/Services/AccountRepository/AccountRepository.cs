@@ -221,7 +221,7 @@ public class AccountRepository : IAccountRepository
             if(information.DefaultPicture)
                 account.Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.ProfilePicture)).ToArray();
             else
-                if(information.Picture!=null)
+                if(information.Picture != null)
                     account.Picture = (await ImageResizer.ResizeAsync(information.Picture, 500, 500)).ToArray();
             _databaseContext.Accounts.Update(account);
             await _databaseContext.SaveChangesAsync();
