@@ -8,5 +8,5 @@ public interface ITodoRepository
 {
     Task<ResultDto> AddListAsync(AddListDto list);
 
-    Task<IEnumerable<ListDto>?> GetListsAsync();
+    Task<IEnumerable<ListDto>?> GetListsAsync(string? id=null);
 }

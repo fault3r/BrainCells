@@ -22,6 +22,27 @@ public class TodoRepository : ITodoRepository
         _databaseContext = databaseContext;
         _resourceMemoryService = resourceMemoryService;
     }
+    public async Task<IEnumerable<ListDto>?> GetListsAsync(string? id=null)
+    {
+        try{
+            IEnumerable<TodoList> tLists;
+            if(id == null)
+                tLists = await _databaseContext.TodoLists.AsQueryable().ToListAsync();
+            else
+                tLists = await _databaseContext.TodoLists.Where(p => p.Id.ToString() == id).ToListAsync();
+            var lists = tLists.Select(r => new ListDto{
+                Id = r.Id.ToString(),
+                Name = r.Name,
+                Description = r.Description,
+                Color = r.Color,
+                Picture = Convert.ToBase64String(r.Picture),
+            }).ToList();
+            return lists;
+        }
+        catch{
+            return null;
+        }
+    }
 
     public async Task<ResultDto> AddListAsync(AddListDto list)
     {
@@ -52,22 +73,5 @@ public class TodoRepository : ITodoRepository
         }
     }
 
-    public async Task<IEnumerable<ListDto>?> GetListsAsync()
-    {
-        try{
-            var lists = await _databaseContext.TodoLists.AsQueryable()
-                .Select(r => new ListDto{
-                    Id = r.Id.ToString(),
-                    Name = r.Name,
-                    Description = r.Description,
-                    Color = r.Color,
-                    Picture = Convert.ToBase64String(r.Picture),
-                })
-                .ToListAsync();
-            return lists;
-        }
-        catch{
-            return null;
-        }
-    }
+
 }
