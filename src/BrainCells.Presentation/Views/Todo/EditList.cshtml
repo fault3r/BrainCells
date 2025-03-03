@@ -1,0 +1,84 @@
+﻿@using BrainCells.Presentation.Models.Todo.ViewModels
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Edit TodoList";
+}
+
+
+@model EditListViewModel
+
+<div class="faHeader"><i class="fa fa-calendar-check-o"></i> Todo Lists</div>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Todo" asp-action="EditList" method="post" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    <input asp-for="CurrentPicture" hidden />
+    <input asp-for="DefaultPicture" type="checkbox" id="DefaultPicture" hidden />
+    <table class="faTable">
+        <tr>
+            <td colspan="2" class="faTitle"><i class="fa fa-calendar-times-o"></i> Edit Todo List</td>
+        </tr>
+        <tr>
+            <td class="faText right">List Name:</td>
+            <td><input asp-for="Name" class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td class="faText right">Description:</td>
+            <td><input asp-for="Description" class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td class="faText right">Color:</td>
+            <td><input asp-for="Color" class="faInput" type="color" /></td>
+        </tr>
+        <tr>
+            <td class="faText right top">Picture:</td>
+            <td style="position: relative;">
+                <img id="imagePreview" class="faImage faImageS" style="background-image: url('data:image/*;base64,@Model.CurrentPicture');" /> 
+                <div class="faUploadButton">
+                    <i class="fa fa-upload"></i>
+                    <input asp-for="Picture" type="file" accept=".jpg, .png" id="fileInput">
+                    <div class="faUploadButton-menu">
+                        <div id="upload-file">Upload a photo...</div>
+                        <div id="remove-file" onclick="UploadButtonRemove('todo-list')">Remove photo</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="right"><button type="submit" class="faButton">Edit List</button></td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Todo" asp-action="DeleteList" method="post">
+    <table class="faTable">
+        <tr>
+            <td colspan="2" class="faTitle"><i class="fa fa-calendar-minus-o"></i> Delete Todo List</td>
+        </tr>
+        <tr>
+            <td class="faText">to confirm this, type "<b>delete</b>":</td>
+        </tr>
+        <tr>
+            <td><input name="Deletion" class="faInput" type="text" required /></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Deleting List will remove all Tasks in it!</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="DeleteButton" type="submit">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text">Delete List</span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<div class="faLine"></div>
+<div class="faSpace"></div>
+<form asp-controller="Todo" asp-action="Index" method="get">
+    <button type="submit" class="faButton">Back ←</button>
+</form>

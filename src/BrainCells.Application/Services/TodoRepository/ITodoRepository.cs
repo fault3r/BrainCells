@@ -6,7 +6,8 @@ namespace BrainCells.Application.Services.TodoRepository;
 
 public interface ITodoRepository
 {
-    Task<ResultDto> AddListAsync(AddListDto list);
-
     Task<IEnumerable<ListDto>?> GetListsAsync(string? id=null);
+    
+    Task<ResultDto> AddListAsync(AddListDto list);
+    Task<ResultDto> EditListAsync(EditListDto list);
 }

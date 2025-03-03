@@ -26,6 +26,7 @@
         foreach(var list in lists)
         {
             <div style="background-color: @list.Color;" class="faList">
+                <p><a href="/Todo/EditList?id=@list.Id">EditList</a></p>
                 <p>@list.Name</p>
                 <p>@list.Description</p>
                 <div style="background-image: url('data:image/*;base64,@list.Picture');"></div>

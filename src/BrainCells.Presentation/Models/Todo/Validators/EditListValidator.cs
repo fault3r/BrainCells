@@ -1,13 +1,12 @@
 using System;
-using System.Data;
 using BrainCells.Presentation.Models.Todo.ViewModels;
 using FluentValidation;
 
 namespace BrainCells.Presentation.Models.Todo.Validators;
 
-public class AddListValidator : AbstractValidator<AddListViewModel>
+public class EditListValidator : AbstractValidator<EditListViewModel>
 {
-    public AddListValidator()
+    public EditListValidator()
     {
         RuleFor(p => p.Name)
             .NotEmpty()
@@ -15,9 +14,10 @@ public class AddListValidator : AbstractValidator<AddListViewModel>
 
         RuleFor(p => p.Description)
             .NotEmpty()
-            .Length(2, 100);
-        
+            .Length(2, 100); 
+                 
         RuleFor(p => p.Color)
             .NotEmpty();
     }
 }
+

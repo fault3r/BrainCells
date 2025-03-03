@@ -27,7 +27,7 @@ public class TodoRepository : ITodoRepository
         try{
             IEnumerable<TodoList> tLists;
             if(id == null)
-                tLists = await _databaseContext.TodoLists.AsQueryable().ToListAsync();
+                tLists = await _databaseContext.TodoLists.ToListAsync();
             else
                 tLists = await _databaseContext.TodoLists.Where(p => p.Id.ToString() == id).ToListAsync();
             var lists = tLists.Select(r => new ListDto{
@@ -62,16 +62,41 @@ public class TodoRepository : ITodoRepository
             await _databaseContext.SaveChangesAsync();
             return new ResultDto{
                 Success = true,
-                Message = "Your list has been created! You can now add Tasks.",
+                Message = "Your list has been created.",
             };
         }
         catch{
             return new ResultDto{
                 Success = false,
-                Message = "An unexpected error has occurred. That's all we know!",
+                Message = "An unexpected error has occurred!",
             };
         }
     }
 
-
+    public async Task<ResultDto> EditListAsync(EditListDto list)
+    {
+        try{
+            var tList = _databaseContext.TodoLists.Where(p => p.Id.ToString() == list.Id).FirstOrDefault(); 
+            tList.Name = list.Name;
+            tList.Description = list.Description;
+            tList.Color = list.Color;
+            if(list.DefaultPicture)
+                tList.Picture = (await _resourceMemoryService.GetResourceAsync(ResourceMemoryItems.TodoList)).ToArray();
+            else
+                if(list.Picture != null)
+                    tList.Picture = (await ImageResizer.ResizeAsync(list.Picture, 500, 500)).ToArray();
+            _databaseContext.TodoLists.Update(tList);
+            await _databaseContext.SaveChangesAsync();
+            return new ResultDto{
+                Success = true,
+                Message = "Your list has been updated.",
+            };
+        }
+        catch{
+            return new ResultDto{
+                Success = false,
+                Message = "An unexpected error has occurred!",
+            };
+        }
+    }
 }
