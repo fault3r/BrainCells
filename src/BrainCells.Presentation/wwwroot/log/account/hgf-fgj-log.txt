@@ -1,21 +1,16 @@
 
 
 *Issue: SignUp
-  Time: 4:24:29 PM
+  Time: 5:43:51 PM
   Date: Tuesday, March 4, 2025
 _______________________________________________
 
 *Issue: SignIn
-  Time: 4:24:29 PM
+  Time: 5:43:52 PM
   Date: Tuesday, March 4, 2025
 _______________________________________________
 
 *Issue: EditInformation
-  Time: 4:24:43 PM
-  Date: Tuesday, March 4, 2025
-_______________________________________________
-
-*Issue: SignOut
-  Time: 5:22:40 PM
+  Time: 5:45:39 PM
   Date: Tuesday, March 4, 2025
 _______________________________________________

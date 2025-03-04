@@ -1,13 +1,9 @@
 using System;
-using System.Drawing;
-using System.Text;
 using BrainCells.Application.Common;
 using BrainCells.Application.Interfaces;
 using BrainCells.Application.Services.ResourceMemoryService;
-using BrainCells.Application.Services.TodoRepository;
 using BrainCells.Domain.Entities.Todo;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace BrainCells.Application.Services.TodoRepository;
 

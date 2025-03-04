@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BrainCells.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a1002cafd81d284499d9241046ceaad2a231dce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9c81b520c419077f7f63aed6960dc87b53ba6c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("BrainCells.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BrainCells.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

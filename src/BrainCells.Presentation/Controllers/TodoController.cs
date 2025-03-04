@@ -1,6 +1,5 @@
 using System;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using BrainCells.Application.Common;
 using BrainCells.Application.Services.AccountRepository;
 using BrainCells.Application.Services.TodoRepository;
@@ -36,16 +35,25 @@ public class TodoController : Controller
 
     private async Task setAccount()
     {
-        var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        ViewData["Account"] = new AccountViewModel{
-            Id = account.Id,
-            Email = account.Email,
-            Role = account.Role,
-            Name = account.Name,
-            Picture = account.Picture,
-        };
+        var accountId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if(accountId != null)
+        {
+            var account = await _accountRepository.GetAccountAsync(accountId);
+            if(account != null)
+                ViewData["Account"] = new AccountViewModel{
+                    Id = account.Id,
+                    Email = account.Email,
+                    Role = account.Role,
+                    Name = account.Name,
+                    Picture = account.Picture,
+                };
+            else
+                ViewData["Account"] = null;
+        }
+        else
+            ViewData["Account"] = null;
     }
-
+    
     private async Task setLists()
     {
         var tLists = await _todoRepository.GetListsAsync();

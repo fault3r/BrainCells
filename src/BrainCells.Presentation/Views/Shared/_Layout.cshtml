@@ -1,7 +1,13 @@
 @using BrainCells.Presentation.Models.Account.ViewModels
+@using Microsoft.AspNetCore.Http;
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
+    if(account is null)
+    {
+        account = new AccountViewModel();
+        Context.Response.Redirect("/Account/SignOut");   
+    }
 }
 
 <!DOCTYPE html>

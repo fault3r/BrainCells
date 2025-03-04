@@ -34,14 +34,23 @@ public class HomeController : Controller
      
     private async Task setAccount()
     {
-        var account = await _accountRepository.GetAccountAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        ViewData["Account"] = new AccountViewModel{
-            Id = account.Id,
-            Email = account.Email,
-            Role = account.Role,
-            Name = account.Name,
-            Picture = account.Picture,
-        };
+        var accountId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if(accountId != null)
+        {
+            var account = await _accountRepository.GetAccountAsync(accountId);
+            if(account != null)
+                ViewData["Account"] = new AccountViewModel{
+                    Id = account.Id,
+                    Email = account.Email,
+                    Role = account.Role,
+                    Name = account.Name,
+                    Picture = account.Picture,
+                };
+            else
+                ViewData["Account"] = null;
+        }
+        else
+            ViewData["Account"] = null;
     }
 
     [Authorize]

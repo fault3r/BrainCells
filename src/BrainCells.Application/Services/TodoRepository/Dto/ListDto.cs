@@ -10,7 +10,7 @@ public class ListDto
 
     public string Description { get; set; }
 
-    public string Color { get; set; }
+    public string Color { get; set; } 
 
     public string Picture { get; set; }
 }

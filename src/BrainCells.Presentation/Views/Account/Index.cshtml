@@ -11,19 +11,22 @@
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
-    if(account != null)
+    if(account is null)
     {
-        <div class="container-account">
-            <div class="account-title faHeader"><i class="fa fa-user-circle-o"></i> Your Profile</div>
-            <div class="account-settings">
-                <a href="/Account/EditInformation"><div class="settings-item"><i class="fa fa-edit"></i>Edit Info.</div></a>
-                <a href="/Account/Settings"><div class="settings-item"><i class="fa fa-gears"></i>Settings</div></a>
-                <a href="/Account/SignOut"><div class="settings-item"><i class="fa fa-sign-out"></i>Sign Out</div></a>
-            </div>
-            <div class="account-picture" style="background-image: url('data:image/*;base64,@account.Picture');"></div>
-            <div class="account-line faLine"></div>
-            <div class="account-name faTitle">@account.Name</div>
-            <div class="account-email faTitle">@account.Email</div>
-        </div>
+        account = new AccountViewModel();
+        Context.Response.Redirect("/Account/SignOut");   
     }
 }
+
+<div class="container-account">
+    <div class="account-title faHeader"><i class="fa fa-user-circle-o"></i> Your Profile</div>
+    <div class="account-settings">
+        <a href="/Account/EditInformation"><div class="settings-item"><i class="fa fa-edit"></i>Edit Info.</div></a>
+        <a href="/Account/Settings"><div class="settings-item"><i class="fa fa-gears"></i>Settings</div></a>
+        <a href="/Account/SignOut"><div class="settings-item"><i class="fa fa-sign-out"></i>Sign Out</div></a>
+    </div>
+    <div class="account-picture" style="background-image: url('data:image/*;base64,@account.Picture');"></div>
+    <div class="account-line faLine"></div>
+    <div class="account-name faTitle">@account.Name</div>
+    <div class="account-email faTitle">@account.Email</div>
+</div>

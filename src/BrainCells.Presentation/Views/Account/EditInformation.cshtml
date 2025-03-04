@@ -9,6 +9,11 @@
 
 @{
     var account = ViewData["Account"] as AccountViewModel;
+    if(account is null)
+    {
+        account = new AccountViewModel();
+        Context.Response.Redirect("/Account/SignOut");   
+    }
 }
 
 <div class="faHeader"><i class="fa fa-edit"></i> Edit Information</div>
