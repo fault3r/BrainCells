@@ -95,6 +95,9 @@
         text-align: right;
         vertical-align: top;
     }
+    .faTable .red{
+        color: var(--colorRed);
+    }
 .faInput{
     width: 300px;
     border-radius: 5px;

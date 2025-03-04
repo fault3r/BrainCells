@@ -159,4 +159,26 @@ public class TodoController : Controller
         await setAccount();
         return View("EditList", list);
     }
+
+    [Route("DeleteList")]
+    [HttpPost]
+    public async Task<IActionResult> DeleteList([FromForm]string id, bool confirm)
+    {
+        ModelState.Clear();
+        if(confirm)
+        {
+            var result = await _todoRepository.DeleteListAsync(id);
+            if(result.Success)
+                return await Index();
+            else
+                ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("DeleteList", result.Message);
+        }
+        else
+        {
+            ViewData["MessageType"] = AppConsts.ERROR;
+            ModelState.AddModelError("DeleteList", "To continue with the deletion process you must confirm your intention to delete!");
+        }
+        return await EditList(id);
+    }
 }

@@ -63,7 +63,6 @@ builder.Services.AddScoped<ITodoRepository, TodoRepository>();
     builder.Services.AddScoped<IValidator<AddListViewModel>, AddListValidator>();
     builder.Services.AddScoped<IValidator<EditListViewModel>, EditListValidator>();
 
-
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 

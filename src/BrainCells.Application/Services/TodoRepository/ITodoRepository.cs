@@ -10,4 +10,5 @@ public interface ITodoRepository
     
     Task<ResultDto> AddListAsync(AddListDto list);
     Task<ResultDto> EditListAsync(EditListDto list);
+    Task<ResultDto> DeleteListAsync(string id);
 }

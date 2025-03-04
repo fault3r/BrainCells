@@ -99,4 +99,23 @@ public class TodoRepository : ITodoRepository
             };
         }
     }
+
+    public async Task<ResultDto> DeleteListAsync(string id)
+    {
+        try{
+            var list = _databaseContext.TodoLists.Where(p => p.Id.ToString() == id).FirstOrDefault(); 
+            _databaseContext.TodoLists.Remove(list);
+            await _databaseContext.SaveChangesAsync();
+            return new ResultDto{
+                Success = true,
+                Message = "Your list has been deleted.",
+            };
+        }
+        catch{
+            return new ResultDto{
+                Success = false,
+                Message = "An unexpected error has occurred!",
+            };
+        }
+    }
 }

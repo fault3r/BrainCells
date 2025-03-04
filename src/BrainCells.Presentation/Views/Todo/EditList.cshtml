@@ -5,7 +5,6 @@
     ViewData["Title"] = "Edit TodoList";
 }
 
-
 @model EditListViewModel
 
 <div class="faHeader"><i class="fa fa-calendar-check-o"></i> Todo Lists</div>
@@ -53,27 +52,20 @@
 <div class="faLine"></div>
 <div class="faSpace"></div>
 <form asp-controller="Todo" asp-action="DeleteList" method="post">
+    <input asp-for="Id" hidden />
     <table class="faTable">
         <tr>
             <td colspan="2" class="faTitle"><i class="fa fa-calendar-minus-o"></i> Delete Todo List</td>
         </tr>
         <tr>
-            <td class="faText">to confirm this, type "<b>delete</b>":</td>
+            <td class="faText"><input name="confirm" class="faCheckbox" type="checkbox" value="true" />
+                I want to "<b>delete</b>" this list.</td>
         </tr>
         <tr>
-            <td><input name="Deletion" class="faInput" type="text" required /></td>
+            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Deleting List will remove all Tasks in it too!</td>
         </tr>
         <tr>
-            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Deleting List will remove all Tasks in it!</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="DeleteButton" type="submit">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front text">Delete List</span>
-                </button>
-            </td>
+            <td colspan="2" class="right"><button type="submit" class="faButton red">Delete List</button></td>
         </tr>
     </table>
 </form>
