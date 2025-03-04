@@ -19,15 +19,15 @@
             <td colspan="2" class="faTitle"><i class="fa fa-calendar-times-o"></i> Edit Todo List</td>
         </tr>
         <tr>
-            <td class="faText right">List Name:</td>
+            <td class="faText right"><label for="Name">List Name:</label></td>
             <td><input asp-for="Name" class="faInput" type="text" required /></td>
         </tr>
         <tr>
-            <td class="faText right">Description:</td>
+            <td class="faText right"><label for="Description">Description:</label></td>
             <td><input asp-for="Description" class="faInput" type="text" required /></td>
         </tr>
         <tr>
-            <td class="faText right">Color:</td>
+            <td class="faText right"><label for="Color">Color:</label></td>
             <td><input asp-for="Color" class="faInput" type="color" /></td>
         </tr>
         <tr>
@@ -58,14 +58,16 @@
             <td colspan="2" class="faTitle"><i class="fa fa-calendar-minus-o"></i> Delete Todo List</td>
         </tr>
         <tr>
-            <td class="faText"><input name="confirm" class="faCheckbox" type="checkbox" value="true" />
-                I want to "<b>delete</b>" this list.</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Deleting List will remove all Tasks in it too!</td>
+            <td class="faText">
+                <input name="confirm" id="confirm" class="faCheckbox" type="checkbox" value="true" />
+                <label for="confirm">I want to "<b>delete</b>" this list.</label>
+            </td>
         </tr>
         <tr>
             <td colspan="2" class="right"><button type="submit" class="faButton red">Delete List</button></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Deleting List will remove all Tasks in it too!</td>
         </tr>
     </table>
 </form>

@@ -18,7 +18,7 @@
             <td colspan="2" class="faTitle"><i class="fa fa-lock"></i> Change Account Password</td>
         </tr>
         <tr>
-            <td class="faText right">Current Password:</td>
+            <td class="faText right"><label for="CurrentPassword">Current Password:</label></td>
             <td>
                 @{
                     if(@User.FindFirstValue(ClaimTypes.Version) == "otp")
@@ -28,20 +28,20 @@
                     }
                     else
                     {
-                        <input asp-for="ChangePassword.CurrentPassword" class="faInput" type="password" required />
+                        <input asp-for="ChangePassword.CurrentPassword" id="CurrentPassword" class="faInput" type="password" required />
                     }
                 }
             </td>
         </tr>
         <tr>
-            <td class="faText right">New Password:</td>
+            <td class="faText right"><label for="Password">New Password:</label></td>
             <td class="pwd-eye">
                 <input asp-for="ChangePassword.Password" id="Password" class="faInput" type="password" required />
                 <i class="fa fa-eye" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
             </td>
         </tr>
         <tr>
-            <td class="faText right">Confirm New Password:</td>
+            <td class="faText right"><label for="ConfirmPassword">Confirm New Password:</label></td>
             <td><input asp-for="ChangePassword.ConfirmPassword" id="ConfirmPassword" class="faInput" type="password" required /></td>
         </tr>
         <tr>
@@ -67,10 +67,10 @@
             <td class="faText">Deleting your account will remove all of your information from our database.</td>
         </tr>
         <tr>
-            <td class="faText">to confirm this, type "<b>delete</b>":</td>
+            <td class="faText"><label for="Confirm">to confirm this, type "<b>delete</b>":</label></td>
         </tr>
         <tr>
-            <td><input asp-for="DeleteAccount.Confirm" class="faInput" type="text" required /></td>
+            <td><input asp-for="DeleteAccount.Confirm" id="Confirm" class="faInput" type="text" required /></td>
         </tr>
         <tr>
             <td>
