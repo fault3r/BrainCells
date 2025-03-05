@@ -18,14 +18,17 @@ public class TodoRepository : ITodoRepository
         _databaseContext = databaseContext;
         _resourceMemoryService = resourceMemoryService;
     }
-    public async Task<IEnumerable<ListDto>?> GetListsAsync(string? id=null)
+    public async Task<IEnumerable<ListDto>?> GetListsAsync(string accountId, string? listId=null)
     {
         try{
             IEnumerable<TodoList> tLists;
-            if(id == null)
-                tLists = await _databaseContext.TodoLists.ToListAsync();
+            if(listId == null)
+                tLists = await _databaseContext.TodoLists.Where(p => p.AccountId.ToString()==accountId)
+                    .ToListAsync();
             else
-                tLists = await _databaseContext.TodoLists.Where(p => p.Id.ToString() == id).ToListAsync();
+                tLists = await _databaseContext.TodoLists
+                    .Where(p => p.AccountId.ToString()==accountId && p.Id.ToString()==listId)
+                    .ToListAsync();
             var lists = tLists.Select(r => new ListDto{
                 Id = r.Id.ToString(),
                 Name = r.Name,
@@ -53,6 +56,7 @@ public class TodoRepository : ITodoRepository
                 Description = list.Description,
                 Color = list.Color,
                 Picture = listPicture,
+                AccountId = Guid.Parse(list.AccountId),
             };
             _databaseContext.TodoLists.Add(tList);
             await _databaseContext.SaveChangesAsync();

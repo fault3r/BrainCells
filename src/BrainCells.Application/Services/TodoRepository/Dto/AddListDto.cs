@@ -14,4 +14,6 @@ public class AddListDto
     public IFormFile Picture { get; set; }
 
     public bool DefaultPicture { get; set; }
+
+    public string AccountId { get; set; }
 }

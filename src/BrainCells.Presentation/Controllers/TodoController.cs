@@ -21,7 +21,6 @@ public class TodoController : Controller
         private readonly IValidator<AddListViewModel> _addListValidator;
         private readonly IValidator<EditListViewModel> _editListValidator;
 
-
     public TodoController(IAccountRepository accountRepository,
         ITodoRepository todoRepository,
             IValidator<AddListViewModel> addListValidator,
@@ -30,15 +29,15 @@ public class TodoController : Controller
         _accountRepository = accountRepository;
         _todoRepository = todoRepository;
             _addListValidator = addListValidator;
-            _editListValidator = editListValidator;
+            _editListValidator = editListValidator;        
     }
 
     private async Task setAccount()
     {
-        var accountId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if(accountId != null)
+        var guid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if(guid != null)
         {
-            var account = await _accountRepository.GetAccountAsync(accountId);
+            var account = await _accountRepository.GetAccountAsync(guid);
             if(account != null)
                 ViewData["Account"] = new AccountViewModel{
                     Id = account.Id,
@@ -56,7 +55,8 @@ public class TodoController : Controller
     
     private async Task setLists()
     {
-        var tLists = await _todoRepository.GetListsAsync();
+        var guid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var tLists = await _todoRepository.GetListsAsync(guid);
         var lists = tLists.Select(r => new ListViewModel{
             Id = r.Id,
             Name = r.Name,
@@ -88,6 +88,7 @@ public class TodoController : Controller
     [HttpPost]
     public async Task<IActionResult> AddList([FromForm]AddListViewModel list)
     {
+        var guid = User.FindFirstValue(ClaimTypes.NameIdentifier);
         ModelState.Clear();
         var validate = _addListValidator.Validate(list);
         if(validate.IsValid)
@@ -98,6 +99,7 @@ public class TodoController : Controller
                 Color = list.Color,
                 Picture = list.Picture,
                 DefaultPicture = list.DefaultPicture,
+                AccountId = guid,
             });
             if(result.Success)
             {
@@ -121,7 +123,8 @@ public class TodoController : Controller
     [HttpGet]
     public async Task<IActionResult> EditList([FromQuery]string id)
     {
-        var tList = await _todoRepository.GetListsAsync(id);
+        var guid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var tList = await _todoRepository.GetListsAsync(guid, id);
         var list = tList.Select(r => new EditListViewModel{
             Id = r.Id,
             Name = r.Name,
@@ -137,6 +140,7 @@ public class TodoController : Controller
     [HttpPost]
     public async Task<IActionResult> EditList([FromForm]EditListViewModel list)
     {
+        var guid = User.FindFirstValue(ClaimTypes.NameIdentifier);
         ModelState.Clear();
         var validate = _editListValidator.Validate(list);
         if(validate.IsValid)
@@ -151,7 +155,7 @@ public class TodoController : Controller
             });
             if(result.Success)
             {
-                var tList = await _todoRepository.GetListsAsync(list.Id);
+                var tList = await _todoRepository.GetListsAsync(guid, list.Id);
                 list.CurrentPicture = tList.FirstOrDefault().Picture;
                 ViewData["MessageType"] = AppConsts.SUCCESS;
             }

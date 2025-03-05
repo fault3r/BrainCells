@@ -30,6 +30,8 @@ builder.Services.AddAuthentication(options => {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 })
     .AddCookie(options => {
+        options.Cookie.Name = "BrainCells.";
+        options.ExpireTimeSpan = TimeSpan.FromHours(24);
         options.LoginPath = new PathString("/Account/SignIn");
         options.AccessDeniedPath = new PathString("/Error/403");
     });

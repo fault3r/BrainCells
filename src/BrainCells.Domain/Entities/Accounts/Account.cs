@@ -1,4 +1,5 @@
 using System;
+using BrainCells.Domain.Entities.Todo;
 
 namespace BrainCells.Domain.Entities.Accounts;
 
@@ -18,4 +19,6 @@ public class Account
     public byte[] Picture { get; set; }
 
     public virtual ForgotPassword ForgotPassword { get; set; }
+
+    public virtual ICollection<TodoList> TodoLists { get; set; }
 }

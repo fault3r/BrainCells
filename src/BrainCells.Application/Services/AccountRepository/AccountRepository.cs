@@ -11,6 +11,7 @@ using BrainCells.Application.Services.LoggingService;
 using BrainCells.Application.Services.SupportEmailService;
 using BrainCells.Application.Services.ResourceMemoryService;
 using SkiaSharp;
+using System.Security.Policy;
 
 namespace BrainCells.Application.Services.AccountRepository;
 
@@ -65,10 +66,7 @@ public class AccountRepository : IAccountRepository
                     };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principal = new ClaimsPrincipal(identity);
-                    var properties = new AuthenticationProperties {
-                        IsPersistent = persistent,
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),
-                    };
+                    var properties = new AuthenticationProperties {IsPersistent = persistent};
                     await _httpcontextAccessor.HttpContext.SignInAsync(principal, properties);
                     await _loggingService.LogAccountAsync(account.Email, LogTitle.SignIn);
                     return new ResultDto{

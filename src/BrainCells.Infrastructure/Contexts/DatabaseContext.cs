@@ -30,6 +30,9 @@ public class DatabaseContext : DbContext, IDatabaseContext
         builder.Entity<Account>().HasOne(e => e.ForgotPassword).WithOne(e => e.Account)
             .HasForeignKey<ForgotPassword>(p => p.AccountId)
             .OnDelete(DeleteBehavior.Cascade);
+        builder.Entity<Account>().HasMany(e => e.TodoLists).WithOne(e => e.Account)
+            .HasForeignKey(p => p.AccountId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Role>().HasKey(p => p.Id);
         builder.Entity<Role>().HasMany(e => e.Accounts).WithOne(e => e.Role)
@@ -51,6 +54,8 @@ public class DatabaseContext : DbContext, IDatabaseContext
         builder.Entity<TodoList>().HasMany(e => e.Tasks).WithOne(e => e.TodoList)
             .HasForeignKey(p => p.TodoListId)
             .OnDelete(DeleteBehavior.Cascade);
+        builder.Entity<TodoList>().HasOne(e => e.Account).WithMany(e => e.TodoLists)
+            .HasForeignKey(p => p.AccountId);
 
         builder.Entity<TodoTask>().HasKey(p => p.Id);
         builder.Entity<TodoTask>().HasOne(e => e.TodoList).WithMany(e => e.Tasks)

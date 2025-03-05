@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using BrainCells.Domain.Entities.Accounts;
 
 namespace BrainCells.Domain.Entities.Todo;
 
@@ -17,4 +18,6 @@ public class TodoList
 
     public virtual ICollection<TodoTask> Tasks { get; set; }
 
+    public Guid AccountId { get; set;} 
+    public virtual Account Account{ get; set; }
 }
