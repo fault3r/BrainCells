@@ -61,7 +61,6 @@ body{
                 all: unset;
             }
         .menu-path{
-            width: auto;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;

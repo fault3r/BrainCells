@@ -25,11 +25,18 @@
     @{
         foreach(var list in lists)
         {
-            <div style="background-color: @list.Color;" class="faList">
-                <p><a href="/Todo/EditList?id=@list.Id">EditList</a></p>
-                <p>@list.Name</p>
-                <p>@list.Description</p>
-                <div style="background-image: url('data:image/*;base64,@list.Picture');"></div>
+            <div class="faList" style="background-image: linear-gradient(to bottom, @list.Color 30%, #323232 70%);">
+                <div class="faList-name">@list.Name</div>
+                <div  class="faList-description">@list.Description</div>
+                <div style="height: 110px;">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="0,110 140,50 190,35 250,110" style="fill: #323232; stroke: #323232; stroke-width: 3;" />
+                    </svg>
+                </div>
+                <div class="faList-tasks"></div>
+                <div class="faList-button" style="background-color: @list.Color;">Enter →</div>
+                <div class="faList-image" style="background-image: url('data:image/*;base64,@list.Picture'); border: 5px solid @list.Color;"></div>
+                @* <div><a href="/Todo/EditList?id=@list.Id">EditList</a></div> *@
             </div>
         }       
     }

@@ -8,7 +8,9 @@
         account = new AccountViewModel();
         Context.Response.Redirect("/Account/SignOut/true");   
     }
-    var paths = Context.Request.Path.ToString().Split('/');
+    var _path = Context.Request.Path.ToString();
+    _path += _path=="/"?"Home":"";
+    var paths = _path.Split('/');
 }
 
 <!DOCTYPE html>
