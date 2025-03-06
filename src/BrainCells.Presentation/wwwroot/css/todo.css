@@ -1,4 +1,4 @@
-.container-lists{
+.container-lists {
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -7,5 +7,4 @@
     align-items: center;
     gap: 10px;
     flex-basis: 33.33%;
-
 }

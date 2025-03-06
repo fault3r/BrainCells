@@ -110,14 +110,22 @@ public class AccountController : Controller
     }
 
     [Authorize]
-    [Route("SignOut")]
+    [Route("SignOut/{ReturnUrl:bool?}")]
     [HttpGet]
-    public async Task<IActionResult> SignOut()
+    public async Task<IActionResult> SignOut(bool? ReturnUrl)
     {
         ModelState.Clear();
         var result = await _accountRepository.SignOutAsync(User.FindFirstValue(ClaimTypes.Email).ToString());
         if(result.Success)
-            ViewData["MessageType"] = AppConsts.SUCCESS;        
+        {
+            if(ReturnUrl == true)
+            {
+                ViewData["MessageType"] = AppConsts.WARNING;
+                result.Message = "Your session has expired! For your security, please log in again to continue..";
+            }
+            else
+                ViewData["MessageType"] = AppConsts.SUCCESS;   
+        } 
         else
             ViewData["MessageType"]= AppConsts.ERROR;
         ModelState.AddModelError("SignOut", result.Message);
