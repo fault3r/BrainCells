@@ -1,11 +1,18 @@
-
+@font-face {
+    font-family: 'BrainCellsFont';
+    src: url('../fonts/Delight\ Purple.ttf');
+    font-weight: normal;
+}
 html{
-    font-family:  Arial, Helvetica, sans-serif;
+    /* font-family: "Lucida Console", "Courier New", monospace;
+       font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'BrainCellsFont';
     font-size: 16px;
     scrollbar-width: thin;
-    scrollbar-color: rgb(112, 196, 229)  rgb(1, 39, 53);
+    scrollbar-color: rgb(0, 103, 114) #323232;
 }
 body{
+    font-family: 'BrainCellsFont';
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
@@ -206,7 +213,8 @@ body{
         }
 .container-profile{
     position: fixed;
-    width: 160px;
+    width: auto;
+    max-width: 190px;
     height: 0px;
     top: 60px;
     right: 0;

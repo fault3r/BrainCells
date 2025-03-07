@@ -27,16 +27,23 @@
         {
             <div class="faList" style="background-image: linear-gradient(to bottom, @list.Color 30%, #323232 70%);">
                 <div class="faList-name">@list.Name</div>
-                <div  class="faList-description">@list.Description</div>
-                <div style="height: 110px;">
-                    <svg xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="0,110 140,50 190,35 250,110" style="fill: #323232; stroke: #323232; stroke-width: 3;" />
-                    </svg>
+                <div class="faList-description">@list.Description</div>
+                <div class="faList-completion">%100</div>
+                <div class="faList-image">
+                    <div style="background-image: url('data:image/*;base64,@list.Picture'); border: 5px solid @list.Color;"></div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="0,95 190,30 250,95" style="fill: #323232; stroke: #323232; stroke-width: 3;" />
+                        </svg>
+                    </div>
                 </div>
-                <div class="faList-tasks"></div>
-                <div class="faList-button" style="background-color: @list.Color;">Enter →</div>
-                <div class="faList-image" style="background-image: url('data:image/*;base64,@list.Picture'); border: 5px solid @list.Color;"></div>
-                @* <div><a href="/Todo/EditList?id=@list.Id">EditList</a></div> *@
+                <div class="faList-main">
+                    <div class="faList-tasks" style="box-shadow: 0px 5px 15px @list.Color; scrollbar-color: @list.Color #323232;">
+                        <div>test</div>
+                    </div>
+                    <button type="submit" style="background-color: @list.Color;">Enter →</button>
+                </div>
+                <div class="faList-button"><a href="/Todo/EditList?id=@list.Id"><i class="fa fa-calendar-times-o"></i></a></div>
             </div>
         }       
     }
