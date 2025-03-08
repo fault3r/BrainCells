@@ -54,3 +54,128 @@ _______________________________________________
   Time: 7:49:55 PM
   Date: Friday, March 7, 2025
 _______________________________________________
+
+*Issue: SignIn
+  Time: 8:44:48 PM
+  Date: Friday, March 7, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 3:32:48 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 3:35:04 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 3:45:19 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 3:51:35 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 3:52:33 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:01:01 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 4:03:12 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: DeleteAccount
+  Time: 4:03:12 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignUp
+  Time: 4:09:11 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 4:09:11 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:09:57 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:10:23 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:10:36 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 4:14:07 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 4:15:12 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 4:15:30 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: ForgotPassword
+  Time: 4:15:45 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: OneTimePassword
+  Time: 4:16:35 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 4:16:35 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: ChangePassword
+  Time: 4:17:08 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:17:25 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: EditInformation
+  Time: 4:17:37 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignOut
+  Time: 4:17:57 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________
+
+*Issue: SignIn
+  Time: 4:19:32 PM
+  Date: Saturday, March 8, 2025
+_______________________________________________

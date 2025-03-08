@@ -1,18 +1,20 @@
 @font-face {
     font-family: 'BrainCellsFont';
-    src: url('../fonts/Delight\ Purple.ttf');
-    font-weight: normal;
+    src: url('../fonts/Handlee-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BrainCellsFontFa';
+    src: url('../fonts/danstevis.otf');
 }
 html{
-    /* font-family: "Lucida Console", "Courier New", monospace;
-       font-family: Arial, Helvetica, sans-serif; */
-    font-family: 'BrainCellsFont';
+    font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
     font-size: 16px;
     scrollbar-width: thin;
     scrollbar-color: rgb(0, 103, 114) #323232;
 }
 body{
-    font-family: 'BrainCellsFont';
+    font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
+    font-weight: bold;
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
@@ -214,6 +216,7 @@ body{
 .container-profile{
     position: fixed;
     width: auto;
+    min-width: 150px;
     max-width: 190px;
     height: 0px;
     top: 60px;

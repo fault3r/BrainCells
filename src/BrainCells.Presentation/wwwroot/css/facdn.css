@@ -223,8 +223,9 @@
     border: 1px solid var(--color-White);
     box-shadow: 3px 3px 3px var(--color-Base);
     text-shadow: 2px 2px 3px var(--color-Base);
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
 }
     .faList:hover{
         opacity: .9;
@@ -232,34 +233,37 @@
     }
     .faList-name{
         position: absolute;
-        width: 230px;
-        height: 30px;
         top: 10px;
         left: 10px;
+        width: 230px;
+        height: 27px;
         font-size: 18px;
         text-align: center;
-        overflow: hidden;
+        overflow-y: scroll;
+        scrollbar-color: var(--color-White) var(--colorGrey);
     }
     .faList-description{
         position: absolute;
-        width: 230px;
-        height: 25px;
         top: 40px;
         left: 10px;
+        width: 230px;
+        height: 19px;
         font-size: 14px;
         text-align: center;
-        overflow: hidden;
+        overflow-y: scroll;
+        scrollbar-color: var(--color-White) var(--colorGrey);
     }
     .faList-completion{
         position: absolute;
-        top: 107px;
-        left: 7px;
-        width: 35px;
-        height: 35px;
+        top: 105px;
+        left: 6px;
+        width: 40px;
+        height: 37px;
         border: 2px solid var(--color-White);
         border-radius: 78% 22% 100% 0% / 25% 71% 29% 75%;
-        box-shadow: 1px 1px 3px var(--color-White);
+        box-shadow: 1px 1px 2px var(--color-White);
         font-size: 10px;
+        font-weight: bold;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -292,6 +296,7 @@
         left: 15px;
         font-size: 20px;
         cursor: pointer;
+        transition: all .3s ease;
     }
         .faList-button:hover{
             text-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -311,7 +316,7 @@
             width: 230px;
             height: 170px;
             margin: 10px;
-            overflow-x: scroll;
+            overflow-y: scroll;
         }
         .faList-tasks div{
             width: 100%;
@@ -327,6 +332,7 @@
             border-radius: 20px;
             color: var(--color-White);
             text-shadow: 2px 2px 3px var(--color-Base);
+            transition: all .3s ease;
         }
             .faList-main button:hover{
                 opacity: .9;

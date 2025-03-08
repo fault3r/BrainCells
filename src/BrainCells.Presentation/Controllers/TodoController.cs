@@ -193,4 +193,12 @@ public class TodoController : Controller
         }
         return await EditList(id);
     }
+
+    [Route("AddTask")]
+    [HttpGet]
+    public async Task<IActionResult> AddTask()
+    {
+
+        return View("AddTask"); 
+    }
 }

@@ -23,8 +23,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Account>().HasKey(p => p.Id);
-        builder.Entity<Account>().HasIndex(p => p.Email)
-            .IsUnique();
+        builder.Entity<Account>().HasIndex(p => p.Email).IsUnique();
         builder.Entity<Account>().HasOne(e => e.Role).WithMany(e => e.Accounts)
             .HasForeignKey(p => p.RoleId);
         builder.Entity<Account>().HasOne(e => e.ForgotPassword).WithOne(e => e.Account)
@@ -59,8 +58,7 @@ public class DatabaseContext : DbContext, IDatabaseContext
 
         builder.Entity<TodoTask>().HasKey(p => p.Id);
         builder.Entity<TodoTask>().HasOne(e => e.TodoList).WithMany(e => e.Tasks)
-            .HasForeignKey(p => p.TodoListId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasForeignKey(p => p.TodoListId);
 
         builder.Entity<TodoSubTask>().HasKey(p => p.Id);
         builder.Entity<TodoSubTask>().HasOne(e => e.TodoTask).WithMany(e => e.SubTasks)
