@@ -1,8 +1,21 @@
-html{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+@font-face {
+    font-family: 'BrainCellsFont';
+    src: url('../fonts/Handlee-Regular.ttf') format('truetype');
 }
-
+@font-face {
+    font-family: 'BrainCellsFontFa';
+    src: url('../fonts/danstevis.otf');
+}
+html{
+    scrollbar-width: thin;
+    scrollbar-color: rgb(8, 75, 102) transparent;
+}
+body{
+    font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
 .iContainer-background
 {
     width: 100vw;
@@ -13,7 +26,6 @@ html{
     position: relative;
     overflow: hidden;
 }
-
 .iContainer{
     position: absolute;
     top: 50%;
@@ -25,7 +37,6 @@ html{
     padding: 10px;
     color: #f1f1f1;
 }
-
 .iContainer-blur{
     z-index: 1;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
@@ -33,19 +44,16 @@ html{
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(32, 32, 32, 0.22) 0px 15px 12px;
     backdrop-filter: blur(3px);
 }
-
 .iTitle{
     position: absolute;
     top: 2%;
     left: 1%;
 }
-
 .iCopyright{
     position: absolute;
     top: 95%;
     left: 1%;
 }
-
 .iContainer-main{
     z-index: 2;
     padding: 20px;
@@ -56,6 +64,9 @@ html{
 }
     table{
         width: 400px;
+    }
+    table label{
+        padding-top: 3px;
     }
     .mlogo{
         text-align: center;
@@ -73,8 +84,11 @@ html{
         }
     .mtitle{
         text-align: center;
-        font-size: 26px;
+        padding: 5px;
     }
+        .mtitle span{
+            font-size: 24px;
+        }
         .mtitle b{
             text-shadow: 1px 1px 1px #f1f1f1;
         }
@@ -217,7 +231,6 @@ html{
         text-align: center;
         padding: 7px;
     }
-
 .iContainer-message{
     z-index: 3;
     backdrop-filter: blur(30px);
@@ -237,7 +250,6 @@ html{
     .iContainer-message .mtitle{
         font-size: 20px;
     }
-
 .elogo{
     width: 310px;
     height: 310px;

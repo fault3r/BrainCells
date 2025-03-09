@@ -7,14 +7,13 @@
     src: url('../fonts/danstevis.otf');
 }
 html{
-    font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
-    font-size: 16px;
     scrollbar-width: thin;
-    scrollbar-color: rgb(0, 103, 114) #323232;
+    scrollbar-color: rgb(8, 75, 102) transparent;
 }
 body{
     font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
     font-weight: bold;
+    font-size: 16px;
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
