@@ -59,8 +59,9 @@
     </div>
     <div class="progress-bar" id="progressBar"></div>
     <div class="container-profile" id="profile-div">
-        <div class="profile-name">@account.Name</div>
-        <a class="menu-item" href="/Account"><i class="fa fa-user-circle-o"></i> View Profile</a>
+        <div class="profile-name">
+            <a href="/Account"><i class="fa fa-user-circle-o"></i> @account.Name</a>
+        </div>
         <a class="menu-item" href="/Account/EditInformation"><i class="fa fa-edit"></i> Edit Information</a>
         <a class="menu-item" href="/Account/Settings"><i class="fa fa-gears"></i> Settings</a>
         <a class="menu-item" href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>

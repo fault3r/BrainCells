@@ -13,17 +13,17 @@ public class ErrorController : Controller
     public IActionResult Index(int code)
     {
         StatusCodeViewModel model = new StatusCodeViewModel{
-                Code = 0,
+                Code = "0;",
                 Message = "Hmm..!",
         };
         switch(code)
         {
             case StatusCodes.Status404NotFound:
-                model.Code = 404;
+                model.Code = "404";
                 model.Message = "Page Not Found!";
                 break;
             case StatusCodes.Status403Forbidden:
-                model.Code = 403;
+                model.Code = "403";
                 model.Message = "Forbidden!";
                 break;  
         }

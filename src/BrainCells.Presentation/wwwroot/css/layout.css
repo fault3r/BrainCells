@@ -8,7 +8,7 @@
 }
 html{
     scrollbar-width: thin;
-    scrollbar-color: rgb(8, 75, 102) transparent;
+    scrollbar-color: rgb(43, 165, 183) transparent;
 }
 body{
     font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
@@ -234,11 +234,16 @@ body{
 }
     .profile-name{
         width: 100%;
-        font-weight: bold;
+        font-size: 18px;
         text-align: center;
         padding: 3px;
+        cursor: pointer;
         border: 2px solid #f1f1f1;
-        border-radius: 0px 0px 7px 7px;
+        background-color: #f1f1f1;
+        color: rgb(8, 75, 102);
+    }
+    .profile-name a{
+        all: unset;
     }
     .container-profile .menu-item{
         display: flex;
@@ -249,6 +254,7 @@ body{
         gap: 5px;
     }
 .container-main{
+    min-width: 500px;
     min-height: 110px;
     width: calc(80%);
     padding: 20px;

@@ -6,31 +6,38 @@
     font-family: 'BrainCellsFontFa';
     src: url('../fonts/danstevis.otf');
 }
-html{
+/* @media screen and (min-width: 600px) {
+    h1{
+        color: #D73F40;
+    }
+} */
+ html{
     scrollbar-width: thin;
-    scrollbar-color: rgb(8, 75, 102) transparent;
-}
+    scrollbar-color: rgb(43, 165, 183) transparent;
+ }
 body{
     font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 16px;
-    position: relative;
 }
 .iContainer-background
 {
     width: 100vw;
     height: 100vh;
+    min-width: 450px;
+    min-height: 600px;
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
+    background-size: cover;
     color: #f1f1f1;
     position: relative;
-    overflow: hidden;
+    overflow: scroll;
 }
 .iContainer{
     position: absolute;
-    top: 50%;
+    top: 50px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translateX(-50%);
     width: 400px;
     height: 500px;
     border-radius: 30px;
@@ -46,13 +53,13 @@ body{
 }
 .iTitle{
     position: absolute;
-    top: 2%;
-    left: 1%;
+    left: 5px;
+    top: 10px;
 }
 .iCopyright{
     position: absolute;
-    top: 95%;
-    left: 1%;
+    left: 5px;
+    bottom: 0;
 }
 .iContainer-main{
     z-index: 2;
@@ -60,7 +67,8 @@ body{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    margin-bottom: 50px;
 }
     table{
         width: 400px;
@@ -136,6 +144,7 @@ body{
         height: 30px;
         border-radius: 5px;
         background-color: #f1f1f1;
+        font-weight: bold;
         color: black;
         border: 2px solid rgb(48, 128, 159); 
         outline: none;
