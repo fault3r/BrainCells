@@ -3,7 +3,7 @@
 A project to manage personal plans.
 
 
-## Descriptions
+## Technologies 
 
   - C#
   - .NET 8
