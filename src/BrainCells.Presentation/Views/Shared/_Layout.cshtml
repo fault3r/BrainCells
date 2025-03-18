@@ -27,104 +27,106 @@
     @await RenderSectionAsync("Styles", required:false)
 </head>
 <body>
-    <div class="container-navbar">
-        <div class="navbar-menu">
-            <div class="menu-icon" id="btn-menu" onclick="ToggleMenu()">
-                <div class="btn-menu"><span></span></div>
-            </div>
-            <img class="menu-logo" src="/resource/app-logo.png" />
-            <span class="menu-title"><a href="/">BrainCells</a></span>
-            <div class="menu-path">
-                @{
-                    foreach(var path in paths)
-                    {
-                        if(path != "")
-                        {
-                            <div><i class="fa fa-long-arrow-right"></i>@path</div>
-                        }                    
-                    }
-                }
-            </div>
-        </div>
-        <div class="navbar-profile">
-            <div class="profile-search">
-                <input type="text" placeholder="search something..." />
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="profile-line"></div>
-            <div class="profile-picture" onclick="ProfileMenu()"
-                 style="background-image: url('data:image/*;base64,@account.Picture');">
-            </div>
-        </div>
-    </div>
-    <div class="progress-bar" id="progressBar"></div>
-    <div class="container-profile" id="profile-div">
-        <div class="profile-name">
-            <a href="/Account"><i class="fa fa-user-circle-o"></i> @account.Name</a>
-        </div>
-        <a class="menu-item" href="/Account/EditInformation"><i class="fa fa-edit"></i> Edit Information</a>
-        <a class="menu-item" href="/Account/Settings"><i class="fa fa-gears"></i> Settings</a>
-        <a class="menu-item" href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>
-    </div>
-    <div class="container-menu" id="menu-div">
-        <div class="main-line"></div>
-        <div class="menu-main">
-            <a class="menu-item" href="/Todo"><i class="fa fa-check-square-o"></i> Todo</a>
-            <a class="menu-item sub" href="/Todo/AddList"><i class="fa fa-calendar-plus-o"></i> Add List</a>
-        </div>
-    </div>
-    <div class="container-main" id="container-main">
-        @{
-            if(ViewData["MessageType"] is not null)
-            {
-                string message = ViewData["MessageType"].ToString();
-                string title = message.Split('|')[0];
-                string color = message.Split('|')[1];
-                string icon = message.Split('|')[2];
-                <div class="faMessage" id="faMessage">
-                    <div class="mtitle" style="color: @color;"><i class="fa fa-@icon"></i> @title</div>
-                    <div class="mclose" style="color: @color;" onclick="faMessageClose()"><i class="fa fa-window-close"></i></div>
-                    <div class="mmessage" asp-validation-summary="All" style="background-color: @color;"></div>
+    <div class="container-body">
+        <div class="container-navbar">
+            <div class="navbar-menu">
+                <div class="menu-icon" id="btn-menu" onclick="ToggleMenu()">
+                    <div class="btn-menu"><span></span></div>
                 </div>
-            }
-        }
-        @RenderBody()
-    </div>
-    <div class="container-footer">
-        <div class="footer-copyright">
-            <img class="footer-logo" src="/resource/app-logo.png" />
-            <span class="footer-title">&copy; copyright 2025 fault3r, Inc.</span>
-        </div>
-        <div class="footer-links">
-            <div>
-                <span>BrainCells</span>
-                <a class="links-item" href="/Terms">Terms</a>
-                <a class="links-item" href="#">Docs</a>
-                <a class="links-item" href="/Contact">Contact</a>
+                <img class="menu-logo" src="/resource/app-logo.png" />
+                <span class="menu-title"><a href="/">BrainCells</a></span>
+                <div class="menu-path">
+                    @{
+                        foreach(var path in paths)
+                        {
+                            if(path != "")
+                            {
+                                <div><i class="fa fa-long-arrow-right"></i>@path</div>
+                            }                    
+                        }
+                    }
+                </div>
             </div>
-            <div>a project to manage personal plans.</div>
+            <div class="navbar-profile">
+                <div class="profile-search"></div>
+                <div class="profile-line"></div>
+                <div class="profile-picture" onclick="ProfileMenu()"
+                    style="background-image: url('data:image/*;base64,@account.Picture');">
+                </div>
+            </div>
+            <div class="navbar-search">
+                
+            </div>
         </div>
-        <div class="footer">
-            <svg viewBox="0 0 120 28">
-            <defs> 
-                <mask id="xxx">
-                    <circle cx="7" cy="12" r="40" fill="#fff" />
-                </mask>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="
-                        1 0 0 0 0  
-                        0 1 0 0 0  
-                        0 0 1 0 0  
-                        0 0 0 13 -9" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-                <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
-            </defs> 
-            <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-2" ></use> 
-            <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
-            <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
-            </svg>
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="container-profile" id="profile-div">
+            <div class="profile-name">
+                <a href="/Account"><i class="fa fa-user-circle-o"></i> @account.Name</a>
+            </div>
+            <a class="menu-item" href="/Account/EditInformation"><i class="fa fa-edit"></i> Edit Information</a>
+            <a class="menu-item" href="/Account/Settings"><i class="fa fa-gears"></i> Settings</a>
+            <a class="menu-item" href="/Account/SignOut"><i class="fa fa-sign-out"></i> Sign Out</a>
+        </div>
+        <div class="container-menu" id="menu-div">
+            <div class="main-line"></div>
+            <div class="menu-main">
+                <a class="menu-item" href="/Todo"><i class="fa fa-check-square-o"></i> Todo</a>
+                <a class="menu-item sub" href="/Todo/AddList"><i class="fa fa-calendar-plus-o"></i> Add List</a>
+            </div>
+        </div>
+        <div class="container-main" id="container-main">
+            @{
+                if(ViewData["MessageType"] is not null)
+                {
+                    string message = ViewData["MessageType"].ToString();
+                    string title = message.Split('|')[0];
+                    string color = message.Split('|')[1];
+                    string icon = message.Split('|')[2];
+                    <div class="faMessage" id="faMessage">
+                        <div class="mtitle" style="color: @color;"><i class="fa fa-@icon"></i> @title</div>
+                        <div class="mclose" style="color: @color;" onclick="faMessageClose()"><i class="fa fa-window-close"></i></div>
+                        <div class="mmessage" asp-validation-summary="All" style="background-color: @color;"></div>
+                    </div>
+                }
+            }
+            @RenderBody()
+        </div>
+        <div class="container-footer">
+            <div class="footer-copyright">
+                <img class="footer-logo" src="/resource/app-logo.png" />
+                <span class="footer-title">&copy; copyright 2025 fault3r, Inc.</span>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <span>BrainCells</span>
+                    <a class="links-item" href="/Terms">Terms</a>
+                    <a class="links-item" href="#">Docs</a>
+                    <a class="links-item" href="/Contact">Contact</a>
+                </div>
+                <div>a project to manage personal plans.</div>
+            </div>
+            <div class="footer-wave">
+                <svg viewBox="0 0 120 28">
+                <defs> 
+                    <mask id="xxx">
+                        <circle cx="7" cy="12" r="40" fill="#fff" />
+                    </mask>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="
+                            1 0 0 0 0  
+                            0 1 0 0 0  
+                            0 0 1 0 0  
+                            0 0 0 13 -9" result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                    <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+                </defs> 
+                <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-2" ></use> 
+                <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
+                <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
+                </svg>
+            </div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

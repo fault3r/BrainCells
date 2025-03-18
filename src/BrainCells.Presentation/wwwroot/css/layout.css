@@ -14,16 +14,18 @@ body{
     font-family: 'BrainCellsFont', 'BrainCellsFontFa', Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 16px;
+}
+.container-body{
     background-image: radial-gradient(#505050 30%,#323232 70%);
     background-repeat: no-repeat;
     color: #f1f1f1;
     position: relative;
+    min-width: 600px;
 }
 .container-navbar{
     position: sticky;
     top: 0;
     z-index: 10;
-    width: 100%;
     height: 60px;
     padding: 8px;
     color: #f1f1f1;
@@ -109,51 +111,28 @@ body{
                 box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
             }
         .profile-line{
-            width: 1px;
-            height: 40px;
+            width: 1.5px;
+            height: 45px;
             background-color: #f1f1f1;
-            border-top: 1px solid #f1f1f1;
             box-shadow: 0px 0px 30px rgb(8, 75, 102);
+            border-radius: 30px;
         }
         .profile-search{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
+            background-image: url('../resource/search.png');
+            background-position: center;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
         }
-            .profile-search input{
-                outline: none;
-                border: none;
-                border-bottom: 4px solid rgb(8, 75, 102);
-                border-radius: 10px 0px 0px 10px;
-                background-color: #f1f1f1;
-                box-shadow: 2px 2px 3px rgb(8, 75, 102);
-                height: 40px;
-                width: 250px;
-                padding-left: 7px;
-                transition: all .3s ease;
-            }
-            .profile-search input:focus{
-                box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
-                width: 350px;
-            }
-            .profile-search button{
-                outline: none;
-                border: none;
-                border-bottom: 4px solid rgb(8, 75, 102);
-                border-radius: 0px 10px 10px 0px;
-                background-color: #f1f1f1;
-                box-shadow: 2px 2px 3px rgb(8, 75, 102);
-                color: rgb(8, 75, 102);;
-                font-size: 20px;
-                padding: 1px 5px 1px 5px;
-                height: 40px;
-                transition: all .3s ease;
-            }
-            .profile-search button:hover{
-                box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
-            }
+    .navbar-search{
+        position: absolute;
+        top: 5px;
+        left: 110px;
+        right: 65px;
+        height: 200px;
+        border:  1px dashed orange;
+
+    }
 .container-menu{
     position: fixed;
     top: 0;
@@ -254,17 +233,14 @@ body{
         gap: 5px;
     }
 .container-main{
-    min-width: 500px;
     min-height: 110px;
-    width: calc(80%);
+    margin: 30px 5% 30px 5%;
     padding: 20px;
-    margin: 30px 10% 30px 10%;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
     border-radius: 20px;
     box-shadow: rgba(208, 232, 255, 0.3) 0px 19px 38px, rgba(32, 32, 32, 0.22) 0px 15px 12px;
 }
 .container-footer{
-    width: 100%;
     height: 60px;
     padding: 10px;
     background-image: linear-gradient(to bottom left,rgba(165, 225, 252, 0.4), rgba(67, 202, 255, 0.4));
@@ -454,17 +430,17 @@ body{
     background-image: linear-gradient(to right, #2dbeb4, #2fdbd5);
     transition: all .3s ease;
 }
-.footer {
-    width:100%;
+.footer-wave {
     position: absolute;
-    bottom: -160px;
+    left: 0;
+    right: 0;
     z-index: -1;
     opacity: .6;
 }
-    .footer svg {
+    .footer-wave svg {
         width:100%;
     }
-    .footer .wave {
+    .footer-wave .wave {
         animation: wave 20s linear;
         animation-iteration-count:infinite;
         fill:rgb(31, 92, 116);
