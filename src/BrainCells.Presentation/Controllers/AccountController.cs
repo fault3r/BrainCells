@@ -215,7 +215,7 @@ public class AccountController : Controller
         }   
         else
         {
-            ViewData["MessageType"] = AppConsts.WARNING;
+            ViewData["MessageType"] = AppConsts.ERROR;
             ModelState.AddFluentResult(validate);
         }    
         information.DefaultPicture = false; 

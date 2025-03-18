@@ -103,7 +103,8 @@
     width: 300px;
     font-weight: bold;
     border-radius: 5px;
-    background-color: var(--color-White);;
+    background-color: var(--color-White);
+    color: #323232;
     border: 2px solid rgb(48, 128, 159); 
     box-shadow: 1px 1px 3px var(--color-Base);
     outline: none;
