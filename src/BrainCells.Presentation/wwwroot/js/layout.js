@@ -1,4 +1,5 @@
 
+
 function toggleClass(element, className){
     if (!element || !className){
         return;
@@ -91,4 +92,19 @@ function UploadButtonRemove(str) {
     document.getElementById('fileInput').value = '';
     const defaultPicture = document.getElementById('DefaultPicture');
     defaultPicture.checked = true;
+}
+
+function showSearch(){
+    const searchMenu = document.getElementById('search-container');
+    searchMenu.style.display = 'block';  
+    const pLine = document.getElementById('profile-line');
+    pLine.style.display = 'none';
+}
+function hideContainers(){
+    const searchMenu = document.getElementById('search-container');
+    searchMenu.style.display = 'none';    
+    const pLine = document.getElementById('profile-line');
+    pLine.style.display = 'block';
+    const divProfile = document.getElementById('profile-div');
+    divProfile.style.height = '0px';
 }

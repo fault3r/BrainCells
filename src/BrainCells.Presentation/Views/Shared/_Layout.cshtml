@@ -48,17 +48,15 @@
                 </div>
             </div>
             <div class="navbar-profile">
-                <div class="profile-search"></div>
-                <div class="profile-line"></div>
+                <div class="profile-search" onclick="showSearch()"></div>
+                <div class="profile-line" id="profile-line"></div>
                 <div class="profile-picture" onclick="ProfileMenu()"
                     style="background-image: url('data:image/*;base64,@account.Picture');">
                 </div>
             </div>
-            <div class="navbar-search">
-                
-            </div>
+            <div class="navbar-search" id="search-container"></div>
+            <div class="container-bar" id="progressBar"></div>
         </div>
-        <div class="progress-bar" id="progressBar"></div>
         <div class="container-profile" id="profile-div">
             <div class="profile-name">
                 <a href="/Account"><i class="fa fa-user-circle-o"></i> @account.Name</a>
@@ -74,7 +72,7 @@
                 <a class="menu-item sub" href="/Todo/AddList"><i class="fa fa-calendar-plus-o"></i> Add List</a>
             </div>
         </div>
-        <div class="container-main" id="container-main">
+        <div class="container-main" onclick="hideContainers()">
             @{
                 if(ViewData["MessageType"] is not null)
                 {
