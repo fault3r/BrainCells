@@ -18,11 +18,10 @@
     width: 100%;
     border-top: 1px solid var(--color-White);;
     box-shadow: 0px 0px 30px var(--color-Base);
-    z-index: -1;
 }
 .faMessage{
     width: 500px;
-    margin: 10px;
+    margin-bottom: 10px;
     border: 2px solid rgb(48, 128, 159); 
     box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
     border-radius: 20px;
@@ -141,7 +140,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     margin: 3px 50px 3px 50px;
 }
     .faImageS{
@@ -251,7 +250,7 @@
         position: absolute;
         top: 40px;
         left: 10px;
-        height: 19px;
+        height: 22px;
         font-size: 14px;
     }
     .faList-completion{

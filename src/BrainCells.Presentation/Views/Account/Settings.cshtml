@@ -23,7 +23,7 @@
                 @{
                     if(@User.FindFirstValue(ClaimTypes.Version) == "otp")
                     {
-                        <input class="faInput" type="text" value="[One-Time Password Verification]" disabled />
+                        <input class="faInput" type="text" value="[One-Time Password Verification]" style="color: #4c4c4c;" disabled />
                         <input asp-for="ChangePassword.CurrentPassword" value="otp-mode" hidden />
                     }
                     else
@@ -48,7 +48,7 @@
             <td colspan="2"> <div class="pwd-chk"><div id="pwdchk-point"></div></div></td>
         </tr>
         <tr>
-            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> Password only must be between 8 and 30 characters, It's entirely up to you!</td>
+            <td colspan="2" class="faDescription"><i class="fa fa-info-circle"></i> The password must be between 8 and 30 characters, It's entirely up to you!</td>
         </tr>
         <tr>
             <td colspan="2" class="right"><button class="faButton" type="submit">Change Password</button></td>
@@ -67,7 +67,7 @@
             <td class="faText">Deleting your account will remove all of your information from our database.</td>
         </tr>
         <tr>
-            <td class="faText"><label for="Confirm">to confirm this, type <em>"delete"</em> :</label></td>
+            <td class="faText"><label for="Confirm">to confirm this, type <em>'delete'</em> :</label></td>
         </tr>
         <tr>
             <td><input asp-for="DeleteAccount.Confirm" id="Confirm" class="faInput" type="text" required /></td>
@@ -82,7 +82,7 @@
             </td>
         </tr>
         <tr>
-            <td class="faDescription"><i class="fa fa-info-circle"></i> It's could not be undone!</td>
+            <td class="faDescription"><i class="fa fa-info-circle"></i> This operation cannot be undone.</td>
         </tr>
     </table>
 </form>

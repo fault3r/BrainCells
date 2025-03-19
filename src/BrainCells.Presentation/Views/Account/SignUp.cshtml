@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td>
-                <input asp-for="Email" id="Email" type="text" class="mtext" required />
+                <input asp-for="Email" id="Email" type="email" class="mtext" required />
             </td>
         </tr>
         <tr>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <td>
-                <div class="mdescribe"><i class="fa fa-info-circle"></i>Password must be between 8 and 30 characters, That's it!</div>
+                <div class="mdescribe"><i class="fa fa-info-circle"></i>The password must be between 8 and 30 characters, That's it!</div>
                 <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" class="mtext" placeholder="Confirm password" required />
             </td>
         </tr>    
@@ -73,7 +73,7 @@
                         <input asp-for="Agree" id="agree" type="checkbox" class="mcheckbox" value="true" />
                         <label class="cbx" for="agree"></label>
                     </div>
-                    <label for="agree">Agree to the <a class="ma" href="/Terms">terms</a>.</label>
+                    <label for="agree">Agree to the <a class="ma" href="/Terms">Terms</a>.</label>
                 </div>
             </td>
         </tr>

@@ -21,7 +21,8 @@ gap: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    z-index: 2;
 }
 .account-settings{
     position: absolute;

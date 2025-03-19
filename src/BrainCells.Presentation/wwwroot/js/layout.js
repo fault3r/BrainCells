@@ -19,6 +19,7 @@ function toggleClass(element, className){
 
 function ToggleMenu()
 {
+    hideContainers();
     const divMenu = document.getElementById('menu-div');
     if (divMenu.style.width === '230px') {
         divMenu.style.width = '0px';
@@ -28,6 +29,10 @@ function ToggleMenu()
 }
 function ProfileMenu()
 {
+    const searchMenu = document.getElementById('search-container');
+    searchMenu.style.display = 'none';  
+    const pLine = document.getElementById('profile-line');
+    pLine.style.height = '45px';
     const divMenu = document.getElementById('profile-div');
     if (divMenu.style.height === 'auto') {
         divMenu.style.height = '0px';
@@ -95,16 +100,18 @@ function UploadButtonRemove(str) {
 }
 
 function showSearch(){
+    const divProfile = document.getElementById('profile-div');
+    divProfile.style.height = '0px';
     const searchMenu = document.getElementById('search-container');
     searchMenu.style.display = 'block';  
     const pLine = document.getElementById('profile-line');
-    pLine.style.display = 'none';
+    pLine.style.height = '0px';
 }
 function hideContainers(){
     const searchMenu = document.getElementById('search-container');
     searchMenu.style.display = 'none';    
     const pLine = document.getElementById('profile-line');
-    pLine.style.display = 'block';
+    pLine.style.height = '45px';
     const divProfile = document.getElementById('profile-div');
     divProfile.style.height = '0px';
 }
