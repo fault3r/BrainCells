@@ -115,3 +115,4 @@ function hideContainers(){
     const divProfile = document.getElementById('profile-div');
     divProfile.style.height = '0px';
 }
+

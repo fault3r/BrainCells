@@ -107,7 +107,7 @@
     border: 2px solid rgb(48, 128, 159); 
     box-shadow: 1px 1px 3px var(--color-Base);
     outline: none;
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
     .faInput:focus{
         box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -123,7 +123,7 @@
     color: var(--color-Base);
     border: 1px solid var(--color-Base); 
     box-shadow: 2px 2px 3px var(--color-Base);
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
 .faButton:hover, .faButton:focus{
     color: var(--color-White);;
@@ -155,7 +155,7 @@
     accent-color: var(--color-Base);
     outline: 1px solid var(--color-Base);
     box-shadow: 1px 1px 3px var(--color-Base);
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
     .faCheckbox:hover{
         box-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -175,7 +175,7 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
     .faUploadButton:hover{
         color:  var(--color-White);;
@@ -210,7 +210,7 @@
         all: unset;
         width: 100%;
         cursor: pointer;
-        transition: all .3s ease;
+        transition: all .2s ease;
     }
         .faUploadButton-menu div:hover{
             color: var(--color-White);;
@@ -226,7 +226,7 @@
     text-shadow: 2px 2px 3px var(--color-Base);
     position: relative;
     overflow: hidden;
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
     .faList:hover{
         opacity: .9;
@@ -296,7 +296,7 @@
         left: 15px;
         font-size: 20px;
         cursor: pointer;
-        transition: all .3s ease;
+        transition: all .2s ease;
     }
         .faList-button:hover{
             text-shadow: 0 0 .25rem rgba(32, 32, 32, 0.5), -.125rem -.125rem 1rem rgba(71, 203, 239, 0.5), .125rem .125rem 1rem rgba(90, 219, 255, 0.5);
@@ -333,7 +333,7 @@
             border-radius: 20px;
             color: var(--color-White);
             text-shadow: 2px 2px 3px var(--color-Base);
-            transition: all .3s ease;
+            transition: all .2s ease;
         }
             .faList-main button:hover{
                 opacity: .9;
