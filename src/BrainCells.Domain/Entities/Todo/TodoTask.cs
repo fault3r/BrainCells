@@ -13,11 +13,11 @@ public class TodoTask
 
     public string Color { get; set; }
 
-    public byte[] Icon { get; set; }
+    public char Icon { get; set; }
 
     public string SetDate { get; set; }
 
-    public PriorityLevel PriorityLevel { get; set; }
+    public string PriorityLevel { get; set; }
 
     public string DueDate { get; set; }
 

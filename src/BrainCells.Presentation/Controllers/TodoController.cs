@@ -198,7 +198,8 @@ public class TodoController : Controller
     [HttpGet]
     public async Task<IActionResult> AddTask()
     {
-
+        //set view model and model
+        await setAccount();
         return View("AddTask"); 
     }
 }

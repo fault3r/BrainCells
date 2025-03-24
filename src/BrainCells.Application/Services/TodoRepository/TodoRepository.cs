@@ -118,4 +118,16 @@ public class TodoRepository : ITodoRepository
             };
         }
     }
+
+    public async Task<ResultDto> AddTaskAsync(AddTaskDto task)
+    {
+        var tTask = new TodoTask{
+            Title = task.Title,
+            Description = task.Description,
+            Color = task.Color,
+            Icon = task.Icon,
+            SetDate = "", //set vars
+        };
+        return new ResultDto();
+    }
 }
