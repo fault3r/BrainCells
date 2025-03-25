@@ -1,9 +1,11 @@
-﻿@using BrainCells.Application.Services.TodoRepository
+﻿@using BrainCells.Presentation.Models.Todo.ViewModels
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Add TodoTask";
 }
+
+@model AddTaskViewModel
 
 <div class="faHeader"><i class="fa fa-check-square-o"></i> Todo</div>
 <div class="faLine"></div>
@@ -15,13 +17,21 @@
         </tr>
         <tr>
             <td class="faText right"><label for="Title">Task Title:</label></td>
-            <td><input class="faInput" type="text" required /></td>
+            <td><input asp-for="Title" class="faInput" type="text" required /></td>
         </tr>
         <tr>
             <td class="faText right"><label for="Description">Description:</label></td>
-            <td><input class="faInput" type="text" required /></td>
+            <td><input asp-for="Description" class="faInput" type="text" required /></td>
         </tr>
-    
+        <tr>
+            <td class="faText right"><label for="Color">Color:</label></td>
+            <td><input asp-for="Color" class="faInput" type="color" value="#f1f1f1" /></td>
+        </tr>
+
+        <tr>
+            <td class="faText right"><label for="Title">Due Date:</label></td>
+            <td><input class="persianDtp" /></td>
+        </tr>
         <tr>
             <td colspan="2" class="right"><button type="submit" class="faButton">Add Task</button></td>
         </tr>

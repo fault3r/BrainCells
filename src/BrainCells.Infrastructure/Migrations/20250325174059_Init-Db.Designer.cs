@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainCells.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250308123733_Initial")]
-    partial class Initial
+    [Migration("20250325174059_Init-Db")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,14 +186,15 @@ namespace BrainCells.Infrastructure.Migrations
                     b.Property<string>("DueDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Icon")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PriorityLevel")
-                        .HasColumnType("int");
+                    b.Property<string>("PriorityLevel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reminder")
                         .HasColumnType("nvarchar(max)");

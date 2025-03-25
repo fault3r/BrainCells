@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BrainCells.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -110,9 +110,9 @@ namespace BrainCells.Infrastructure.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Icon = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Icon = table.Column<string>(type: "nvarchar(1)", nullable: false),
                     SetDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PriorityLevel = table.Column<int>(type: "int", nullable: false),
+                    PriorityLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DueDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Reminder = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),

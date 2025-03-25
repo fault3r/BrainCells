@@ -183,14 +183,15 @@ namespace BrainCells.Infrastructure.Migrations
                     b.Property<string>("DueDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Icon")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PriorityLevel")
-                        .HasColumnType("int");
+                    b.Property<string>("PriorityLevel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reminder")
                         .HasColumnType("nvarchar(max)");
