@@ -1,4 +1,15 @@
-
+jalaliDatepicker.startWatch({
+    hideAfterChange: true,
+    autoHide: true,
+    showTodayBtn: true,
+    showEmptyBtn: true,
+    autoReadOnlyInput: true,
+    dayRendering:function(dayOptions,input){
+        return {
+         isHollyDay: dayOptions.month==1 && dayOptions.day<=4,
+        }
+    },
+  });
 
 function toggleClass(element, className){
     if (!element || !className){
@@ -111,7 +122,7 @@ function hideContainers(){
     const searchMenu = document.getElementById('search-container');
     searchMenu.style.display = 'none';    
     const pLine = document.getElementById('profile-line');
-    pLine.style.height = '45px';
+    pLine.style.height = '47px';
     const divProfile = document.getElementById('profile-div');
     divProfile.style.height = '0px';
 }
