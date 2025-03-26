@@ -8,8 +8,6 @@ public class AddTaskDto
 
     public string Description { get; set; }
 
-    public string Color { get; set; }
-
     public char Icon { get; set; }
 
     public string PriorityLevel { get; set; }

@@ -1,8 +1,8 @@
 jalaliDatepicker.startWatch({
-    hideAfterChange: true,
-    autoHide: true,
-    showTodayBtn: true,
-    showEmptyBtn: true,
+    // hideAfterChange: true,
+    // autoHide: true,
+    // showTodayBtn: true,
+    // showEmptyBtn: true,
     autoReadOnlyInput: true,
     dayRendering:function(dayOptions,input){
         return {
@@ -10,6 +10,20 @@ jalaliDatepicker.startWatch({
         }
     },
   });
+
+
+new EmojiPicker({
+    trigger: [
+        {
+          selector: '.emtrigger',
+          insertInto: ['.emdemo'] // '.selector' can be used without array
+        },
+    ],
+    closeButton: true,
+    closeOnSelect: true,
+    specialButtons: 'rgb(45, 130, 143)',
+});
+
 
 function toggleClass(element, className){
     if (!element || !className){

@@ -124,7 +124,6 @@ public class TodoRepository : ITodoRepository
         var tTask = new TodoTask{
             Title = task.Title,
             Description = task.Description,
-            Color = task.Color,
             Icon = task.Icon,
             SetDate = "", //set vars
         };

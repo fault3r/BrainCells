@@ -11,8 +11,6 @@ public class TodoTask
 
     public string Description { get; set; }
 
-    public string Color { get; set; }
-
     public char Icon { get; set; }
 
     public string SetDate { get; set; }
