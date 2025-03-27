@@ -8,7 +8,7 @@ const EmojiPicker = function(options) {
     let emojiList = undefined;
     let moseMove = false;
     const pickerWidth = this.options.closeButton ? 370 : 350;
-    const pickerHeight = 400;
+    const pickerHeight = 410;
     let offsetX, offsetY;
     let isDragging = false;
     let fgContainer = undefined;
@@ -7850,20 +7850,16 @@ const EmojiPicker = function(options) {
                 } else if (myField.selectionStart || myField.selectionStart == "0") {
                     const startPos = myField.selectionStart;
                     const endPos = myField.selectionEnd;
-                    myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
-                    
+                    myField.value = myValue; //myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
                     functions.setCaretPosition(myField, startPos + 2)
-                    
                 } else {
-                    myField.value += myValue;
+                    myField.value = myValue;
                     myField.focus()
                 }
-
                 myField.dispatchEvent(new InputEvent('input'));
                 if (this.options.closeOnSelect) {
                     functions.closePicker.call(this, e);
                 }
-
             })
         },
 
@@ -7921,8 +7917,8 @@ const EmojiPicker = function(options) {
             const clientX = e.clientX || e.touches[0].clientX;
             const clientY = e.clientY || e.touches[0].clientY;
 
-            offsetX = clientX - fgContainer.getBoundingClientRect().left;
             offsetY = clientY - fgContainer.getBoundingClientRect().top;
+            offsetX = clientX - fgContainer.getBoundingClientRect().left;
 
             document.addEventListener('mousemove', functions.onMouseMove);
             document.addEventListener('touchmove', functions.onMouseMove);

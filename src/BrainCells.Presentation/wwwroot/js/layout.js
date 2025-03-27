@@ -15,8 +15,8 @@ jalaliDatepicker.startWatch({
 new EmojiPicker({
     trigger: [
         {
-          selector: '.emtrigger',
-          insertInto: ['.emdemo'] // '.selector' can be used without array
+          selector: '.icon-picker',
+          insertInto: ['.icon-picker']
         },
     ],
     closeButton: true,

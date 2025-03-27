@@ -24,10 +24,26 @@
             <td><input asp-for="Description" class="faInput" type="text" required /></td>
         </tr>
         <tr>
-            <td class="faText right"><label for="Icon">Icon:</label></td>
-            <td><input asp-for="Icon"  class="emdemo" type="text" /><i class="emtrigger">K</i></td>
+            <td class="faText right top"><label for="Icon">Icon:</label></td>
+            <td><input asp-for="Icon" class="faIcon icon-picker" type="text" value="🧠" readonly /></td>
         </tr>
-
+        <tr>
+            <td class="faText right top"><label for="PriorityLevel">Priority Level:</label></td>
+            <td class="faContainer">
+                <div class="faRadio" style="background-color: #09413a;">
+                    <input asp-for="PriorityLevel" type="radio" id="low" value="low" />
+                    <label for="low">low</label>
+                </div>
+                <div class="faRadio" style="background-color: #4c3a0b;">
+                    <input asp-for="PriorityLevel" type="radio" id="medium" value="medium" checked />
+                    <label for="medium">medium</label>
+                </div>
+                <div class="faRadio" style="background-color: #521b0d;">
+                    <input asp-for="PriorityLevel" type="radio" id="high" value="high" />
+                    <label for="high">high</label>
+                </div>
+            </td>
+        </tr>
         <tr>
             <td class="faText right"><label for="Title">Due Date:</label></td>
             <td><input class="faInput" type="text" data-jdp /></td>
