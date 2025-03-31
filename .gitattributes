@@ -1,1 +1,1 @@
-*.js linguist-hidden
+src/BrainCells.Presentation/wwwroot/js/* linguist-vendored
