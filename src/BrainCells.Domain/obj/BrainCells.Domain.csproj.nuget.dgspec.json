@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {}
+    "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {}
   },
   "projects": {
-    "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
+    "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj",
         "projectName": "BrainCells.Domain",
-        "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj",
+        "projectPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -20,6 +20,7 @@
           "net8.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,7 +33,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.108/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

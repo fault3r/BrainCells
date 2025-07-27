@@ -5354,11 +5354,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj",
+      "projectUniqueName": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj",
       "projectName": "BrainCells.Infrastructure",
-      "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj",
+      "projectPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Infrastructure/BrainCells.Infrastructure.csproj",
       "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-      "outputPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Infrastructure/obj/",
+      "outputPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -5367,17 +5367,18 @@
         "net8.0"
       ],
       "sources": {
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj": {
-              "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj"
+            "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Application/BrainCells.Application.csproj"
             },
-            "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
-              "projectPath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj"
+            "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Domain/BrainCells.Domain.csproj"
             }
           }
         }
@@ -5386,7 +5387,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -5425,7 +5432,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

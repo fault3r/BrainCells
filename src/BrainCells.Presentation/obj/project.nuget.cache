@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aKJqgSvIQtZTezSr71nWpO9JAISABxnUlSP7r+UNxLK294Z5YfkRDqXxudGZ5R1CjwzeDF8rPxfRk96CkQEWXQ==",
+  "dgSpecHash": "a92idSWPoiE=",
   "success": true,
-  "projectFilePath": "/home/hamed-damavandi/Projects/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj",
+  "projectFilePath": "/home/hamed-damavandi/Documents/BrainCells/src/BrainCells.Presentation/BrainCells.Presentation.csproj",
   "expectedPackageFiles": [
     "/home/hamed-damavandi/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
@@ -116,7 +116,8 @@
     "/home/hamed-damavandi/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/home/hamed-damavandi/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
+    "/home/hamed-damavandi/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.18/microsoft.netcore.app.host.linux-x64.8.0.18.nupkg.sha512"
   ],
   "logs": []
 }
